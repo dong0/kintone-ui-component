@@ -1,0 +1,54 @@
+import { PropertyValues } from "lit";
+import { KucBase } from "../../base/kuc-base";
+declare type Item = {
+    label?: string;
+    value?: string;
+};
+declare type MobileCheckboxProps = {
+    className?: string;
+    error?: string;
+    id?: string;
+    label?: string;
+    borderVisible?: boolean;
+    disabled?: boolean;
+    requiredIcon?: boolean;
+    visible?: boolean;
+    items?: Item[];
+    value?: string[];
+    selectedIndex?: number[];
+};
+export declare class MobileCheckbox extends KucBase {
+    className: string;
+    error: string;
+    id: string;
+    label: string;
+    borderVisible: boolean;
+    disabled: boolean;
+    requiredIcon: boolean;
+    visible: boolean;
+    items: Item[];
+    selectedIndex: number[];
+    value: string[];
+    private _inputEls;
+    private _GUID;
+    private _valueMapping;
+    constructor(props?: MobileCheckboxProps);
+    private _setInitialValue;
+    private _getNewValueMapping;
+    private _handleChangeInput;
+    private _getCheckboxIconSvgTemplate;
+    private _getSVGStrokeValue;
+    private _isCheckedItem;
+    private _getItemTemplate;
+    shouldUpdate(changedProperties: PropertyValues): boolean;
+    willUpdate(changedProperties: PropertyValues): void;
+    update(changedProperties: PropertyValues): void;
+    render(): import("lit").TemplateResult<1>;
+    updated(): void;
+    private _setValueAndSelectedIndex;
+    private _getValueMapping;
+    private _getValidValue;
+    private _getValidSelectedIndex;
+    private _getStyleTagTemplate;
+}
+export {};

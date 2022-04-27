@@ -1,0 +1,58 @@
+import { PropertyValues } from "lit";
+import { KucBase } from "../base/kuc-base";
+declare type Item = {
+    label?: string;
+    value?: string;
+};
+declare type CheckboxProps = {
+    className?: string;
+    error?: string;
+    id?: string;
+    itemLayout?: "horizontal" | "vertical";
+    label?: string;
+    borderVisible?: boolean;
+    disabled?: boolean;
+    requiredIcon?: boolean;
+    visible?: boolean;
+    items?: Item[];
+    value?: string[];
+    selectedIndex?: number[];
+};
+export declare class Checkbox extends KucBase {
+    className: string;
+    error: string;
+    id: string;
+    itemLayout: "horizontal" | "vertical";
+    label: string;
+    borderVisible: boolean;
+    disabled: boolean;
+    requiredIcon: boolean;
+    visible: boolean;
+    items: Item[];
+    selectedIndex: number[];
+    value: string[];
+    private _inputEls;
+    private _GUID;
+    private _valueMapping;
+    constructor(props?: CheckboxProps);
+    private _setInitialValue;
+    shouldUpdate(changedProperties: PropertyValues): boolean;
+    willUpdate(changedProperties: PropertyValues): void;
+    private _getNewValueMapping;
+    private _handleChangeInput;
+    private _handleFocusInput;
+    private _handleBlurInput;
+    private _getCheckboxIconSvgTemplate;
+    private _getSVGStrokeValue;
+    private _isCheckedItem;
+    private _getItemTemplate;
+    update(changedProperties: PropertyValues): void;
+    render(): import("lit").TemplateResult<1>;
+    updated(): void;
+    private _getValueMapping;
+    private _getValidValue;
+    private _getValidSelectedIndex;
+    private _setValueAndSelectedIndex;
+    private _getStyleTagTemplate;
+}
+export {};
