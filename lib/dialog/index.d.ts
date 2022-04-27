@@ -1,11 +1,13 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
 declare type DialogProps = {
+    icon?: "" | "info" | "success" | "error" | "warning" | "question";
     title?: string;
     content?: string | HTMLElement;
     footer?: string | HTMLElement;
 };
 export declare class Dialog extends KucBase {
+    icon: "" | "info" | "success" | "error" | "warning" | "question";
     title: string;
     content: string | HTMLElement;
     footer: string | HTMLElement;
@@ -25,6 +27,7 @@ export declare class Dialog extends KucBase {
     private _handleKeyDownDialog;
     private _handleClickCloseButton;
     private _getCloseButtonSvgTemplate;
+    private _getIconTemplate;
     private _getStyleTagTemplate;
 }
 export {};

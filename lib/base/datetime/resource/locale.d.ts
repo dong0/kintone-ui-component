@@ -9,6 +9,7 @@ export declare const en: {
     CALENDAR_FOOTER_TEXT: {
         none: string;
         today: string;
+        close: string;
     };
 };
 export declare const ja: {
@@ -22,6 +23,7 @@ export declare const ja: {
     CALENDAR_FOOTER_TEXT: {
         none: string;
         today: string;
+        close: string;
     };
 };
 export declare const zh: {
@@ -35,5 +37,6 @@ export declare const zh: {
     CALENDAR_FOOTER_TEXT: {
         none: string;
         today: string;
+        close: string;
     };
 };

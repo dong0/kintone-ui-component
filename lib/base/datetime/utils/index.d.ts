@@ -39,8 +39,25 @@ export declare const getLocale: (language: string) => {
     CALENDAR_FOOTER_TEXT: {
         none: string;
         today: string;
+        close: string;
     };
 };
+export declare const generateMinuteOptions: (timeStep?: number) => {
+    value: string;
+    label: string;
+}[];
+export declare const generateHourOptions: (hour12?: boolean) => {
+    value: string;
+    label: string;
+}[];
+export declare const generateHour12Options: (ampm: string) => {
+    value: string;
+    label: string;
+}[];
+export declare const generateHour24Options: () => {
+    value: string;
+    label: string;
+}[];
 export declare const getToggleIconSvgTemplate: () => import("lit").TemplateResult<2>;
 export declare const getLeftArrowIconSvgTemplate: () => import("lit").TemplateResult<2>;
 export declare function setListBoxPosition(_this: HTMLElement, position: string): void;
