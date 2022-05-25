@@ -7,7 +7,7 @@ describe("DateTimePicker", () => {
             const el = await fixture(container);
             const labelEl = el.querySelector(".kuc-datetime-picker__group__label");
             expect(labelEl.hasAttribute("hidden")).to.equal(true);
-            const labelTextEl = el.querySelector(".kuc-datetime-picker__group__label__text");
+            const labelTextEl = el.querySelector(".kuc-base-label__text");
             expect(labelTextEl.textContent).to.equal("");
         });
         it('should be display "options-label" when assigned "options-label" in constructor', async () => {
@@ -15,7 +15,7 @@ describe("DateTimePicker", () => {
             const el = await fixture(container);
             const labelEl = el.querySelector(".kuc-datetime-picker__group__label");
             expect(labelEl.hasAttribute("hidden")).to.equal(false);
-            const labelTextEl = el.querySelector(".kuc-datetime-picker__group__label__text");
+            const labelTextEl = el.querySelector(".kuc-base-label__text");
             expect(labelTextEl.textContent).to.equal("options-label");
         });
         it('should be display "replace-label" when changed to "replace-label" by setter', async () => {
@@ -26,7 +26,7 @@ describe("DateTimePicker", () => {
             const el = await fixture(container);
             const labelEl = el.querySelector(".kuc-datetime-picker__group__label");
             expect(labelEl.hasAttribute("hidden")).to.equal(false);
-            const labelTextEl = el.querySelector(".kuc-datetime-picker__group__label__text");
+            const labelTextEl = el.querySelector(".kuc-base-label__text");
             expect(labelTextEl.textContent).to.equal("replace-label");
         });
     });

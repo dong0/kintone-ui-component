@@ -6,6 +6,9 @@ import { visiblePropConverter } from "../base/converter";
 import { getWidthElmByContext } from "../base/context";
 import { validateProps, validateItems, validateValueString, validateSelectedIndexNumber, throwErrorAfterUpdateComplete } from "../base/validator";
 import { ERROR_MESSAGE } from "../base/constant";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 export class Dropdown extends KucBase {
     constructor(props) {
         super();
@@ -128,13 +131,10 @@ export class Dropdown extends KucBase {
           id="${this._GUID}-label"
           ?hidden="${!this.label}"
         >
-          <span class="kuc-dropdown__group__label__text">${this.label}</span
-          ><!--
-          --><span
-            class="kuc-dropdown__group__label__required-icon"
-            ?hidden="${!this.requiredIcon}"
-            >*</span
-          >
+          <kuc-base-label
+            .text="${this.label}"
+            .requiredIcon="${this.requiredIcon}"
+          ></kuc-base-label>
         </div>
         <button
           class="kuc-dropdown__group__toggle"
@@ -167,15 +167,11 @@ export class Dropdown extends KucBase {
         >
           ${this.items.map((item, number) => this._getItemTemplate(item, number))}
         </ul>
-        <div
-          class="kuc-dropdown__group__error"
-          id="${this._GUID}-error"
-          role="alert"
-          aria-live="assertive"
-          ?hidden="${!this.error}"
-        >
-          ${this.error}
-        </div>
+        <kuc-base-error
+          .text="${this.error}"
+          .guid="${this._GUID}"
+          ariaLive="assertive"
+        ></kuc-base-error>
       </div>
     `;
     }
@@ -187,7 +183,8 @@ export class Dropdown extends KucBase {
             this._actionResizeScrollWindow();
         });
     }
-    updated() {
+    async updated() {
+        await this.updateComplete;
         this._updateContainerWidth();
         if (this._selectorVisible) {
             this._setMenuPosition();
@@ -528,16 +525,6 @@ export class Dropdown extends KucBase {
         .kuc-dropdown__group__label[hidden] {
           display: none;
         }
-        .kuc-dropdown__group__label__required-icon {
-          font-size: 20px;
-          vertical-align: -3px;
-          color: #e74c3c;
-          margin-left: 4px;
-          line-height: 1;
-        }
-        .kuc-dropdown__group__label__required-icon[hidden] {
-          display: none;
-        }
         .kuc-dropdown__group__toggle {
           height: 40px;
           box-sizing: border-box;
@@ -573,19 +560,6 @@ export class Dropdown extends KucBase {
           flex: none;
           width: 38px;
           height: 38px;
-        }
-        .kuc-dropdown__group__error {
-          line-height: 1.5;
-          padding: 4px 18px;
-          box-sizing: border-box;
-          background-color: #e74c3c;
-          color: #ffffff;
-          margin: 8px 0px;
-          word-break: break-all;
-          white-space: normal;
-        }
-        .kuc-dropdown__group__error[hidden] {
-          display: none;
         }
         .kuc-dropdown__group__select-menu {
           position: absolute;
@@ -732,7 +706,7 @@ __decorate([
     query(".kuc-dropdown__group__select-menu__highlight")
 ], Dropdown.prototype, "_highlightItemEl", void 0);
 __decorate([
-    query(".kuc-dropdown__group__error")
+    query(".kuc-base-error__error")
 ], Dropdown.prototype, "_errorEl", void 0);
 if (!window.customElements.get("kuc-dropdown")) {
     window.customElements.define("kuc-dropdown", Dropdown);

@@ -6,6 +6,7 @@ export declare const en: {
         abbr: string;
     }[];
     INVALID_FORMAT: string;
+    INVALID_TIME_FORMAT: string;
     CALENDAR_FOOTER_TEXT: {
         none: string;
         today: string;
@@ -20,6 +21,7 @@ export declare const ja: {
         abbr: string;
     }[];
     INVALID_FORMAT: string;
+    INVALID_TIME_FORMAT: string;
     CALENDAR_FOOTER_TEXT: {
         none: string;
         today: string;
@@ -34,6 +36,7 @@ export declare const zh: {
         abbr: string;
     }[];
     INVALID_FORMAT: string;
+    INVALID_TIME_FORMAT: string;
     CALENDAR_FOOTER_TEXT: {
         none: string;
         today: string;

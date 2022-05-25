@@ -9,6 +9,9 @@ import { validateProps, validateDateTimeValue, isValidDate, throwErrorAfterUpdat
 import { FORMAT_IS_NOT_VALID } from "../base/datetime/resource/constant";
 import "../base/datetime/date";
 import "../base/datetime/time";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 export class DateTimePicker extends KucBase {
     constructor(props) {
         super();
@@ -134,14 +137,10 @@ export class DateTimePicker extends KucBase {
           class="kuc-datetime-picker__group__label"
           ?hidden="${!this.label}"
         >
-          <span class="kuc-datetime-picker__group__label__text"
-            >${this.label}</span
-          ><!--
-          --><span
-            class="kuc-datetime-picker__group__label__required-icon"
-            ?hidden="${!this.requiredIcon}"
-            >*</span
-          >
+          <kuc-base-label
+            .text="${this.label}"
+            .requiredIcon="${this.requiredIcon}"
+          ></kuc-base-label>
         </legend>
         <div class="kuc-datetime-picker__group__inputs">
           <kuc-base-date
@@ -160,20 +159,18 @@ export class DateTimePicker extends KucBase {
             @kuc:base-time-change="${this._handleTimeChange}"
           ></kuc-base-time>
         </div>
-        <div
-          class="kuc-datetime-picker__group__error"
-          id="${this._GUID}-error"
-          role="alert"
-          ?hidden="${!this._errorText}"
-        >
-          ${this._errorText}
-        </div>
+        <kuc-base-error
+          .text="${this._errorText}"
+          .guid="${this._GUID}"
+        ></kuc-base-error>
       </fieldset>
     `;
     }
     updated() {
-        this._updateErrorWidth();
         this._resetState();
+        this._baseLabelEl.updateComplete.then(_ => {
+            this._updateErrorWidth();
+        });
     }
     _resetState() {
         this._previousTimeValue = "";
@@ -182,13 +179,13 @@ export class DateTimePicker extends KucBase {
         this._changeTimeByUI = false;
     }
     _updateErrorWidth() {
-        const labelWidth = getWidthElmByContext(this._labelEl);
+        const labelWidth = getWidthElmByContext(this._baseLabelEl);
         const inputGroupWitdh = 185;
         if (labelWidth > inputGroupWitdh) {
-            this._errorEl.style.width = labelWidth + "px";
+            this._baseErrorEl.style.width = labelWidth + "px";
             return;
         }
-        this._errorEl.style.width = inputGroupWitdh + "px";
+        this._baseErrorEl.style.width = inputGroupWitdh + "px";
     }
     _handleDateChange(event) {
         event.stopPropagation();
@@ -316,36 +313,9 @@ export class DateTimePicker extends KucBase {
         .kuc-datetime-picker__group__label[hidden] {
           display: none;
         }
-        .kuc-datetime-picker__group__label__text {
-          color: #333333;
-          font-size: 14px;
-        }
-        .kuc-datetime-picker__group__label__required-icon {
-          margin-left: 4px;
-          line-height: 1;
-          vertical-align: -3px;
-          color: #e74c3c;
-          font-size: 20px;
-        }
-        .kuc-datetime-picker__group__label__required-icon[hidden] {
-          display: none;
-        }
         .kuc-datetime-picker__group__inputs {
           display: flex;
           max-width: 185px;
-        }
-        .kuc-datetime-picker__group__error {
-          line-height: 1.5;
-          padding: 4px 18px;
-          box-sizing: border-box;
-          background-color: #e74c3c;
-          color: #ffffff;
-          margin: 8px 0px;
-          word-break: break-all;
-          white-space: normal;
-        }
-        .kuc-datetime-picker__group__error[hidden] {
-          display: none;
         }
       </style>
     `;
@@ -398,11 +368,11 @@ __decorate([
     query(".kuc-base-date__input")
 ], DateTimePicker.prototype, "_dateInput", void 0);
 __decorate([
-    query(".kuc-datetime-picker__group__error")
-], DateTimePicker.prototype, "_errorEl", void 0);
+    query("kuc-base-label")
+], DateTimePicker.prototype, "_baseLabelEl", void 0);
 __decorate([
-    query(".kuc-datetime-picker__group__label")
-], DateTimePicker.prototype, "_labelEl", void 0);
+    query("kuc-base-error")
+], DateTimePicker.prototype, "_baseErrorEl", void 0);
 if (!window.customElements.get("kuc-datetime-picker")) {
     window.customElements.define("kuc-datetime-picker", DateTimePicker);
 }

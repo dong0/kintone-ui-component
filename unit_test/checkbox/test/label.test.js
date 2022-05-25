@@ -7,7 +7,7 @@ describe("Checkbox", () => {
             const el = await fixture(container);
             const labelEl = el.querySelector(".kuc-checkbox__group__label");
             expect(labelEl.hasAttribute("hidden")).to.equal(true);
-            const labelCheckboxEl = el.querySelector(".kuc-checkbox__group__label__text");
+            const labelCheckboxEl = el.querySelector(".kuc-base-label__text");
             expect(labelCheckboxEl.textContent).to.equal("");
         });
         it('should be display "options-label" when assigned "options-label" in constructor', async () => {
@@ -15,7 +15,7 @@ describe("Checkbox", () => {
             const el = await fixture(container);
             const labelEl = el.querySelector(".kuc-checkbox__group__label");
             expect(labelEl.hasAttribute("hidden")).to.equal(false);
-            const labelCheckboxEl = el.querySelector(".kuc-checkbox__group__label__text");
+            const labelCheckboxEl = el.querySelector(".kuc-base-label__text");
             expect(labelCheckboxEl.textContent).to.equal("options-label");
         });
         it('should be display "replace-label" when changed to "replace-label" by setter', async () => {
@@ -24,7 +24,7 @@ describe("Checkbox", () => {
             const el = await fixture(container);
             const labelEl = el.querySelector(".kuc-checkbox__group__label");
             expect(labelEl.hasAttribute("hidden")).to.equal(false);
-            const labelCheckboxEl = el.querySelector(".kuc-checkbox__group__label__text");
+            const labelCheckboxEl = el.querySelector(".kuc-base-label__text");
             expect(labelCheckboxEl.textContent).to.equal("replace-label");
         });
     });

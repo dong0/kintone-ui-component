@@ -1,5 +1,8 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 declare type Item = {
     label?: string;
     value?: string;
@@ -48,10 +51,9 @@ export declare class RadioButton extends KucBase {
     private _getTabIndex;
     update(changedProperties: PropertyValues): void;
     render(): import("lit").TemplateResult<1>;
-    updated(): void;
+    updated(): Promise<void>;
     private _getSelectedIndex;
     private _getValue;
     private _updateErrorWidth;
     private _getStyleTagTemplate;
 }
-export {};
