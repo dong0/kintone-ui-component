@@ -1,6 +1,9 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
 import "../base/datetime/date";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 declare type DatePickerProps = {
     className?: string;
     error?: string;
@@ -40,4 +43,3 @@ export declare class DatePicker extends KucBase {
     private _handleDateChange;
     private _disptchChangeEvent;
 }
-export {};

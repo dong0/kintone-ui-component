@@ -1,5 +1,8 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 declare type Item = {
     label?: string;
     value?: string;
@@ -51,7 +54,7 @@ export declare class Dropdown extends KucBase {
     private _getValue;
     render(): import("lit").TemplateResult<1>;
     firstUpdated(): void;
-    updated(): void;
+    updated(): Promise<void>;
     private _handleMouseDownDropdownItem;
     private _handleMouseOverDropdownItem;
     private _handleMouseLeaveMenu;
@@ -87,4 +90,3 @@ export declare class Dropdown extends KucBase {
     private _getItemTemplate;
     private _getDropdownIconSvgTemplate;
 }
-export {};

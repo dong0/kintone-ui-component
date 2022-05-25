@@ -5,13 +5,13 @@ describe("Dropdown", () => {
         it("should not display when not assigning in constructor", async () => {
             const container = new Dropdown();
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-dropdown__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl).has.attribute("hidden");
         });
         it('should be "error-message" when assigning in constructor', async () => {
             const container = new Dropdown({ error: "error-message" });
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-dropdown__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl.innerText).to.equal("error-message");
             expect(errorEl).not.has.attribute("hidden");
         });
@@ -19,7 +19,7 @@ describe("Dropdown", () => {
             const container = new Dropdown({ error: "error-message" });
             container.error = "replace-error";
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-dropdown__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl.innerText).to.equal("replace-error");
             expect(errorEl).not.has.attribute("hidden");
         });

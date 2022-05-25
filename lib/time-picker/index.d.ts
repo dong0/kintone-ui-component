@@ -1,6 +1,9 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
 import "../base/datetime/time";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 declare type TimePickerProps = {
     className?: string;
     error?: string;
@@ -22,8 +25,8 @@ export declare class TimePicker extends KucBase {
     hour12: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    private _labelEl;
-    private _errorEl;
+    private _baseLabelEl;
+    private _baseErrorEl;
     private _GUID;
     private _inputValue?;
     constructor(props?: TimePickerProps);
@@ -36,4 +39,3 @@ export declare class TimePicker extends KucBase {
     private _handleTimeChange;
     private _getStyleTagTemplate;
 }
-export {};

@@ -5,13 +5,13 @@ describe("MobileDropdown", () => {
         it("does not display when initializing without props option", async () => {
             const container = new MobileDropdown({});
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-mobile-dropdown__error");
+            const errorEl = el.querySelector(".kuc-base-mobile-error__error");
             expect(errorEl).has.attribute("hidden");
         });
         it('should be equal "error-message" when initializing error with "error-message"', async () => {
             const container = new MobileDropdown({ error: "error-message" });
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-mobile-dropdown__error");
+            const errorEl = el.querySelector(".kuc-base-mobile-error__error");
             expect(errorEl.innerText).to.have.equal("error-message");
             expect(errorEl).not.has.attribute("hidden");
         });
@@ -21,7 +21,7 @@ describe("MobileDropdown", () => {
             });
             container.error = "replace-error";
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-mobile-dropdown__error");
+            const errorEl = el.querySelector(".kuc-base-mobile-error__error");
             expect(errorEl.innerText).to.have.equal("replace-error");
             expect(errorEl).not.has.attribute("hidden");
         });

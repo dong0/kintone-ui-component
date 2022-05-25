@@ -1,5 +1,8 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../../base/kuc-base";
+import { BaseMobileLabel } from "../../base/mobile-label";
+import { BaseMobileError } from "../../base/mobile-error";
+export { BaseMobileLabel, BaseMobileError };
 declare type Item = {
     label?: string;
     value?: string;
@@ -46,4 +49,3 @@ export declare class MobileRadioButton extends KucBase {
     private _getValue;
     private _getStyleTagTemplate;
 }
-export {};

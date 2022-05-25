@@ -5,6 +5,9 @@ import { KucBase, generateGUID, dispatchCustomEvent } from "../../base/kuc-base"
 import { visiblePropConverter } from "../../base/converter";
 import { validateProps, validateValueString, validateSelectedIndexNumber, validateItems, throwErrorAfterUpdateComplete } from "../../base/validator";
 import { ERROR_MESSAGE } from "../../base/constant";
+import { BaseMobileLabel } from "../../base/mobile-label";
+import { BaseMobileError } from "../../base/mobile-error";
+export { BaseMobileLabel, BaseMobileError };
 export class MobileRadioButton extends KucBase {
     constructor(props) {
         super();
@@ -159,15 +162,10 @@ export class MobileRadioButton extends KucBase {
           class="kuc-mobile-radio-button__group__label"
           ?hidden="${!this.label}"
         >
-          <span class="kuc-mobile-radio-button__group__label__text"
-            ><!--
-            -->${this.label}</span
-          ><!--
-            --><span
-            class="kuc-mobile-radio-button__group__label__required-icon"
-            ?hidden="${!this.requiredIcon}"
-            >*</span
-          >
+          <kuc-base-mobile-label
+            .text="${this.label}"
+            .requiredIcon="${this.requiredIcon}"
+          ></kuc-base-mobile-label>
         </div>
         <div
           class="kuc-mobile-radio-button__group__select-menu"
@@ -176,15 +174,12 @@ export class MobileRadioButton extends KucBase {
         >
           ${this.items.map((item, index) => this._getItemTemplate(item, index))}
         </div>
-        <div
-          class="kuc-mobile-radio-button__group__error"
-          id="${this._GUID}-error"
-          role="alert"
-          aria-live="assertive"
-          ?hidden="${!this.error}"
+        <kuc-base-mobile-error
+          .text="${this.error}"
+          .guid="${this._GUID}"
+          ariaLive="assertive"
         >
-          ${this.error}
-        </div>
+        </kuc-base-mobile-error>
       </div>
     `;
     }
@@ -261,24 +256,7 @@ export class MobileRadioButton extends KucBase {
           white-space: nowrap;
         }
 
-        .kuc-mobile-radio-button__group__label__text {
-          text-shadow: 0 1px 0 #ffffff;
-          color: #888888;
-          white-space: normal;
-          font-size: inherit;
-        }
-
         .kuc-mobile-radio-button__group__label[hidden] {
-          display: none;
-        }
-
-        .kuc-mobile-radio-button__group__label__required-icon {
-          position: relative;
-          left: 3px;
-          color: #d01212;
-        }
-
-        .kuc-mobile-radio-button__group__label__required-icon[hidden] {
           display: none;
         }
 
@@ -354,21 +332,6 @@ export class MobileRadioButton extends KucBase {
           transform: translateY(-50%);
           height: 100%;
           padding: 0px;
-        }
-
-        .kuc-mobile-radio-button__group__error {
-          line-height: 1.5;
-          color: #000000;
-          border: 1px solid #e5db68;
-          background-color: #fdffc9;
-          margin-top: 0.3em;
-          padding: 0.4em 1em;
-          border-radius: 0.4em;
-          margin-left: 0.5em;
-        }
-
-        .kuc-mobile-radio-button__group__error[hidden] {
-          display: none;
         }
       </style>
     `;

@@ -1,5 +1,8 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../../base/kuc-base";
+import { BaseMobileLabel } from "../../base/mobile-label";
+import { BaseMobileError } from "../../base/mobile-error";
+export { BaseMobileLabel, BaseMobileError };
 declare type Item = {
     label?: string;
     value?: string;
@@ -44,4 +47,3 @@ export declare class MobileMultiChoice extends KucBase {
     render(): import("lit").TemplateResult<1>;
     private _getStyleTagTemplate;
 }
-export {};
