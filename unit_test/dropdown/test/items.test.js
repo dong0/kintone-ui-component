@@ -25,7 +25,6 @@ describe("Dropdown", () => {
             expect(itemsEl.length).to.equal(0);
         });
         it("should set label the same as value when not assigned items label on constructor", async () => {
-            var _a, _b, _c;
             const container = new Dropdown({
                 items: initItemsWithoutLabel,
                 value: initItemsWithoutLabel[1].value
@@ -34,41 +33,38 @@ describe("Dropdown", () => {
             const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
             expect(itemsEl.length).to.equal(3);
             expect(itemsEl[0].getAttribute("value")).to.equal(initItemsWithoutLabel[0].value);
-            expect((_a = itemsEl[0].textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal(initItemsWithoutLabel[0].value);
+            expect(itemsEl[0].textContent?.trim()).to.equal(initItemsWithoutLabel[0].value);
             expect(itemsEl[1].getAttribute("value")).to.equal(initItemsWithoutLabel[1].value);
-            expect((_b = itemsEl[1].textContent) === null || _b === void 0 ? void 0 : _b.trim()).to.equal(initItemsWithoutLabel[1].value);
+            expect(itemsEl[1].textContent?.trim()).to.equal(initItemsWithoutLabel[1].value);
             expect(itemsEl[2].getAttribute("value")).to.equal(initItemsWithoutLabel[2].value);
-            expect((_c = itemsEl[2].textContent) === null || _c === void 0 ? void 0 : _c.trim()).to.equal(initItemsWithoutLabel[2].value);
+            expect(itemsEl[2].textContent?.trim()).to.equal(initItemsWithoutLabel[2].value);
         });
         it("should set label the same as value when not assigned items label by setter", async () => {
-            var _a, _b, _c;
             const container = new Dropdown();
             container.items = initItemsWithoutLabel;
             const el = await fixture(container);
             const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
             expect(itemsEl.length).to.equal(3);
             expect(itemsEl[0].getAttribute("value")).to.equal(initItemsWithoutLabel[0].value);
-            expect((_a = itemsEl[0].textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal(initItemsWithoutLabel[0].value);
+            expect(itemsEl[0].textContent?.trim()).to.equal(initItemsWithoutLabel[0].value);
             expect(itemsEl[1].getAttribute("value")).to.equal(initItemsWithoutLabel[1].value);
-            expect((_b = itemsEl[1].textContent) === null || _b === void 0 ? void 0 : _b.trim()).to.equal(initItemsWithoutLabel[1].value);
+            expect(itemsEl[1].textContent?.trim()).to.equal(initItemsWithoutLabel[1].value);
             expect(itemsEl[2].getAttribute("value")).to.equal(initItemsWithoutLabel[2].value);
-            expect((_c = itemsEl[2].textContent) === null || _c === void 0 ? void 0 : _c.trim()).to.equal(initItemsWithoutLabel[2].value);
+            expect(itemsEl[2].textContent?.trim()).to.equal(initItemsWithoutLabel[2].value);
         });
         it("should set items when assigned items by setter", async () => {
-            var _a, _b, _c;
             const container = new Dropdown({ items: initItems });
             const el = await fixture(container);
             const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
             expect(itemsEl.length).to.equal(3);
             expect(itemsEl[0].getAttribute("value")).to.equal(initItems[0].value);
-            expect((_a = itemsEl[0].textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal(initItems[0].label);
+            expect(itemsEl[0].textContent?.trim()).to.equal(initItems[0].label);
             expect(itemsEl[1].getAttribute("value")).to.equal(initItems[1].value);
-            expect((_b = itemsEl[1].textContent) === null || _b === void 0 ? void 0 : _b.trim()).to.equal(initItems[1].label);
+            expect(itemsEl[1].textContent?.trim()).to.equal(initItems[1].label);
             expect(itemsEl[2].getAttribute("value")).to.equal(initItems[2].value);
-            expect((_c = itemsEl[2].textContent) === null || _c === void 0 ? void 0 : _c.trim()).to.equal(initItems[2].label);
+            expect(itemsEl[2].textContent?.trim()).to.equal(initItems[2].label);
         });
         it("should be changed when updated items by setter", async () => {
-            var _a, _b;
             const container = new Dropdown({ items: initItems });
             container.items = replacedItems;
             const el = await fixture(container);
@@ -76,9 +72,9 @@ describe("Dropdown", () => {
             expect(container.items).to.be.equal(replacedItems);
             expect(itemsEl.length).to.equal(2);
             expect(itemsEl[0].getAttribute("value")).to.equal(replacedItems[0].value);
-            expect((_a = itemsEl[0].textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal(replacedItems[0].label);
+            expect(itemsEl[0].textContent?.trim()).to.equal(replacedItems[0].label);
             expect(itemsEl[1].getAttribute("value")).to.equal(replacedItems[1].value);
-            expect((_b = itemsEl[1].textContent) === null || _b === void 0 ? void 0 : _b.trim()).to.equal(replacedItems[1].label);
+            expect(itemsEl[1].textContent?.trim()).to.equal(replacedItems[1].label);
         });
         it("should be throw error when assigned null on constructor", async () => {
             // @ts-expect-error

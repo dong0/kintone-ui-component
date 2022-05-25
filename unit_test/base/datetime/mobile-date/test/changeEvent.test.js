@@ -15,7 +15,7 @@ describe("BaseMobileDate", () => {
             inputEl.click();
             await elementUpdated(container);
             const dateSelected = el.querySelector(".kuc-base-mobile-datetime-calendar-body__table__date--selected");
-            const dateNext = dateSelected === null || dateSelected === void 0 ? void 0 : dateSelected.nextElementSibling;
+            const dateNext = dateSelected?.nextElementSibling;
             dateNext.click();
             await elementUpdated(container);
             expect(inputEl.value).to.equal("02/15/2022");

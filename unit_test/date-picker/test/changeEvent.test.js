@@ -69,7 +69,6 @@ describe("DatePicker", () => {
             expect(triggeredEvent.detail.value).to.equal("2021-12-20");
         });
         it("should be triggered when mousedown on date in calendar", async () => {
-            var _a;
             let triggeredEvent = null;
             const container = new DatePicker({ value: "2021-12-20", language: "en" });
             container.addEventListener("change", event => {
@@ -81,7 +80,8 @@ describe("DatePicker", () => {
             await elementUpdated(container);
             await elementUpdated(el);
             const selectedElUp = el.querySelector('kuc-base-datetime-calendar-body .kuc-base-datetime-calendar-body__table__date__button[aria-current="true"]');
-            const nextEl = (_a = selectedElUp.parentElement) === null || _a === void 0 ? void 0 : _a.nextElementSibling;
+            const nextEl = selectedElUp.parentElement
+                ?.nextElementSibling;
             const buttonEl = nextEl.firstElementChild;
             buttonEl.click();
             await elementUpdated(container);
