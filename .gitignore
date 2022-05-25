@@ -1,6 +1,9 @@
 __snapshots__/
 coverage/
+lib/
 node_modules/
 storybook/
+umd/
 /test
+/unit_test
 .DS_Store
