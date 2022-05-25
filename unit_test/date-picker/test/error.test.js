@@ -5,13 +5,13 @@ describe("DatePicker", () => {
         it("should not display when not assigning in constructor", async () => {
             const container = new DatePicker();
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-date-picker__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl).has.attribute("hidden");
         });
         it('should be "error-message" when assigning in constructor', async () => {
             const container = new DatePicker({ error: "error-message" });
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-date-picker__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl.innerText).to.equal("error-message");
             expect(errorEl).not.has.attribute("hidden");
         });
@@ -19,7 +19,7 @@ describe("DatePicker", () => {
             const container = new DatePicker();
             container.error = "error-message";
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-date-picker__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl.innerText).to.equal("error-message");
             expect(errorEl).not.has.attribute("hidden");
         });
@@ -27,7 +27,7 @@ describe("DatePicker", () => {
             const container = new DatePicker({ error: "error-message" });
             container.error = "replace-error";
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-date-picker__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl.innerText).to.equal("replace-error");
             expect(errorEl).not.has.attribute("hidden");
         });
@@ -37,7 +37,7 @@ describe("DatePicker", () => {
                 label: "long label long label long label long label"
             });
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-date-picker__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             const labelEl = el.querySelector(".kuc-date-picker__group__label");
             expect(errorEl.getBoundingClientRect().width).to.equal(labelEl.getBoundingClientRect().width);
         });

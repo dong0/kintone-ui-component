@@ -1,4 +1,7 @@
 import { KucBase } from "../../base/kuc-base";
+import { BaseMobileLabel } from "../../base/mobile-label";
+import { BaseMobileError } from "../../base/mobile-error";
+export { BaseMobileLabel, BaseMobileError };
 declare type MobileTextAreaProps = {
     className?: string;
     error?: string;
@@ -28,4 +31,3 @@ export declare class MobileTextArea extends KucBase {
     render(): import("lit").TemplateResult<1>;
     private _getStyleTagTemplate;
 }
-export {};

@@ -15,6 +15,13 @@ export declare const formatTimeValueToInputValue: (value: string, hour12: boolea
     minutes: string;
     suffix: string;
 };
+export declare const formatTimeValueToInputValueForMobile: (value: string, hour12: boolean) => {
+    hours: string;
+    minutes: string;
+    suffix: string;
+};
+export declare const convertHour24To12: (hours: number) => number;
+export declare const convertSuffix24To12: (hours: number) => string;
 export declare const convertTime24To12: (hours: number, minutes: number) => {
     hours: string;
     minutes: string;
@@ -36,6 +43,7 @@ export declare const getLocale: (language: string) => {
         abbr: string;
     }[];
     INVALID_FORMAT: string;
+    INVALID_TIME_FORMAT: string;
     CALENDAR_FOOTER_TEXT: {
         none: string;
         today: string;

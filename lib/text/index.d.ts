@@ -1,4 +1,7 @@
 import { KucBase } from "../base/kuc-base";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 declare type TextProps = {
     className?: string;
     error?: string;
@@ -34,4 +37,3 @@ export declare class Text extends KucBase {
     render(): import("lit").TemplateResult<1>;
     private _getStyleTagTemplate;
 }
-export {};

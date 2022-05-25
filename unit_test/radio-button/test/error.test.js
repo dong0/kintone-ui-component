@@ -5,13 +5,13 @@ describe("RadioButton", () => {
         it("should not display when not assigning in constructor", async () => {
             const container = new RadioButton();
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-radio-button__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl).has.attribute("hidden");
         });
         it('should be "error-message" when assigning in constructor', async () => {
             const container = new RadioButton({ error: "error-message" });
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-radio-button__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl.innerText).to.equal("error-message");
             expect(errorEl).not.has.attribute("hidden");
         });
@@ -19,7 +19,7 @@ describe("RadioButton", () => {
             const container = new RadioButton();
             container.error = "error-message";
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-radio-button__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl.innerText).to.equal("error-message");
             expect(errorEl).not.has.attribute("hidden");
         });
@@ -27,7 +27,7 @@ describe("RadioButton", () => {
             const container = new RadioButton({ error: "error-message" });
             container.error = "replace-error";
             const el = await fixture(container);
-            const errorEl = el.querySelector(".kuc-radio-button__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(errorEl.innerText).to.equal("replace-error");
             expect(errorEl).not.has.attribute("hidden");
         });

@@ -1,5 +1,8 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 declare type Item = {
     label?: string;
     value?: string;
@@ -53,4 +56,3 @@ export declare class MultiChoice extends KucBase {
     private _handleChangeValue;
     private _getNewValueMapping;
 }
-export {};

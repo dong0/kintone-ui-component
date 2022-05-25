@@ -1,4 +1,7 @@
 import { KucBase } from "../base/kuc-base";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 declare type TextAreaProps = {
     className?: string;
     error?: string;
@@ -35,4 +38,3 @@ export declare class TextArea extends KucBase {
     firstUpdated(): void;
     private _getStyleTagTemplate;
 }
-export {};

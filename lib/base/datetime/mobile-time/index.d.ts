@@ -1,14 +1,20 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../../kuc-base";
 declare type BaseMobileTimeProps = {
+    guid?: string;
+    language?: string;
     value?: string;
     disabled?: boolean;
     hour12?: boolean;
+    required?: boolean;
 };
 export declare class BaseMobileTime extends KucBase {
+    guid: string;
+    language: string;
     value: string;
     disabled: boolean;
     hour12: boolean;
+    required: boolean;
     /**
      * Please consider name again and change @state to @property when publishing the function.
      */
@@ -20,6 +26,7 @@ export declare class BaseMobileTime extends KucBase {
     private _minuteOptions;
     private _hoursEl;
     private _minutesEl;
+    private _locale;
     constructor(props?: BaseMobileTimeProps);
     update(changedProperties: PropertyValues): void;
     render(): import("lit").TemplateResult<1>;

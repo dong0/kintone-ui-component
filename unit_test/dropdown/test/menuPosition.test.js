@@ -48,7 +48,7 @@ describe("Dropdown", () => {
             toggle.click();
             await elementUpdated(container);
             const menuEl = el.querySelector(".kuc-dropdown__group__select-menu");
-            const errorEl = el.querySelector(".kuc-dropdown__group__error");
+            const errorEl = el.querySelector(".kuc-base-error__error");
             expect(menuEl.style.bottom).to.equal(`${toggle.offsetHeight + errorEl.offsetHeight + 16}px`);
             expect(menuEl.style.height).to.equal("auto");
         });

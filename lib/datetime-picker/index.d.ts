@@ -2,6 +2,9 @@ import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
 import "../base/datetime/date";
 import "../base/datetime/time";
+import { BaseLabel } from "../base/label";
+import { BaseError } from "../base/error";
+export { BaseError, BaseLabel };
 declare type DateTimePickerProps = {
     className?: string;
     error?: string;
@@ -26,8 +29,8 @@ export declare class DateTimePicker extends KucBase {
     requiredIcon: boolean;
     visible: boolean;
     private _dateInput;
-    private _errorEl;
-    private _labelEl;
+    private _baseLabelEl;
+    private _baseErrorEl;
     private _dateValue;
     private _timeValue;
     private _previousTimeValue;
@@ -61,4 +64,3 @@ export declare class DateTimePicker extends KucBase {
     private _getLanguage;
     private _getStyleTagTemplate;
 }
-export {};
