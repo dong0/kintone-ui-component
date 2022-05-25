@@ -30,7 +30,6 @@ describe("MobileDropdown", () => {
             expect(itemsEl.length).to.be.equal(0);
         });
         it("exists on element when initializing with props option", async () => {
-            var _a, _b;
             const container = new MobileDropdown({ items: initItems });
             expect(container.items).to.be.equal(initItems);
             const el = await fixture(container);
@@ -38,14 +37,13 @@ describe("MobileDropdown", () => {
             expect(itemsEl.length).to.be.equal(3);
             for (let i = 1; i < itemsEl.length; i++) {
                 const itemEl = itemsEl[i];
-                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                const value = itemEl.getAttribute("value")?.trim();
                 expect(value).to.have.equal(expectedValues[i]);
-                const label = (_b = itemEl.textContent) === null || _b === void 0 ? void 0 : _b.trim();
+                const label = itemEl.textContent?.trim();
                 expect(label).to.have.equal(expectedLabels[i]);
             }
         });
         it("exists on element when changing by setter", async () => {
-            var _a, _b;
             const container = new MobileDropdown();
             container.items = initItems;
             expect(container.items).to.be.equal(initItems);
@@ -54,14 +52,13 @@ describe("MobileDropdown", () => {
             expect(itemsEl.length).to.be.equal(3);
             for (let i = 1; i < itemsEl.length; i++) {
                 const itemEl = itemsEl[i];
-                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                const value = itemEl.getAttribute("value")?.trim();
                 expect(value).to.have.equal(expectedValues[i]);
-                const label = (_b = itemEl.textContent) === null || _b === void 0 ? void 0 : _b.trim();
+                const label = itemEl.textContent?.trim();
                 expect(label).to.have.equal(expectedLabels[i]);
             }
         });
         it("exists on element and set label as the same as value when initializing with props option without label", async () => {
-            var _a, _b;
             const container = new MobileDropdown({ items: initItemsWithoutLabel });
             expect(container.items).to.be.equal(initItemsWithoutLabel);
             const el = await fixture(container);
@@ -69,14 +66,13 @@ describe("MobileDropdown", () => {
             expect(itemsEl.length).to.be.equal(3);
             for (let i = 1; i < itemsEl.length; i++) {
                 const itemEl = itemsEl[i];
-                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                const value = itemEl.getAttribute("value")?.trim();
                 expect(value).to.have.equal(expectedValues[i]);
-                const label = (_b = itemEl.textContent) === null || _b === void 0 ? void 0 : _b.trim();
+                const label = itemEl.textContent?.trim();
                 expect(label).to.have.equal(expectedValues[i]);
             }
         });
         it('exists on element and set value "" when initializing with props option without value', async () => {
-            var _a;
             const container = new MobileDropdown({ items: initItemsWithoutValue });
             expect(container.items).to.be.equal(initItemsWithoutValue);
             const el = await fixture(container);
@@ -84,12 +80,11 @@ describe("MobileDropdown", () => {
             expect(itemsEl.length).to.be.equal(1);
             for (let i = 1; i < itemsEl.length; i++) {
                 const itemEl = itemsEl[i];
-                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                const value = itemEl.getAttribute("value")?.trim();
                 expect(value).to.have.equal("");
             }
         });
         it("should be replaced successfully", async () => {
-            var _a, _b;
             const container = new MobileDropdown({ items: initItems });
             container.items = replacedItems;
             expect(container.items).to.be.equal(replacedItems);
@@ -98,9 +93,9 @@ describe("MobileDropdown", () => {
             expect(itemsEl.length).to.be.equal(2);
             for (let i = 1; i < itemsEl.length; i++) {
                 const itemEl = itemsEl[i];
-                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                const value = itemEl.getAttribute("value")?.trim();
                 expect(value).to.have.equal(expectedValues[i + 1]);
-                const label = (_b = itemEl.textContent) === null || _b === void 0 ? void 0 : _b.trim();
+                const label = itemEl.textContent?.trim();
                 expect(label).to.have.equal(expectedLabels[i + 1]);
             }
         });

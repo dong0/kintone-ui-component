@@ -3,21 +3,19 @@ import { Dialog } from "../index";
 describe("Dialog", () => {
     describe("footer", () => {
         it("should be empty when not assgined on constructor", async () => {
-            var _a;
             const container = new Dialog();
             container.open();
             await elementUpdated(container);
             const footerEl = container.querySelector(".kuc-dialog__dialog__footer");
             expect(footerEl.childElementCount).to.equal(0);
-            expect((_a = footerEl.textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal("");
+            expect(footerEl.textContent?.trim()).to.equal("");
         });
         it('should be "footer" when assgined string on constructor', async () => {
-            var _a;
             const container = new Dialog({ footer: "footer" });
             container.open();
             await elementUpdated(container);
             const footerEl = container.querySelector(".kuc-dialog__dialog__footer");
-            expect((_a = footerEl.textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal("footer");
+            expect(footerEl.textContent?.trim()).to.equal("footer");
         });
         it("should be HTMLElement when assgined HTMLElement on constructor", async () => {
             const htmlElement = document.createElement("div");
@@ -37,13 +35,12 @@ describe("Dialog", () => {
             expect(footerEl.firstElementChild.className).to.equal("kuc-element-class");
         });
         it('should be "footer" when set string by setter', async () => {
-            var _a;
             const container = new Dialog();
             container.open();
             container.footer = "footer";
             await elementUpdated(container);
             const footerEl = container.querySelector(".kuc-dialog__dialog__footer");
-            expect((_a = footerEl.textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal("footer");
+            expect(footerEl.textContent?.trim()).to.equal("footer");
         });
         it("should be HTMLElement when set HTMLElement by setter", async () => {
             const htmlElement = document.createElement("div");

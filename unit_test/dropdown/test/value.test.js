@@ -12,7 +12,7 @@ describe("Dropdown", () => {
             const el = await fixture(container);
             expect(container.value).to.be.equal("");
             const selectedItemLabel = el.querySelector(".kuc-dropdown__group__toggle__selected-item-label");
-            expect(selectedItemLabel === null || selectedItemLabel === void 0 ? void 0 : selectedItemLabel.textContent).to.equal("");
+            expect(selectedItemLabel?.textContent).to.equal("");
             const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
             const svgsEl0 = itemsEl[0].querySelectorAll("svg");
             expect(svgsEl0.length).to.equal(0);
@@ -32,7 +32,7 @@ describe("Dropdown", () => {
             const el = await fixture(container);
             expect(container.value).to.be.equal(initItems[1].value);
             const selectedItemLabel = el.querySelector(".kuc-dropdown__group__toggle__selected-item-label");
-            expect(selectedItemLabel === null || selectedItemLabel === void 0 ? void 0 : selectedItemLabel.textContent).to.equal(initItems[1].label);
+            expect(selectedItemLabel?.textContent).to.equal(initItems[1].label);
             const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
             const svgsEl0 = itemsEl[0].querySelectorAll("svg");
             expect(svgsEl0.length).to.equal(0);
@@ -56,7 +56,7 @@ describe("Dropdown", () => {
         expect(container.value).to.be.equal(initItems[1].value);
         expect(container.selectedIndex).to.be.equal(1);
         const selectedItemLabel = el.querySelector(".kuc-dropdown__group__toggle__selected-item-label");
-        expect(selectedItemLabel === null || selectedItemLabel === void 0 ? void 0 : selectedItemLabel.textContent).to.equal(initItems[1].label);
+        expect(selectedItemLabel?.textContent).to.equal(initItems[1].label);
         const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
         const svgsEl0 = itemsEl[0].querySelectorAll("svg");
         expect(svgsEl0.length).to.equal(0);
@@ -79,7 +79,7 @@ describe("Dropdown", () => {
         expect(container.value).to.be.equal("");
         expect(container.selectedIndex).to.be.equal(-1);
         const selectedItemLabel = el.querySelector(".kuc-dropdown__group__toggle__selected-item-label");
-        expect(selectedItemLabel === null || selectedItemLabel === void 0 ? void 0 : selectedItemLabel.textContent).to.equal("");
+        expect(selectedItemLabel?.textContent).to.equal("");
         const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
         const svgsEl0 = itemsEl[0].querySelectorAll("svg");
         expect(svgsEl0.length).to.equal(0);
@@ -100,7 +100,7 @@ describe("Dropdown", () => {
         expect(container.value).to.be.equal("");
         expect(container.selectedIndex).to.be.equal(-1);
         const selectedItemLabel = el.querySelector(".kuc-dropdown__group__toggle__selected-item-label");
-        expect(selectedItemLabel === null || selectedItemLabel === void 0 ? void 0 : selectedItemLabel.textContent).to.equal("");
+        expect(selectedItemLabel?.textContent).to.equal("");
         const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
         const svgsEl0 = itemsEl[0].querySelectorAll("svg");
         expect(svgsEl0.length).to.equal(0);
@@ -121,7 +121,7 @@ describe("Dropdown", () => {
         expect(container.value).to.be.equal("");
         expect(container.selectedIndex).to.be.equal(-1);
         const selectedItemLabel = el.querySelector(".kuc-dropdown__group__toggle__selected-item-label");
-        expect(selectedItemLabel === null || selectedItemLabel === void 0 ? void 0 : selectedItemLabel.textContent).to.equal("");
+        expect(selectedItemLabel?.textContent).to.equal("");
         const itemsEl = el.querySelectorAll(".kuc-dropdown__group__select-menu__item");
         const svgsEl0 = itemsEl[0].querySelectorAll("svg");
         expect(svgsEl0.length).to.equal(0);

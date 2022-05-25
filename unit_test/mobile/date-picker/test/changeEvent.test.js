@@ -17,7 +17,7 @@ describe("MobileDatePicker", () => {
             await elementUpdated(container);
             await elementUpdated(el);
             const selectedElUp = el.querySelector("kuc-base-mobile-datetime-calendar-body .kuc-base-mobile-datetime-calendar-body__table__date--selected");
-            const nextEl = selectedElUp === null || selectedElUp === void 0 ? void 0 : selectedElUp.nextElementSibling;
+            const nextEl = selectedElUp?.nextElementSibling;
             const buttonEl = nextEl;
             buttonEl.click();
             await elementUpdated(container);

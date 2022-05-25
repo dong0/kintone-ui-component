@@ -197,7 +197,7 @@ export class BaseDate extends KucBase {
     }
     _handleChangeInput(event) {
         event.stopPropagation();
-        const newValue = (event === null || event === void 0 ? void 0 : event.target).value;
+        const newValue = event?.target.value;
         this._calendarValue = this._getNewCalendarValue(newValue);
         if (this._calendarValue.length > 7) {
             this._dispathDateChangeCustomEvent(formatInputValueToValue(this.language, newValue));

@@ -115,7 +115,6 @@ export class BaseTime extends KucBase {
         return this._inputGroupEl.classList.remove("kuc-base-time__group--disabled");
     }
     _updateInputValue() {
-        var _a;
         const times = formatTimeValueToInputValue(this.value, this.hour12);
         this._hours = times.hours;
         this._minutes = times.minutes;
@@ -124,7 +123,7 @@ export class BaseTime extends KucBase {
         if (!this._inputGroupEl)
             return;
         this._setValueToInput(times);
-        (_a = this._inputFocusEl) === null || _a === void 0 ? void 0 : _a.select();
+        this._inputFocusEl?.select();
     }
     _getValueLabel(times) {
         if (!times.hours || !times.minutes)

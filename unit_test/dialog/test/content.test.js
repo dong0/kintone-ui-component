@@ -3,21 +3,19 @@ import { Dialog } from "../index";
 describe("Dialog", () => {
     describe("content", () => {
         it("should be empty when not assgined on constructor", async () => {
-            var _a;
             const container = new Dialog();
             container.open();
             await elementUpdated(container);
             const contentEl = container.querySelector(".kuc-dialog__dialog__content__content");
             expect(contentEl.childElementCount).to.equal(0);
-            expect((_a = contentEl.textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal("");
+            expect(contentEl.textContent?.trim()).to.equal("");
         });
         it('should be "content" when assgined string on constructor', async () => {
-            var _a;
             const container = new Dialog({ content: "content" });
             container.open();
             await elementUpdated(container);
             const contentEl = container.querySelector(".kuc-dialog__dialog__content__content");
-            expect((_a = contentEl.textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal("content");
+            expect(contentEl.textContent?.trim()).to.equal("content");
         });
         it("should be HTMLElement when assgined HTMLElement on constructor", async () => {
             const htmlElement = document.createElement("div");
@@ -37,13 +35,12 @@ describe("Dialog", () => {
             expect(contentEl.firstElementChild.className).to.equal("kuc-element-class");
         });
         it('should be "content" when set string by setter', async () => {
-            var _a;
             const container = new Dialog();
             container.open();
             container.content = "content";
             await elementUpdated(container);
             const contentEl = container.querySelector(".kuc-dialog__dialog__content__content");
-            expect((_a = contentEl.textContent) === null || _a === void 0 ? void 0 : _a.trim()).to.equal("content");
+            expect(contentEl.textContent?.trim()).to.equal("content");
         });
         it("should be HTMLElement when set HTMLElement by setter", async () => {
             const htmlElement = document.createElement("div");
