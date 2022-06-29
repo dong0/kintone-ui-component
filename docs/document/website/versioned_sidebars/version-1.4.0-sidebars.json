@@ -28,6 +28,7 @@
           "version-1.4.0-components/mobile/mobile-button",
           "version-1.4.0-components/mobile/mobile-checkbox",
           "version-1.4.0-components/mobile/mobile-date-picker",
+          "version-1.4.0-components/mobile/mobile-datetime-picker",
           "version-1.4.0-components/mobile/mobile-dropdown",
           "version-1.4.0-components/mobile/mobile-multichoice",
           "version-1.4.0-components/mobile/mobile-notification",
@@ -44,7 +45,8 @@
       "version-1.4.0-guides/search-box-customization",
       "version-1.4.0-guides/mobile-timecard-customization",
       "version-1.4.0-guides/cleaning-check-list-customization",
-      "version-1.4.0-guides/bulk-update-customization"
+      "version-1.4.0-guides/bulk-update-customization",
+      "version-1.4.0-guides/format-setting-plugin"
     ]
   },
   "version-1.4.0-release-notes": {
