@@ -5,7 +5,7 @@ import {
   generateGUID,
   dispatchCustomEvent,
   CustomEventDetail,
-  createStyleOnHeader
+  createStyleOnHeader,
 } from "../../base/kuc-base";
 import { visiblePropConverter } from "../../base/converter";
 import {
@@ -43,7 +43,7 @@ let exportMobileDropdown;
       type: Boolean,
       attribute: "hidden",
       reflect: true,
-    converter: visiblePropConverter,
+      converter: visiblePropConverter,
     })
     visible = true;
     @property({ type: Array }) items: MobileDropdownItem[] = [];
@@ -129,7 +129,7 @@ let exportMobileDropdown;
         this.value =
           this._getValue({
             items: this.items,
-          selectedIndex: this.selectedIndex,
+            selectedIndex: this.selectedIndex,
           }) || "";
       }
       super.update(changedProperties);

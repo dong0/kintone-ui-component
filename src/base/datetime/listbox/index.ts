@@ -4,7 +4,7 @@ import {
   KucBase,
   dispatchCustomEvent,
   CustomEventDetail,
-  createStyleOnHeader
+  createStyleOnHeader,
 } from "../../kuc-base";
 import { BASE_DATETIME_LISTBOX_CSS } from "./style";
 

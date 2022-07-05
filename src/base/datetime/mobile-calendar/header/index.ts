@@ -4,7 +4,7 @@ import {
   KucBase,
   dispatchCustomEvent,
   CustomEventDetail,
-  createStyleOnHeader
+  createStyleOnHeader,
 } from "../../../kuc-base";
 import { getWidthElmByContext } from "../../../context";
 import { getLocale } from "../../../datetime/utils";

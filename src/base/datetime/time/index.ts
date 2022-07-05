@@ -4,7 +4,7 @@ import {
   KucBase,
   CustomEventDetail,
   dispatchCustomEvent,
-  createStyleOnHeader
+  createStyleOnHeader,
 } from "../../kuc-base";
 import {
   MAX_MINUTES,

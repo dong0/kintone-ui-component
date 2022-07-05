@@ -42,7 +42,7 @@ let exportDatePicker;
       type: Boolean,
       attribute: "hidden",
       reflect: true,
-    converter: visiblePropConverter,
+      converter: visiblePropConverter,
     })
     visible = true;
 
@@ -152,7 +152,7 @@ let exportDatePicker;
       event.preventDefault();
       const eventDetail: CustomEventDetail = {
         oldValue: this.value,
-      value: "",
+        value: "",
       };
       if (event.detail.error) {
         this.value = undefined;

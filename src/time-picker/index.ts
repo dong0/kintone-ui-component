@@ -5,7 +5,7 @@ import {
   generateGUID,
   CustomEventDetail,
   dispatchCustomEvent,
-  createStyleOnHeader
+  createStyleOnHeader,
 } from "../base/kuc-base";
 import { visiblePropConverter, timeValueConverter } from "../base/converter";
 import { getWidthElmByContext } from "../base/context";
@@ -55,7 +55,7 @@ let exportTimePicker;
       type: Boolean,
       attribute: "hidden",
       reflect: true,
-    converter: visiblePropConverter,
+      converter: visiblePropConverter,
     })
     visible = true;
     @property({ type: Number }) timeStep = 30;
@@ -213,7 +213,7 @@ let exportTimePicker;
     }
 
     updated() {
-    this._baseLabelEl.updateComplete.then((_) => {
+      this._baseLabelEl.updateComplete.then((_) => {
         this._updateErrorWidth();
       });
     }
@@ -233,7 +233,7 @@ let exportTimePicker;
       event.stopPropagation();
       const detail: CustomEventDetail = {
         value: event.detail.value,
-      oldValue: this.value,
+        oldValue: this.value,
       };
 
       if (event.detail.error) {

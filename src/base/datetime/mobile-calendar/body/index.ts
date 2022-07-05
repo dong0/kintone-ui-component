@@ -4,7 +4,7 @@ import {
   KucBase,
   CustomEventDetail,
   dispatchCustomEvent,
-  createStyleOnHeader
+  createStyleOnHeader,
 } from "../../../kuc-base";
 import { getDisplayingDates, WeekDate, getLocale } from "../../utils";
 import { BASE_MOBILE_CALENDAR_BODY_CSS } from "./style";

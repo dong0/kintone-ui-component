@@ -5,7 +5,7 @@ import {
   CustomEventDetail,
   dispatchCustomEvent,
   KucBase,
-  createStyleOnHeader
+  createStyleOnHeader,
 } from "../../kuc-base";
 import {
   formatInputValueToValue,

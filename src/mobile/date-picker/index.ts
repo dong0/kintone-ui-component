@@ -6,7 +6,7 @@ import {
   dispatchCustomEvent,
   generateGUID,
   KucBase,
-  createStyleOnHeader
+  createStyleOnHeader,
 } from "../../base/kuc-base";
 import {
   validateProps,
@@ -42,7 +42,7 @@ let exportMobileDatePicker;
       type: Boolean,
       attribute: "hidden",
       reflect: true,
-    converter: visiblePropConverter,
+      converter: visiblePropConverter,
     })
     visible = true;
 
@@ -145,7 +145,7 @@ let exportMobileDatePicker;
       event.preventDefault();
       const eventDetail: CustomEventDetail = {
         oldValue: this.value,
-      value: "",
+        value: "",
       };
       const theSameValue =
         event.detail.value === this.value ||
