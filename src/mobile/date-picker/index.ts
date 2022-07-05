@@ -12,7 +12,7 @@ import {
   validateProps,
   validateDateValue,
   isValidDate,
-  throwErrorAfterUpdateComplete
+  throwErrorAfterUpdateComplete,
 } from "../../base/validator";
 import "../../base/datetime/mobile-date";
 import "../../base/mobile-label";
@@ -42,7 +42,7 @@ let exportMobileDatePicker;
       type: Boolean,
       attribute: "hidden",
       reflect: true,
-      converter: visiblePropConverter
+    converter: visiblePropConverter,
     })
     visible = true;
 
@@ -145,7 +145,7 @@ let exportMobileDatePicker;
       event.preventDefault();
       const eventDetail: CustomEventDetail = {
         oldValue: this.value,
-        value: ""
+      value: "",
       };
       const theSameValue =
         event.detail.value === this.value ||

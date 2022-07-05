@@ -95,9 +95,9 @@ describe("TimePicker", () => {
         {
           clipboardData: {
             getData: () => "4321",
-            types: ["text/html"]
+            types: ["text/html"],
+          },
           }
-        }
       );
       hourInputEl.dispatchEvent(event);
       await elementUpdated(el);

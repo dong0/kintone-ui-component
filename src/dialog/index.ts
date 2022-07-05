@@ -55,9 +55,8 @@ let exportDialog;
     }
 
     private _handleFocusFirstDummy() {
-      const lastFocusableElement = this._focusableElements[
-        this._focusableElements.length - 2
-      ];
+    const lastFocusableElement =
+      this._focusableElements[this._focusableElements.length - 2];
       lastFocusableElement && lastFocusableElement.focus();
     }
 
