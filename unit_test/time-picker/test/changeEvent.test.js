@@ -5,7 +5,7 @@ describe("TimePicker", () => {
         it("should be triggered when mousedown on item in ListBox", async () => {
             let triggeredEvent = null;
             const container = new TimePicker();
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -22,7 +22,7 @@ describe("TimePicker", () => {
         it("should be triggered when focused listbox and press arrowUp/arrowDown key", async () => {
             let triggeredEvent = null;
             const container = new TimePicker();
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -58,8 +58,8 @@ describe("TimePicker", () => {
             const event = Object.assign(new Event("paste", { bubbles: true, cancelable: true }), {
                 clipboardData: {
                     getData: () => "4321",
-                    types: ["text/html"]
-                }
+                    types: ["text/html"],
+                },
             });
             hourInputEl.dispatchEvent(event);
             await elementUpdated(el);

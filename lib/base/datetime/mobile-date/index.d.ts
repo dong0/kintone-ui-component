@@ -17,7 +17,7 @@ export declare class BaseMobileDate extends KucBase {
     private _calendarValue?;
     private _inputValue?;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): void;
     private _setCalendarPosition;
     private _getGroupClass;
@@ -34,5 +34,4 @@ export declare class BaseMobileDate extends KucBase {
     private _dispathDateChangeCustomEvent;
     private _getCalendarTemplate;
     private _getCalendarIconTemplate;
-    private _getStyleTagTemplate;
 }

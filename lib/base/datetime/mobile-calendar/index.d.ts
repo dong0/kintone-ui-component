@@ -9,9 +9,8 @@ export declare class BaseMobileDateTimeCalendar extends KucBase {
     _month: number;
     _year: number;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): void;
-    private _getStyleTagTemplate;
     private _handleClickCalendarGroup;
     private _handleCalendarHeaderChange;
     private _updateValue;

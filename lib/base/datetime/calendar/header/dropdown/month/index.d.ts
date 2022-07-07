@@ -13,14 +13,13 @@ export declare class BaseDateTimeHeaderMonth extends KucBase {
     connectedCallback(): void;
     disconnectedCallback(): void;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): Promise<void>;
     private _handleScrollDocument;
     closeListBox(): void;
     private _getListBoxTemplate;
     private _handleFocusOutListBox;
     private _handleListBoxEscape;
-    private _getStyleTagTemplate;
     private _handleClickDropdownMonthToggle;
     private _handleMouseUpDropdownToggle;
     private _handleMouseDownDropdownToggle;

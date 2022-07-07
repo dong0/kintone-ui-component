@@ -5,20 +5,20 @@ describe("MobileMultiChoice", () => {
         const initItems = [
             { label: "-----", value: "-----" },
             { label: "Orange", value: "orange" },
-            { label: "Apple", value: "apple" }
+            { label: "Apple", value: "apple" },
         ];
         const duplicateItems = [
             { label: "Orange", value: "orange" },
-            { label: "Apple", value: "orange" }
+            { label: "Apple", value: "orange" },
         ];
         const itemsForReplace = [
             { label: "Orange", value: "orange" },
-            { label: "Apple", value: "apple" }
+            { label: "Apple", value: "apple" },
         ];
         const initItemsWithoutLabel = [
             { value: "-----" },
             { value: "orange" },
-            { value: "apple" }
+            { value: "apple" },
         ];
         const initItemsWithoutValue = [{ label: "-----" }];
         const expectedLabels = ["-----", "Orange", "Apple"];
@@ -82,7 +82,7 @@ describe("MobileMultiChoice", () => {
         it("items prop replace successfully", async () => {
             var _a, _b, _c, _d;
             const container = new MobileMultiChoice({
-                items: initItems
+                items: initItems,
             });
             container.items = itemsForReplace;
             const el = await fixture(container);
@@ -96,8 +96,7 @@ describe("MobileMultiChoice", () => {
         });
         it("show error when initializing with props is null", async () => {
             const container = new MobileMultiChoice({
-                // @ts-expect-error
-                items: null
+                items: null,
             });
             try {
                 await fixture(container);
@@ -115,7 +114,7 @@ describe("MobileMultiChoice", () => {
         it("show error when initializing value is duplicated", async () => {
             const container = new MobileMultiChoice({
                 items: duplicateItems,
-                value: [duplicateItems[1].value]
+                value: [duplicateItems[1].value],
             });
             try {
                 await fixture(container);
@@ -132,7 +131,6 @@ describe("MobileMultiChoice", () => {
         });
         it("show error when when changing by setter to null", async () => {
             const container = new MobileMultiChoice({});
-            // @ts-expect-error
             container.items = null;
             try {
                 await fixture(container);

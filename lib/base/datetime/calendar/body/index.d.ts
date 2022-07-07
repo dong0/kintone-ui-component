@@ -15,7 +15,7 @@ export declare class BaseDateTimeCalendarBody extends KucBase {
     connectedCallback(): void;
     disconnectedCallback(): void;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): void;
     private _handleClickDocument;
     private _handleKeyDownDocument;
@@ -33,5 +33,4 @@ export declare class BaseDateTimeCalendarBody extends KucBase {
     private _getHeaderItemsTemplate;
     private _getDateItemsTemplate;
     private _focusDateButtonEl;
-    private _getStyleTagTemplate;
 }

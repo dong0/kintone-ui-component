@@ -1,7 +1,8 @@
 import { __decorate } from "tslib";
 import { html } from "lit";
 import { property } from "lit/decorators.js";
-import { KucBase } from "../kuc-base";
+import { createStyleOnHeader, KucBase } from "../kuc-base";
+import { BASE_ERROR_CSS } from "./style";
 export class BaseError extends KucBase {
     constructor() {
         super(...arguments);
@@ -11,7 +12,6 @@ export class BaseError extends KucBase {
     }
     render() {
         return html `
-      ${this._getStyleTagTemplate()}
       ${this.ariaLive && this.ariaLive !== ""
             ? html `
             <div
@@ -36,51 +36,6 @@ export class BaseError extends KucBase {
           `}
     `;
     }
-    _getStyleTagTemplate() {
-        return html `
-      <style>
-        kuc-base-error,
-        kuc-base-error *,
-        :lang(en) kuc-base-error,
-        :lang(en) kuc-base-error * {
-          font-family: "HelveticaNeueW02-45Ligh", Arial,
-            "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-        }
-        :lang(ja) kuc-base-error,
-        :lang(ja) kuc-base-error * {
-          font-family: "メイリオ", "Hiragino Kaku Gothic ProN", Meiryo,
-            sans-serif;
-        }
-        :lang(zh) kuc-base-error,
-        :lang(zh) kuc-base-error * {
-          font-family: "微软雅黑", "Microsoft YaHei", "新宋体", NSimSun, STHeiti,
-            Hei, "Heiti SC", sans-serif;
-        }
-        kuc-base-error {
-          width: 100%;
-          font-size: 14px;
-          display: inline-table;
-          vertical-align: top;
-        }
-        kuc-base-error[hidden] {
-          display: none;
-        }
-        .kuc-base-error__error {
-          line-height: 1.5;
-          padding: 4px 18px;
-          box-sizing: border-box;
-          background-color: #e74c3c;
-          color: #ffffff;
-          margin: 8px 0px;
-          word-break: break-all;
-          white-space: normal;
-        }
-        .kuc-base-error__error[hidden] {
-          display: none;
-        }
-      </style>
-    `;
-    }
 }
 __decorate([
     property({ type: String })
@@ -92,5 +47,6 @@ __decorate([
     property({ type: String })
 ], BaseError.prototype, "text", void 0);
 if (!window.customElements.get("kuc-base-error")) {
+    createStyleOnHeader(BASE_ERROR_CSS);
     window.customElements.define("kuc-base-error", BaseError);
 }

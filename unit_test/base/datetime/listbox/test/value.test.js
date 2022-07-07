@@ -6,7 +6,7 @@ describe("BaseDateTimeListBox", () => {
             var _a;
             const initItems = [
                 { value: "0", label: "JANUARY" },
-                { value: "1", label: "FEBRUARY" }
+                { value: "1", label: "FEBRUARY" },
             ];
             const container = new BaseDateTimeListBox();
             container.items = initItems;

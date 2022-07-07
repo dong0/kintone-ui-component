@@ -1,11 +1,11 @@
 import { KucBase } from "../../kuc-base";
-export declare type Item = {
+export declare type BaseDateTimeListBoxItem = {
     label?: string;
     value?: string;
 };
 export declare class BaseDateTimeListBox extends KucBase {
     value: string;
-    items: Item[];
+    items: BaseDateTimeListBoxItem[];
     maxHeight: number;
     doFocus: boolean;
     private _listBoxEl;
@@ -21,7 +21,7 @@ export declare class BaseDateTimeListBox extends KucBase {
     connectedCallback(): void;
     disconnectedCallback(): void;
     getHighlightItemEl(): HTMLLIElement;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: any): void;
     private _handleClickDocument;
     private _handleClickListBox;
@@ -44,5 +44,4 @@ export declare class BaseDateTimeListBox extends KucBase {
     private _getHighlightItemByValue;
     private _getListBoxItemTemplate;
     private _getCheckedIconSvgTemplate;
-    private _getStyleTagTemplate;
 }

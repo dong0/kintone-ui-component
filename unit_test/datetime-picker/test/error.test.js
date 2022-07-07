@@ -34,7 +34,7 @@ describe("DateTimePicker", () => {
         it("should have width equal label when label longer than input width", async () => {
             const container = new DateTimePicker({
                 error: "error-message",
-                label: "long label long label long label long label"
+                label: "long label long label long label long label",
             });
             const el = await fixture(container);
             const errorEl = el.querySelector(".kuc-base-error__error");
@@ -44,7 +44,7 @@ describe("DateTimePicker", () => {
         it("should show `Format is not valid` when input invalid value", async () => {
             const container = new DateTimePicker({
                 error: "error-message",
-                label: "long label long label long label long label"
+                label: "long label long label long label long label",
             });
             const el = await fixture(container);
             const dateInputEl = el.querySelector(".kuc-base-date__input");

@@ -1,13 +1,10 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
-import { BaseLabel } from "../base/label";
-import { BaseError } from "../base/error";
-export { BaseError, BaseLabel };
-declare type Item = {
+export declare type MultiChoiceItem = {
     label?: string;
     value?: string;
 };
-declare type MultiChoiceProps = {
+export declare type MultiChoiceProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -17,7 +14,7 @@ declare type MultiChoiceProps = {
     disabled?: boolean;
     requiredIcon?: boolean;
     visible?: boolean;
-    items?: Item[];
+    items?: MultiChoiceItem[];
 };
 export declare class MultiChoice extends KucBase {
     className: string;
@@ -27,32 +24,12 @@ export declare class MultiChoice extends KucBase {
     disabled: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    items: Item[];
+    items: MultiChoiceItem[];
     selectedIndex: number[];
     value: string[];
-    private _menuEl;
-    private _itemsEl;
-    private _GUID;
-    private _valueMapping;
     constructor(props?: MultiChoiceProps);
-    private _setInitialValue;
     shouldUpdate(changedProperties: PropertyValues): boolean;
     willUpdate(changedProperties: PropertyValues): void;
     update(changedProperties: PropertyValues): void;
     render(): import("lit").TemplateResult<1>;
-    private _getValueMapping;
-    private _getValidValue;
-    private _getValidSelectedIndex;
-    private _setValueAndSelectedIndex;
-    private _handleMouseDownMultiChoiceItem;
-    private _handleMouseOverMultiChoiceItem;
-    private _handleMouseLeaveMultiChoiceItem;
-    private _handleKeyDownMultiChoice;
-    private _getMultiChoiceCheckedIconSvgTemplate;
-    private _isCheckedItem;
-    private _getMenuItemTemplate;
-    private _getStyleTagTemplate;
-    private _setActiveDescendant;
-    private _handleChangeValue;
-    private _getNewValueMapping;
 }

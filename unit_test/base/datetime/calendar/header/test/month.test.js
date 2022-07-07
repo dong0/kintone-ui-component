@@ -11,7 +11,7 @@ describe("BaseDateTimeCalendarHeader", () => {
             await elementUpdated(container);
             const optionMonthEl = el.querySelector(".kuc-base-datetime-header-month__listbox");
             expect(monthSelectEl.innerText).to.equal("JANUARY");
-            expect(optionMonthEl.children[1].children.length).to.equal(12);
+            expect(optionMonthEl.children[0].children.length).to.equal(12);
         });
         it("should be 5 when assigning 5 by setter", async () => {
             const container = document.createElement("kuc-base-datetime-calendar-header");

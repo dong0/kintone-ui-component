@@ -1,9 +1,6 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../../base/kuc-base";
-import "../../base/datetime/mobile-date";
-import "../../base/mobile-label";
-import "../../base/mobile-error";
-declare type MobileDatePickerProps = {
+export declare type MobileDatePickerProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -24,18 +21,9 @@ export declare class MobileDatePicker extends KucBase {
     language: string;
     value?: string | undefined;
     visible: boolean;
-    private _GUID;
-    private _dateConverted;
-    private _inputValue;
     constructor(props?: MobileDatePickerProps);
     protected shouldUpdate(_changedProperties: Map<string | number | symbol, unknown>): boolean;
     willUpdate(changedProperties: PropertyValues): void;
     update(changedProperties: PropertyValues): void;
     render(): import("lit").TemplateResult<1>;
-    private _updateInputValue;
-    private _getLanguage;
-    private _handleDateChange;
-    private _disptchChangeEvent;
-    private _getStyleTagTemplate;
 }
-export {};

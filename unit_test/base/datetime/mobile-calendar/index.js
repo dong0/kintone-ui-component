@@ -1,11 +1,12 @@
 import { __decorate } from "tslib";
 import { html } from "lit";
 import { state, property } from "lit/decorators.js";
-import { KucBase } from "../../kuc-base";
+import { KucBase, createStyleOnHeader } from "../../kuc-base";
 import { getTodayStringByLocale } from "../../datetime/utils";
 import "./header";
 import "./body";
 import "./footer";
+import { BASE_MOBILE_CALENDAR } from "./style";
 export class BaseMobileDateTimeCalendar extends KucBase {
     constructor() {
         super(...arguments);
@@ -21,7 +22,6 @@ export class BaseMobileDateTimeCalendar extends KucBase {
     }
     render() {
         return html `
-      ${this._getStyleTagTemplate()}
       <div
         class="kuc-base-mobile-datetime-calendar__group"
         role="dialog"
@@ -51,22 +51,6 @@ export class BaseMobileDateTimeCalendar extends KucBase {
     updated(changedProperties) {
         super.updated(changedProperties);
     }
-    _getStyleTagTemplate() {
-        return html `
-      <style>
-        .kuc-base-mobile-datetime-calendar__group {
-          display: inline-block;
-          box-sizing: border-box;
-          width: 290px;
-          padding: 0 10px;
-          background: #ffffff;
-          text-align: center;
-          font-size: 13px;
-          border: 1px solid #d8d8d8;
-        }
-      </style>
-    `;
-    }
     _handleClickCalendarGroup(event) {
         event.stopPropagation();
     }
@@ -87,7 +71,7 @@ export class BaseMobileDateTimeCalendar extends KucBase {
         const dateParts = value.split("-");
         return {
             year: parseInt(dateParts[0], 10),
-            month: parseInt(dateParts[1], 10)
+            month: parseInt(dateParts[1], 10),
         };
     }
 }
@@ -104,5 +88,6 @@ __decorate([
     state()
 ], BaseMobileDateTimeCalendar.prototype, "_year", void 0);
 if (!window.customElements.get("kuc-base-mobile-datetime-calendar")) {
+    createStyleOnHeader(BASE_MOBILE_CALENDAR);
     window.customElements.define("kuc-base-mobile-datetime-calendar", BaseMobileDateTimeCalendar);
 }

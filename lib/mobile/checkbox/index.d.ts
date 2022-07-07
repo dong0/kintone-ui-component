@@ -1,13 +1,10 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../../base/kuc-base";
-import { BaseMobileLabel } from "../../base/mobile-label";
-import { BaseMobileError } from "../../base/mobile-error";
-export { BaseMobileLabel, BaseMobileError };
-declare type Item = {
+export declare type MobileCheckboxItem = {
     label?: string;
     value?: string;
 };
-declare type MobileCheckboxProps = {
+export declare type MobileCheckboxProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -16,7 +13,7 @@ declare type MobileCheckboxProps = {
     disabled?: boolean;
     requiredIcon?: boolean;
     visible?: boolean;
-    items?: Item[];
+    items?: MobileCheckboxItem[];
     value?: string[];
     selectedIndex?: number[];
 };
@@ -29,28 +26,13 @@ export declare class MobileCheckbox extends KucBase {
     disabled: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    items: Item[];
+    items: MobileCheckboxItem[];
     selectedIndex: number[];
     value: string[];
-    private _inputEls;
-    private _GUID;
-    private _valueMapping;
     constructor(props?: MobileCheckboxProps);
-    private _setInitialValue;
-    private _getNewValueMapping;
-    private _handleChangeInput;
-    private _getCheckboxIconSvgTemplate;
-    private _getSVGStrokeValue;
-    private _isCheckedItem;
-    private _getItemTemplate;
     shouldUpdate(changedProperties: PropertyValues): boolean;
     willUpdate(changedProperties: PropertyValues): void;
     update(changedProperties: PropertyValues): void;
     render(): import("lit").TemplateResult<1>;
     updated(): void;
-    private _setValueAndSelectedIndex;
-    private _getValueMapping;
-    private _getValidValue;
-    private _getValidSelectedIndex;
-    private _getStyleTagTemplate;
 }

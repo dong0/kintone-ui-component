@@ -12,7 +12,7 @@ describe("Button", () => {
         });
         it("should be normal when assigning by setter", async () => {
             const container = new Button({
-                type: "submit"
+                type: "submit",
             });
             container.type = "normal";
             const el = await fixture(container);
@@ -23,7 +23,7 @@ describe("Button", () => {
         });
         it("should be alert when assigning alert by setter", async () => {
             const container = new Button({
-                type: "normal"
+                type: "normal",
             });
             container.type = "alert";
             const el = await fixture(container);
@@ -34,7 +34,7 @@ describe("Button", () => {
         });
         it("should be submit when assigning submit by setter", async () => {
             const container = new Button({
-                type: "normal"
+                type: "normal",
             });
             container.type = "submit";
             const el = await fixture(container);

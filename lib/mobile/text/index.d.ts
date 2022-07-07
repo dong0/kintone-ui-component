@@ -1,8 +1,5 @@
 import { KucBase } from "../../base/kuc-base";
-import { BaseMobileLabel } from "../../base/mobile-label";
-import { BaseMobileError } from "../../base/mobile-error";
-export { BaseMobileLabel, BaseMobileError };
-declare type MobileTextProps = {
+export declare type MobileTextProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -29,11 +26,6 @@ export declare class MobileText extends KucBase {
     disabled: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    private _GUID;
     constructor(props?: MobileTextProps);
-    private _handleFocusInput;
-    private _handleChangeInput;
-    private _handleInputText;
     render(): import("lit").TemplateResult<1>;
-    private _getStyleTagTemplate;
 }

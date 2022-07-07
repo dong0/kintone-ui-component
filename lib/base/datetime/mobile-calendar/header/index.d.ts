@@ -10,7 +10,7 @@ export declare class BaseMobileDateTimeCalendarHeader extends KucBase {
     private _selectMonthEl;
     private _selectYearEl;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): void;
     private _setSelectMonthWidth;
     private _setYearSelectedIndex;
@@ -29,5 +29,4 @@ export declare class BaseMobileDateTimeCalendarHeader extends KucBase {
     private _getYearTemplate;
     private _getLeftArrowIconSvgTemplate;
     private _getRightArrowIconSvgTemplate;
-    private _getStyleTagTemplate;
 }

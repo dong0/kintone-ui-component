@@ -1,9 +1,9 @@
-import { triggerFocusFor, triggerBlurFor, expect, fixture } from "@open-wc/testing";
+import { triggerFocusFor, triggerBlurFor, expect, fixture, } from "@open-wc/testing";
 import { Checkbox } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 describe("Checkbox", () => {
     describe("accessibility", () => {
@@ -11,7 +11,7 @@ describe("Checkbox", () => {
             var _a, _b;
             const container = new Checkbox({
                 items: initItems,
-                value: [initItems[1].value]
+                value: [initItems[1].value],
             });
             const el = await fixture(container);
             const inputEl = el.querySelector(".kuc-checkbox__group__select-menu__item__input");

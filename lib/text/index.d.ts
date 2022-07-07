@@ -1,8 +1,5 @@
 import { KucBase } from "../base/kuc-base";
-import { BaseLabel } from "../base/label";
-import { BaseError } from "../base/error";
-export { BaseError, BaseLabel };
-declare type TextProps = {
+export declare type TextProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -29,11 +26,6 @@ export declare class Text extends KucBase {
     disabled: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    private _GUID;
     constructor(props?: TextProps);
-    private _handleFocusInput;
-    private _handleChangeInput;
-    private _handleInputText;
     render(): import("lit").TemplateResult<1>;
-    private _getStyleTagTemplate;
 }

@@ -21,9 +21,8 @@ export declare class BaseDate extends KucBase {
     private _inputValue?;
     private _valueForReset?;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): void;
-    private _getStyleTagTemplate;
     private _handleInputValue;
     private _handleClickInput;
     private _updateValueProp;

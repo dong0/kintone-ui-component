@@ -3,7 +3,7 @@ import { MultiChoice } from "../index";
 const initItems = [
     { label: "Item 1", value: "item-1" },
     { label: "Item 2", value: "item-2" },
-    { label: "Item 3", value: "item-3" }
+    { label: "Item 3", value: "item-3" },
 ];
 describe("MultiChoice", () => {
     describe("value", () => {
@@ -40,7 +40,7 @@ describe("MultiChoice", () => {
         it("should be selected item when assigned on constructor", async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[1].value]
+                value: [initItems[1].value],
             });
             const el = await fixture(container);
             expect(container.value).to.deep.equal([initItems[1].value]);
@@ -58,7 +58,7 @@ describe("MultiChoice", () => {
         it("should be selected item by setter", async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[0].value]
+                value: [initItems[0].value],
             });
             container.value = [initItems[1].value];
             const el = await fixture(container);
@@ -77,7 +77,7 @@ describe("MultiChoice", () => {
         it("should be emtpy array when set [] by setter", async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[1].value]
+                value: [initItems[1].value],
             });
             const el = await fixture(container);
             container.value = [];
@@ -95,7 +95,6 @@ describe("MultiChoice", () => {
             expect(itemsEl[2].getAttribute("aria-selected")).to.equal("false");
         });
         it("should be throw error when assigned null on constructor", async () => {
-            // @ts-expect-error
             const container = new MultiChoice({ items: initItems, value: null });
             try {
                 await fixture(container);
@@ -112,7 +111,6 @@ describe("MultiChoice", () => {
         });
         it("should be throw error when set null by setter", async () => {
             const container = new MultiChoice({ items: initItems });
-            // @ts-expect-error
             container.value = null;
             try {
                 await fixture(container);

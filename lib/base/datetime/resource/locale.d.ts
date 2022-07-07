@@ -12,6 +12,7 @@ export declare const en: {
         today: string;
         close: string;
     };
+    TIME_IS_OUT_OF_VALID_RANGE: string;
 };
 export declare const ja: {
     MONTH_SELECT: string[];
@@ -27,6 +28,7 @@ export declare const ja: {
         today: string;
         close: string;
     };
+    TIME_IS_OUT_OF_VALID_RANGE: string;
 };
 export declare const zh: {
     MONTH_SELECT: string[];
@@ -42,4 +44,5 @@ export declare const zh: {
         today: string;
         close: string;
     };
+    TIME_IS_OUT_OF_VALID_RANGE: string;
 };

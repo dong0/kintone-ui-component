@@ -15,7 +15,7 @@ describe("MobileDropdown", () => {
         });
         it('should be replace by "replace-class" when changing by setter', async () => {
             const container = new MobileDropdown({
-                className: "options-class"
+                className: "options-class",
             });
             container.className = "replace-class";
             const el = await fixture(container);

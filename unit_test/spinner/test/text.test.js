@@ -12,7 +12,7 @@ describe("Spinner", () => {
     });
     it("should be 'display spinner' when assigning on constructor", async () => {
         const container = new Spinner({
-            text: "display spinner"
+            text: "display spinner",
         });
         container.open();
         const el = await fixture(container);
@@ -21,7 +21,7 @@ describe("Spinner", () => {
     });
     it("should be replaced by 'replace-text' when changed by setter", async () => {
         const container = new Spinner({
-            text: "display spinner"
+            text: "display spinner",
         });
         container.open();
         container.text = "replace-text";

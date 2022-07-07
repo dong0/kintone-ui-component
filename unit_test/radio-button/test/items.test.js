@@ -3,17 +3,17 @@ import { RadioButton } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 const initItemsWithoutLabel = [
     { value: "-----" },
     { value: "orange" },
-    { value: "apple" }
+    { value: "apple" },
 ];
 const initItemsWithoutValue = [{ label: "-----" }];
 const replacedItems = [
     { label: "-----", value: "-----" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 const dupplicatedItems = [{ value: "apple" }, { value: "apple" }];
 describe("MobileRadioButton", () => {
@@ -75,7 +75,7 @@ describe("MobileRadioButton", () => {
         });
         it('should set item value "" when asigned item value undefined on constuctor', async () => {
             const container = new RadioButton({
-                items: initItemsWithoutValue
+                items: initItemsWithoutValue,
             });
             const el = await fixture(container);
             const itemsEl = el.querySelectorAll(".kuc-radio-button__group__select-menu__item");
@@ -155,7 +155,6 @@ describe("MobileRadioButton", () => {
             expect(circlesEl1.length).to.equal(1);
         });
         it("should be throw error when assigned null on constructor", async () => {
-            // @ts-expect-error
             const container = new RadioButton({ items: null });
             try {
                 await fixture(container);
@@ -188,7 +187,6 @@ describe("MobileRadioButton", () => {
         it("should be throw error when assigned null by setter", async () => {
             const container = new RadioButton();
             try {
-                // @ts-expect-error
                 container.items = null;
                 await fixture(container);
             }

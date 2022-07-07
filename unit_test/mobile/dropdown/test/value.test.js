@@ -3,7 +3,7 @@ import { MobileDropdown } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 describe("MobileDropdown", () => {
     describe("value", () => {
@@ -17,7 +17,7 @@ describe("MobileDropdown", () => {
         it("exists on element when initializing with props option", async () => {
             const container = new MobileDropdown({
                 items: initItems,
-                value: initItems[1].value
+                value: initItems[1].value,
             });
             const el = await fixture(container);
             const selectEl = el.querySelector("select");
@@ -29,7 +29,7 @@ describe("MobileDropdown", () => {
                 label: "Fruit",
                 requiredIcon: false,
                 items: initItems,
-                value: initItems[1].value
+                value: initItems[1].value,
             });
             container.value = initItems[2].value;
             const el = await fixture(container);
@@ -42,7 +42,7 @@ describe("MobileDropdown", () => {
                 label: "Orange",
                 requiredIcon: false,
                 items: initItems,
-                value: ""
+                value: "",
             });
             const el = await fixture(container);
             const selectEl = el.querySelector("select");
@@ -62,7 +62,7 @@ describe("MobileDropdown", () => {
                 label: "Orange",
                 requiredIcon: false,
                 value: "orange",
-                items: initItems
+                items: initItems,
             });
             container.value = "apple";
             const el = await fixture(container);

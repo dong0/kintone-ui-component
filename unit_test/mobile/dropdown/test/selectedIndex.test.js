@@ -3,7 +3,7 @@ import { MobileDropdown } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 describe("MobileDropdown", () => {
     describe("selectedIndex", () => {
@@ -16,7 +16,7 @@ describe("MobileDropdown", () => {
         it("should be 1 when assigned 1 on constructor", async () => {
             const container = new MobileDropdown({
                 items: initItems,
-                selectedIndex: 1
+                selectedIndex: 1,
             });
             const el = await fixture(container);
             const itemsEl = el.querySelector(".kuc-mobile-dropdown__input-form__select__input");
@@ -25,7 +25,7 @@ describe("MobileDropdown", () => {
         it("should be 1 when assigning value and not assigning selectedIndex on constructor", async () => {
             const container = new MobileDropdown({
                 items: initItems,
-                value: initItems[1].value
+                value: initItems[1].value,
             });
             const el = await fixture(container);
             const itemsEl = el.querySelector(".kuc-mobile-dropdown__input-form__select__input");
@@ -34,7 +34,7 @@ describe("MobileDropdown", () => {
         it("should be 2 when changing by setter to 2", async () => {
             const container = new MobileDropdown({
                 items: initItems,
-                selectedIndex: 1
+                selectedIndex: 1,
             });
             container.value = "apple";
             container.selectedIndex = 2;
@@ -56,7 +56,7 @@ describe("MobileDropdown", () => {
         it("should be checked items when assinged on constructor", async () => {
             const container = new MobileDropdown({
                 items: initItems,
-                selectedIndex: 1
+                selectedIndex: 1,
             });
             const el = await fixture(container);
             expect(container.selectedIndex).to.be.equal(1);

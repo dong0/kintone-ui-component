@@ -5,7 +5,7 @@ describe("BaseMobileDateTimeCalendarFooter", () => {
         it("should be triggered kuc:calendar-footer-click-none event", async () => {
             let triggeredEvent = null;
             const container = document.createElement("kuc-base-mobile-datetime-calendar-footer");
-            container.addEventListener("kuc:mobile-calendar-footer-click-none", event => {
+            container.addEventListener("kuc:mobile-calendar-footer-click-none", (event) => {
                 triggeredEvent = event.type;
             });
             const el = await fixture(container);
@@ -17,7 +17,7 @@ describe("BaseMobileDateTimeCalendarFooter", () => {
         it("should be triggered kuc:calendar-footer-click-today event", async () => {
             let triggeredEvent = null;
             const container = document.createElement("kuc-base-mobile-datetime-calendar-footer");
-            container.addEventListener("kuc:mobile-calendar-footer-click-today", event => {
+            container.addEventListener("kuc:mobile-calendar-footer-click-today", (event) => {
                 triggeredEvent = event.type;
             });
             const el = await fixture(container);
@@ -29,7 +29,7 @@ describe("BaseMobileDateTimeCalendarFooter", () => {
         it("should be triggered kuc:calendar-footer-click-close event", async () => {
             let triggeredEvent = null;
             const container = document.createElement("kuc-base-mobile-datetime-calendar-footer");
-            container.addEventListener("kuc:mobile-calendar-footer-click-close", event => {
+            container.addEventListener("kuc:mobile-calendar-footer-click-close", (event) => {
                 triggeredEvent = event.type;
             });
             const el = await fixture(container);

@@ -12,7 +12,7 @@ export declare class BaseMobileDateTimeCalendarBody extends KucBase {
     connectedCallback(): void;
     disconnectedCallback(): void;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     private _handleClickDocument;
     private _handleClickDateBtn;
     private _dispatchClickEvent;
@@ -22,5 +22,4 @@ export declare class BaseMobileDateTimeCalendarBody extends KucBase {
     private _isSameDayOfMoment;
     private _getHeaderItemsTemplate;
     private _getDateItemsTemplate;
-    private _getStyleTagTemplate;
 }

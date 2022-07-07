@@ -5,14 +5,14 @@ describe("BaseDateTimeCalendarBody", () => {
         const initValue = {
             month: 8,
             year: 2021,
-            value: "2021-08-22"
+            value: "2021-08-22",
         };
         const expectValue = {
             previousDay: "2021-08-21",
             previousWeek: "2021-08-15",
             nextDay: "2021-08-23",
             nextWeek: "2021-08-29",
-            next2Weeks: "2021-09-05"
+            next2Weeks: "2021-09-05",
         };
         it('should be highlight previous week when triggered "Up" keyboard event for IE', async () => {
             const container = new BaseDateTimeCalendarBody();

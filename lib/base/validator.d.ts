@@ -5,6 +5,8 @@ declare type Item = {
 export declare function validateProps<Type>(props: Type): {};
 export declare function validateDateValue(value: string | undefined): boolean;
 export declare function validateTimeValue(value: string): boolean;
+export declare function validateTimeStepNumber(timeStep: number): boolean;
+export declare function validateTimeStep(timeStep: number, max: string, min: string): boolean;
 export declare function isValidDate(date: string): boolean;
 export declare function validateItems(value: Item[]): boolean;
 export declare function validateValueArray(value: string[]): boolean;

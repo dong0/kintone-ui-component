@@ -8,6 +8,7 @@ declare type CustomEventDetail = {
 export declare abstract class KucBase extends LitElement {
     createRenderRoot(): this;
 }
-export declare const dispatchCustomEvent: (el: HTMLElement, eventName: string, detail?: CustomEventDetail | undefined) => boolean;
+export declare const dispatchCustomEvent: (el: HTMLElement, eventName: string, detail?: CustomEventDetail) => boolean;
+export declare const createStyleOnHeader: (styleText: string) => void;
 export { CustomEventDetail };
 export declare const generateGUID: () => string;

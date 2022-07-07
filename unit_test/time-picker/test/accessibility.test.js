@@ -5,7 +5,7 @@ describe("TimePicker", () => {
         it("should highlight first item when open listbox", async () => {
             let triggeredEvent = null;
             const container = new TimePicker();
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);

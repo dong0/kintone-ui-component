@@ -1,13 +1,10 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../../base/kuc-base";
-import { BaseMobileLabel } from "../../base/mobile-label";
-import { BaseMobileError } from "../../base/mobile-error";
-export { BaseMobileLabel, BaseMobileError };
-declare type Item = {
+export declare type MobileMultiChoiceItem = {
     label?: string;
     value?: string;
 };
-declare type MobileMultiChoiceProps = {
+export declare type MobileMultiChoiceProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -15,7 +12,7 @@ declare type MobileMultiChoiceProps = {
     disabled?: boolean;
     requiredIcon?: boolean;
     visible?: boolean;
-    items?: Item[];
+    items?: MobileMultiChoiceItem[];
     value?: string[];
     selectedIndex?: number[];
 };
@@ -27,23 +24,12 @@ export declare class MobileMultiChoice extends KucBase {
     disabled: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    items: Item[];
+    items: MobileMultiChoiceItem[];
     selectedIndex: number[];
     value: string[];
-    private _valueMapping;
-    private _GUID;
     constructor(props?: MobileMultiChoiceProps);
-    private _setInitialValue;
-    private _handleChangeInput;
     shouldUpdate(changedProperties: PropertyValues): boolean;
     willUpdate(changedProperties: PropertyValues): void;
     update(changedProperties: PropertyValues): void;
-    private _getValueMapping;
-    private _getValidValue;
-    private _getValidSelectedIndex;
-    private _setValueAndSelectedIndex;
-    private _isCheckedItem;
-    private _getItemTemplate;
     render(): import("lit").TemplateResult<1>;
-    private _getStyleTagTemplate;
 }

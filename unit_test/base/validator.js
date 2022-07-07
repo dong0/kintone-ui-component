@@ -1,3 +1,4 @@
+import { convertTimeValueToMinutes } from "./datetime/utils";
 export function validateProps(props) {
     if (!props || typeof props !== "object")
         return {};
@@ -21,6 +22,20 @@ export function validateTimeValue(value) {
     if (value === "" || regexHour24.test(value))
         return true;
     return false;
+}
+export function validateTimeStepNumber(timeStep) {
+    if (typeof timeStep !== "number") {
+        return false;
+    }
+    return true;
+}
+export function validateTimeStep(timeStep, max, min) {
+    const _tempTimeStep = Math.round(timeStep);
+    const maxMinutes = convertTimeValueToMinutes(max);
+    const minMinutes = convertTimeValueToMinutes(min);
+    return (!isNaN(_tempTimeStep) &&
+        _tempTimeStep > 0 &&
+        _tempTimeStep <= maxMinutes - minMinutes);
 }
 export function isValidDate(date) {
     const [year, month, day] = date.split("-");

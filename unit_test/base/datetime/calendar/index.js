@@ -1,11 +1,12 @@
 import { __decorate } from "tslib";
 import { html } from "lit";
 import { state, property, query } from "lit/decorators.js";
-import { KucBase, dispatchCustomEvent } from "../../kuc-base";
+import { KucBase, dispatchCustomEvent, createStyleOnHeader, } from "../../kuc-base";
 import { getTodayStringByLocale, calculateDistanceInput } from "../utils";
 import "./header";
 import "./body";
 import "./footer";
+import { CALENDAR_CSS } from "./style";
 export class BaseDateTimeCalendar extends KucBase {
     constructor() {
         super(...arguments);
@@ -21,7 +22,6 @@ export class BaseDateTimeCalendar extends KucBase {
     }
     render() {
         return html `
-      ${this._getStyleTagTemplate()}
       <div
         class="kuc-base-datetime-calendar__group"
         role="dialog"
@@ -70,8 +70,7 @@ export class BaseDateTimeCalendar extends KucBase {
     }
     _calculateBodyCalendarPosition() {
         const { inputToBottom, inputToTop, inputToRight, inputToLeft } = calculateDistanceInput(this);
-        const calendarHeight = this._baseCalendarGroupEl.getBoundingClientRect()
-            .height;
+        const calendarHeight = this._baseCalendarGroupEl.getBoundingClientRect().height;
         if (inputToBottom >= calendarHeight) {
             this._calculateCalendarPosition(inputToRight, inputToLeft, "bottom");
             return;
@@ -96,7 +95,7 @@ export class BaseDateTimeCalendar extends KucBase {
             this._setCalendarPosition({
                 top,
                 bottom,
-                right
+                right,
             });
             return;
         }
@@ -106,10 +105,10 @@ export class BaseDateTimeCalendar extends KucBase {
         this._setCalendarPosition({
             bottom,
             top,
-            left
+            left,
         });
     }
-    _setCalendarPosition({ top = "auto", left = "auto", right = "auto", bottom = "auto" }) {
+    _setCalendarPosition({ top = "auto", left = "auto", right = "auto", bottom = "auto", }) {
         const baseDatetimeCalendarEl = this._baseCalendarGroupEl.parentElement;
         if (!this.parentElement || !baseDatetimeCalendarEl)
             return;
@@ -120,22 +119,6 @@ export class BaseDateTimeCalendar extends KucBase {
         baseDatetimeCalendarEl.style.left = left === "auto" ? left : left + "px";
         baseDatetimeCalendarEl.style.right =
             right === "auto" ? right : right + "px";
-    }
-    _getStyleTagTemplate() {
-        return html `
-      <style>
-        .kuc-base-datetime-calendar__group {
-          display: inline-block;
-          box-sizing: border-box;
-          width: 336px;
-          padding: 32px 32px 24px;
-          background: #ffffff;
-          box-shadow: 0 0 8px 2px rgb(0 0 0 / 10%);
-          text-align: center;
-          font-size: 13px;
-        }
-      </style>
-    `;
     }
     _handleCalendarHeaderChange(event) {
         const { year, month } = this._separateValue(event.detail.value);
@@ -159,7 +142,7 @@ export class BaseDateTimeCalendar extends KucBase {
         const dateParts = value.split("-");
         return {
             year: parseInt(dateParts[0], 10),
-            month: parseInt(dateParts[1], 10)
+            month: parseInt(dateParts[1], 10),
         };
     }
 }
@@ -191,5 +174,6 @@ __decorate([
     state()
 ], BaseDateTimeCalendar.prototype, "_year", void 0);
 if (!window.customElements.get("kuc-base-datetime-calendar")) {
+    createStyleOnHeader(CALENDAR_CSS);
     window.customElements.define("kuc-base-datetime-calendar", BaseDateTimeCalendar);
 }

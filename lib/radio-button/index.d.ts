@@ -1,13 +1,10 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
-import { BaseLabel } from "../base/label";
-import { BaseError } from "../base/error";
-export { BaseError, BaseLabel };
-declare type Item = {
+export declare type RadioButtonItem = {
     label?: string;
     value?: string;
 };
-declare type RadioButtonProps = {
+export declare type RadioButtonProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -19,7 +16,7 @@ declare type RadioButtonProps = {
     disabled?: boolean;
     requiredIcon?: boolean;
     visible?: boolean;
-    items?: Item[];
+    items?: RadioButtonItem[];
 };
 export declare class RadioButton extends KucBase {
     className: string;
@@ -33,27 +30,11 @@ export declare class RadioButton extends KucBase {
     disabled: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    items: Item[];
-    private _labelEl;
-    private _errorEl;
-    private _selectMenuEl;
-    private _GUID;
+    items: RadioButtonItem[];
     constructor(props?: RadioButtonProps);
-    private _setInitialValue;
     shouldUpdate(changedProperties: PropertyValues): boolean;
     willUpdate(changedProperties: PropertyValues): void;
-    private _handleChangeInput;
-    private _handleFocusInput;
-    private _handleBlurInput;
-    private _getRadioIconSvgTemplate;
-    private _isCheckedItem;
-    private _getItemTemplate;
-    private _getTabIndex;
     update(changedProperties: PropertyValues): void;
     render(): import("lit").TemplateResult<1>;
     updated(): Promise<void>;
-    private _getSelectedIndex;
-    private _getValue;
-    private _updateErrorWidth;
-    private _getStyleTagTemplate;
 }

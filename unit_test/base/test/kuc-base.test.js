@@ -1,6 +1,6 @@
 import { html } from "lit";
 import { expect, fixture } from "@open-wc/testing";
-import { KucBase, generateGUID, dispatchCustomEvent } from "../kuc-base";
+import { KucBase, generateGUID, dispatchCustomEvent, } from "../kuc-base";
 describe("KucBase", () => {
     describe("generateGUID", () => {
         it("should be return GUID when calling generateGUID function", async () => {
@@ -26,7 +26,7 @@ describe("KucBase", () => {
             });
             const detail = {
                 value: "Apple",
-                oldValue: "Orange"
+                oldValue: "Orange",
             };
             dispatchCustomEvent(container, "change", detail);
             expect(triggeredEvent.type).to.equal("change");
@@ -37,9 +37,7 @@ describe("KucBase", () => {
 });
 class KucTest extends KucBase {
     render() {
-        return html `
-      <div class="kuc-test__test"></div>
-    `;
+        return html ` <div class="kuc-test__test"></div> `;
     }
 }
 if (!window.customElements.get("kuc-test")) {

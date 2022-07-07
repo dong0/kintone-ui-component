@@ -6,10 +6,12 @@ export declare const getDisplayingDates: (year: number, month: number) => {
     text: string;
     attr: string;
 }[][];
-export declare const generateTimeOptions: (isHour12: boolean, timeStep?: number) => {
+export declare const generateTimeOptions: (isHour12: boolean, timeStep: number, min: string, max: string) => {
     label: string;
     value: string;
 }[];
+export declare const convertTimeValueToMinutes: (value: string) => number;
+export declare const timeCompare: (startTime: string, endTime: string) => 1 | 0 | -1;
 export declare const formatTimeValueToInputValue: (value: string, hour12: boolean) => {
     hours: string;
     minutes: string;
@@ -29,11 +31,11 @@ export declare const convertTime24To12: (hours: number, minutes: number) => {
 };
 export declare const formatInputValueToTimeValue: (inputValue: string) => string;
 export declare const convertTime12To24: (hours: string, suffix: string) => string;
-export declare const formatValueToInputValue: (language: string, date?: string | undefined) => string | undefined;
+export declare const formatValueToInputValue: (language: string, date?: string) => string | undefined;
 export declare const formatInputValueToValue: (language: string, date: string) => string;
 export declare const isStringValueEmpty: (value: any) => boolean;
 export declare const getTodayStringByLocale: (language?: string) => string;
-export declare const isValidDateFormat: (language: string, dateString?: string | undefined) => boolean;
+export declare const isValidDateFormat: (language: string, dateString?: string) => boolean;
 export declare const padStart: (filterString: string | number, maxLength?: number) => string;
 export declare const getLocale: (language: string) => {
     MONTH_SELECT: string[];
@@ -49,6 +51,7 @@ export declare const getLocale: (language: string) => {
         today: string;
         close: string;
     };
+    TIME_IS_OUT_OF_VALID_RANGE: string;
 };
 export declare const generateMinuteOptions: (timeStep?: number) => {
     value: string;
@@ -66,8 +69,8 @@ export declare const generateHour24Options: () => {
     value: string;
     label: string;
 }[];
-export declare const getToggleIconSvgTemplate: () => import("lit").TemplateResult<2>;
-export declare const getLeftArrowIconSvgTemplate: () => import("lit").TemplateResult<2>;
+export declare const getToggleIconSvgTemplate: () => import("lit-html").TemplateResult<2>;
+export declare const getLeftArrowIconSvgTemplate: () => import("lit-html").TemplateResult<2>;
 export declare function setListBoxPosition(_this: HTMLElement, position: string): void;
 export declare const calculateDistanceInput: (_this: HTMLElement) => {
     inputToBottom: number;
@@ -75,4 +78,4 @@ export declare const calculateDistanceInput: (_this: HTMLElement) => {
     inputToRight: number;
     inputToLeft: number;
 };
-export declare const getRightArrowIconSvgTemplate: () => import("lit").TemplateResult<2>;
+export declare const getRightArrowIconSvgTemplate: () => import("lit-html").TemplateResult<2>;

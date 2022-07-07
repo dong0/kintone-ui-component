@@ -12,7 +12,7 @@ describe("MobileButton", () => {
         });
         it("should be normal when assigning by setter", async () => {
             const container = new MobileButton({
-                type: "submit"
+                type: "submit",
             });
             container.type = "normal";
             const el = await fixture(container);
@@ -23,7 +23,7 @@ describe("MobileButton", () => {
         });
         it("should be submit when assigning submit by setter", async () => {
             const container = new MobileButton({
-                type: "normal"
+                type: "normal",
             });
             container.type = "submit";
             const el = await fixture(container);
@@ -34,7 +34,7 @@ describe("MobileButton", () => {
         });
         it('should be normal when assigning a type other than "normal | alert | submit" by setter', async () => {
             const container = new MobileButton({
-                type: "submit"
+                type: "submit",
             });
             container.type = "other_type";
             const el = await fixture(container);

@@ -9,14 +9,14 @@ describe("MobileDatePicker", () => {
         });
         it("should not see that on screen when initializing disabled value is false", async () => {
             const container = new MobileDatePicker({
-                visible: false
+                visible: false,
             });
             const el = await fixture(container);
             expect(el).has.attribute("hidden");
         });
         it("should see that on screen when changing by setter", async () => {
             const container = new MobileDatePicker({
-                visible: false
+                visible: false,
             });
             container.visible = true;
             const el = await fixture(container);
@@ -24,7 +24,7 @@ describe("MobileDatePicker", () => {
         });
         it("should not see that on screen when changing by setter", async () => {
             const container = new MobileDatePicker({
-                visible: true
+                visible: true,
             });
             container.visible = false;
             const el = await fixture(container);

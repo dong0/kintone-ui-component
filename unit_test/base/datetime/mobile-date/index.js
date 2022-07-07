@@ -2,8 +2,9 @@ import { __decorate } from "tslib";
 import { html } from "lit";
 import { state, property, query } from "lit/decorators.js";
 import { BaseMobileDateTimeCalendar } from "../mobile-calendar";
-import { dispatchCustomEvent, KucBase } from "../../kuc-base";
-import { formatInputValueToValue, formatValueToInputValue, getTodayStringByLocale, isValidDateFormat, calculateDistanceInput } from "../utils";
+import { dispatchCustomEvent, KucBase, createStyleOnHeader, } from "../../kuc-base";
+import { formatInputValueToValue, formatValueToInputValue, getTodayStringByLocale, isValidDateFormat, calculateDistanceInput, } from "../utils";
+import { BASE_MOBILE_DATE_CSS } from "./style";
 export { BaseMobileDateTimeCalendar };
 export class BaseMobileDate extends KucBase {
     constructor() {
@@ -29,7 +30,6 @@ export class BaseMobileDate extends KucBase {
     }
     render() {
         return html `
-      ${this._getStyleTagTemplate()}
       <div class="kuc-mobile-base-date__group${this._getGroupClass()}">
         <input
           class="kuc-mobile-base-date__group__input"
@@ -189,70 +189,6 @@ export class BaseMobileDate extends KucBase {
       </svg>
     `;
     }
-    _getStyleTagTemplate() {
-        return html `
-      <style>
-        kuc-mobile-base-date,
-        kuc-mobile-base-date * {
-          font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic ProN",
-            "ヒラギノ角ゴ ProN W3", "ＭＳ Ｐゴシック", "Lucida Grande",
-            "Lucida Sans Unicode", Arial, Verdana, sans-serif;
-        }
-        :lang(zh) kuc-mobile-base-date,
-        :lang(zh) kuc-mobile-base-date * {
-          font-family: "微软雅黑", "Microsoft YaHei", "新宋体", NSimSun, STHeiti,
-            Hei, "Heiti SC", "Lucida Grande", "Lucida Sans Unicode", Arial,
-            Verdana, sans-serif;
-        }
-        .kuc-mobile-base-date__group {
-          display: flex;
-          align-items: center;
-          position: relative;
-          border-radius: 5.148px;
-          border: 1px solid #b3b3b3;
-          background-color: #ffffff;
-          padding: 5.148px;
-          box-shadow: 0px 1px 0px #ffffff, inset 0px 2px 3px #dadada;
-        }
-        .kuc-mobile-base-date__group--required {
-          border-color: #cf4a38;
-        }
-        input.kuc-mobile-base-date__group__input {
-          color: #000000;
-          width: 100%;
-          font-size: 99%;
-          padding: 0px;
-          -webkit-flex-grow: 1;
-          flex-grow: 1;
-          border: none;
-          font-weight: 400;
-          appearance: none;
-          outline: 0;
-          background: inherit;
-        }
-        .kuc-mobile-base-date__group--disabled {
-          color: #999999;
-          -webkit-text-fill-color: #999999;
-          background-color: #d5d7d9;
-          opacity: 1;
-        }
-        .kuc-base-mobile-date__calendar {
-          position: absolute;
-          left: 0;
-          top: 39px;
-          z-index: 1000;
-        }
-        .kuc-mobile-base-date__group__button {
-          position: absolute;
-          display: flex;
-          right: 10px;
-          background-color: transparent;
-          border: 0;
-          padding: 0;
-        }
-      </style>
-    `;
-    }
 }
 __decorate([
     property({ type: String })
@@ -285,5 +221,6 @@ __decorate([
     state()
 ], BaseMobileDate.prototype, "_dateTimeCalendarVisible", void 0);
 if (!window.customElements.get("kuc-mobile-base-date")) {
+    createStyleOnHeader(BASE_MOBILE_DATE_CSS);
     window.customElements.define("kuc-mobile-base-date", BaseMobileDate);
 }

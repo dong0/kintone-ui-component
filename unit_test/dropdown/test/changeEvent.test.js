@@ -3,14 +3,14 @@ import { Dropdown } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 describe("Dropdown", () => {
     it("should be triggered when mousedown on the item", async () => {
         let triggeredEvent = null;
         const container = new Dropdown({
             items: initItems,
-            value: initItems[1].value
+            value: initItems[1].value,
         });
         container.addEventListener("change", (event) => {
             triggeredEvent = event;
@@ -28,7 +28,7 @@ describe("Dropdown", () => {
         let triggeredEvent = null;
         const container = new Dropdown({
             items: initItems,
-            value: initItems[1].value
+            value: initItems[1].value,
         });
         container.addEventListener("change", (event) => {
             triggeredEvent = event;

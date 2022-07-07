@@ -6,7 +6,7 @@ describe("BaseMobileDateTimeCalendar", () => {
             let triggeredEvent = null;
             const container = new BaseMobileDateTimeCalendar();
             container.value = "2021-01-30";
-            container.addEventListener("kuc:mobile-calendar-header-change", event => {
+            container.addEventListener("kuc:mobile-calendar-header-change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);

@@ -12,8 +12,7 @@ export declare class BaseDateTimeCalendarHeader extends KucBase {
     private _listBoxMonthEl;
     private _listBoxYearEl;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
-    private _getStyleTagTemplate;
+    render(): import("lit-html").TemplateResult<1>;
     private _getYearTemplate;
     private _getMonthTemplate;
     private _getYearMonthTemplate;

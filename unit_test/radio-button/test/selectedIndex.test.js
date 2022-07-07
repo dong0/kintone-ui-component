@@ -3,7 +3,7 @@ import { RadioButton } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 describe("RadioButton", () => {
     describe("selectedIndex", () => {
@@ -23,7 +23,7 @@ describe("RadioButton", () => {
         it("should be selected item when assigned on constructor", async () => {
             const container = new RadioButton({
                 items: initItems,
-                selectedIndex: 1
+                selectedIndex: 1,
             });
             const el = await fixture(container);
             const itemsEl = el.querySelectorAll(".kuc-radio-button__group__select-menu__item");

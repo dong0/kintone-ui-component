@@ -7,6 +7,5 @@ export declare class BaseMobileDateTimeCalendarFooter extends KucBase {
     private _handleClickCalendarFooterButtonClose;
     private _handleClickCalendarFooterButtonNone;
     private _handleClickCalendarFooterButtonToday;
-    render(): import("lit").TemplateResult<1>;
-    private _getStyleTagTemplate;
+    render(): import("lit-html").TemplateResult<1>;
 }

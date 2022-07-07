@@ -24,7 +24,7 @@ export class ReadOnlyTable extends KucBase {
             throw new Error("'data' property is invalid");
         }
         props.data &&
-            props.data.forEach(data => {
+            props.data.forEach((data) => {
                 if (!Array.isArray(data)) {
                     throw new Error("'data' property is invalid");
                 }
@@ -85,7 +85,7 @@ export class ReadOnlyTable extends KucBase {
       <table class="kuc-readonly-table__table" aria-label="${this.label}">
         <thead class="kuc-readonly-table__table__header">
           <tr>
-            ${this.columns.map(column => this._getColumnsTemplate(column))}
+            ${this.columns.map((column) => this._getColumnsTemplate(column))}
           </tr>
         </thead>
         <tbody class="kuc-readonly-table__table__body">
@@ -104,7 +104,7 @@ export class ReadOnlyTable extends KucBase {
             throw new Error("'data' property is invalid");
         }
         data &&
-            data.forEach(val => {
+            data.forEach((val) => {
                 if (!Array.isArray(val)) {
                     throw new Error("'data' property is invalid");
                 }
@@ -201,7 +201,7 @@ __decorate([
         type: Boolean,
         attribute: "hidden",
         reflect: true,
-        converter: visiblePropConverter
+        converter: visiblePropConverter,
     })
 ], ReadOnlyTable.prototype, "visible", void 0);
 __decorate([

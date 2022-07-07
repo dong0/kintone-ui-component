@@ -3,21 +3,21 @@ import { MobileDropdown } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 const initItemsWithoutLabel = [
     { value: "-----" },
     { value: "orange" },
-    { value: "apple" }
+    { value: "apple" },
 ];
 const initItemsWithoutValue = [{ label: "-----" }];
 const replacedItems = [
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 const dupplicatedItems = [
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "orange" }
+    { label: "Apple", value: "orange" },
 ];
 const expectedLabels = ["-----", "Orange", "Apple"];
 const expectedValues = ["-----", "orange", "apple"];
@@ -105,7 +105,6 @@ describe("MobileDropdown", () => {
             }
         });
         it("show error when initializing with props is null", async () => {
-            // @ts-expect-error
             const container = new MobileDropdown({ items: null });
             try {
                 await fixture(container);
@@ -137,7 +136,6 @@ describe("MobileDropdown", () => {
         });
         it("show error when when changing by setter to null", async () => {
             const container = new MobileDropdown({});
-            // @ts-expect-error
             container.items = null;
             try {
                 await fixture(container);

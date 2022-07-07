@@ -38,7 +38,7 @@ describe("BaseDateTimeCalendarHeader", () => {
             const eventKeyDown = new KeyboardEvent("keydown", { key: "ArrowDown" });
             const eventKeyEnter = new KeyboardEvent("keydown", {
                 key: "Enter",
-                bubbles: true
+                bubbles: true,
             });
             liEl.dispatchEvent(eventKeyDown);
             liEl.dispatchEvent(eventKeyEnter);
@@ -57,7 +57,7 @@ describe("BaseDateTimeCalendarHeader", () => {
             const eventKeyDown = new KeyboardEvent("keydown", { key: "ArrowDown" });
             const eventKeyEnter = new KeyboardEvent("keydown", {
                 key: "Enter",
-                bubbles: true
+                bubbles: true,
             });
             liEl.dispatchEvent(eventKeyDown);
             liEl.dispatchEvent(eventKeyEnter);

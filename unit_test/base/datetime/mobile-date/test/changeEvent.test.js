@@ -7,7 +7,7 @@ describe("BaseMobileDate", () => {
             let triggeredEvent = null;
             const container = document.createElement("kuc-mobile-base-date");
             container.setAttribute("value", "2022-02-14");
-            container.addEventListener("kuc:mobile-base-date-change", event => {
+            container.addEventListener("kuc:mobile-base-date-change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -25,7 +25,7 @@ describe("BaseMobileDate", () => {
             let triggeredEvent = null;
             const container = document.createElement("kuc-mobile-base-date");
             container.setAttribute("value", "2022-02-14");
-            container.addEventListener("kuc:mobile-base-date-change", event => {
+            container.addEventListener("kuc:mobile-base-date-change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -41,7 +41,7 @@ describe("BaseMobileDate", () => {
         it("should triggered when pressing none button on calendar", async () => {
             let triggeredEvent = null;
             const container = document.createElement("kuc-mobile-base-date");
-            container.addEventListener("kuc:mobile-base-date-change", event => {
+            container.addEventListener("kuc:mobile-base-date-change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -70,7 +70,7 @@ describe("BaseMobileDate", () => {
         it("should triggered when pressing today button on calendar", async () => {
             let triggeredEvent = null;
             const container = document.createElement("kuc-mobile-base-date");
-            container.addEventListener("kuc:mobile-base-date-change", event => {
+            container.addEventListener("kuc:mobile-base-date-change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -88,7 +88,7 @@ describe("BaseMobileDate", () => {
             let triggeredEvent = null;
             const container = document.createElement("kuc-mobile-base-date");
             container.setAttribute("value", "2022-02-14");
-            container.addEventListener("kuc:mobile-base-date-change", event => {
+            container.addEventListener("kuc:mobile-base-date-change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);

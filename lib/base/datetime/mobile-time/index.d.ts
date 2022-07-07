@@ -29,7 +29,7 @@ export declare class BaseMobileTime extends KucBase {
     private _locale;
     constructor(props?: BaseMobileTimeProps);
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): void;
     private _updateInputValue;
     private _setValueToInput;
@@ -39,6 +39,5 @@ export declare class BaseMobileTime extends KucBase {
     private _dispatchEventTimeChange;
     private _getOptionsMinuteTemplate;
     private _getOptionsHourTemplate;
-    private _getStyleTagTemplate;
 }
 export {};

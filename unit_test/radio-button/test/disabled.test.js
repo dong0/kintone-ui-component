@@ -3,7 +3,7 @@ import { RadioButton } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 const initValue = "orange";
 describe("RadioButton", () => {
@@ -20,7 +20,7 @@ describe("RadioButton", () => {
             const container = new RadioButton({
                 items: initItems,
                 value: initValue,
-                disabled: true
+                disabled: true,
             });
             const el = await fixture(container);
             const inputEls = el.querySelectorAll(".kuc-radio-button__group__select-menu__item__input");
@@ -32,7 +32,7 @@ describe("RadioButton", () => {
             const container = new RadioButton({
                 items: initItems,
                 value: initValue,
-                disabled: false
+                disabled: false,
             });
             container.disabled = true;
             const el = await fixture(container);
@@ -45,7 +45,7 @@ describe("RadioButton", () => {
             const container = new RadioButton({
                 items: initItems,
                 value: initValue,
-                disabled: true
+                disabled: true,
             });
             container.disabled = false;
             const el = await fixture(container);

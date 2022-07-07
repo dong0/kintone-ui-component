@@ -95,7 +95,7 @@ describe("BaseDateTimeCalendarHeader", () => {
             const el = await fixture(container);
             const selectEl = el.querySelector("kuc-base-datetime-header-year");
             selectEl.dispatchEvent(new CustomEvent("kuc:year-dropdown-change", {
-                detail: { value: "2022" }
+                detail: { value: "2022" },
             }));
             expect(triggeredEvent.type).to.equal("kuc:calendar-header-change");
         });
@@ -110,7 +110,7 @@ describe("BaseDateTimeCalendarHeader", () => {
             const el = await fixture(container);
             const selectEl = el.querySelector("kuc-base-datetime-header-month");
             selectEl.dispatchEvent(new CustomEvent("kuc:month-dropdown-change", {
-                detail: { value: "1" }
+                detail: { value: "1" },
             }));
             expect(triggeredEvent.type).to.equal("kuc:calendar-header-change");
         });
@@ -126,7 +126,7 @@ describe("BaseDateTimeCalendarHeader", () => {
             await elementUpdated(el);
             const listboxEl = el.querySelector(".kuc-base-datetime-header-year__listbox");
             listboxEl.dispatchEvent(new CustomEvent("kuc:listbox-click", {
-                detail: { value: "2022" }
+                detail: { value: "2022" },
             }));
             expect(triggeredEvent.type).to.equal("kuc:calendar-header-change");
         });
@@ -142,7 +142,7 @@ describe("BaseDateTimeCalendarHeader", () => {
             await elementUpdated(el);
             const listboxEl = el.querySelector(".kuc-base-datetime-header-month__listbox");
             listboxEl.dispatchEvent(new CustomEvent("kuc:listbox-click", {
-                detail: { value: "JANUARY" }
+                detail: { value: "JANUARY" },
             }));
             expect(triggeredEvent.type).to.equal("kuc:calendar-header-change");
         });

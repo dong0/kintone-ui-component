@@ -1,5 +1,5 @@
 import { expect } from "@open-wc/testing";
-import { visiblePropConverter, dateValueConverter, timeValueConverter } from "../converter";
+import { visiblePropConverter, dateValueConverter, timeValueConverter, } from "../converter";
 describe("Base", () => {
     describe("Converter", () => {
         it("should be return false when setting attribute is empty", async () => {

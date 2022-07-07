@@ -12,7 +12,7 @@ describe("Text", () => {
             const inputEl = el.querySelector(".kuc-text__group__input-form__input-outer__input");
             inputEl.value = "OrangeApple";
             inputEl.dispatchEvent(new InputEvent("input", {
-                data: "Apple"
+                data: "Apple",
             }));
             expect(triggeredEvent.type).to.equal("input");
             expect(triggeredEvent.detail.value).to.equal("OrangeApple");

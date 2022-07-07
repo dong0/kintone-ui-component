@@ -3,13 +3,13 @@ import { KucBase } from "../../kuc-base";
 import { BaseDateTimeListBox } from "../listbox";
 export { BaseDateTimeListBox };
 export declare class BaseTime extends KucBase {
+    language: string;
+    max: string;
+    min: string;
     value: string;
     disabled: boolean;
     hour12: boolean;
-    /**
-     * Please consider name again and change @state to @property when publishing the function.
-     */
-    private _timeStep;
+    timeStep: number;
     private _listBoxVisible;
     private _valueLabel;
     private _doFocusListBox;
@@ -19,13 +19,14 @@ export declare class BaseTime extends KucBase {
     private _valueForReset;
     private _inputFocusEl;
     private _listBoxItems;
+    private _locale;
     private _hoursEl;
     private _minutesEl;
     private _suffixEl;
     private _toggleEl;
     private _inputGroupEl;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): void;
     private _handleClickInputGroup;
     private _handleBlurListBox;
@@ -68,5 +69,4 @@ export declare class BaseTime extends KucBase {
     private _getColonTemplate;
     private _getSuffixTemplate;
     private _getListBoxTemplate;
-    private _getStyleTagTemplate;
 }

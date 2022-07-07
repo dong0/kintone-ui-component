@@ -3,7 +3,7 @@ import { MobileRadioButton } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 const initValue = "orange";
 describe("MobileRadioButton", () => {
@@ -11,7 +11,7 @@ describe("MobileRadioButton", () => {
         it("should not be added into elements when not assigned in constructor", async () => {
             const container = new MobileRadioButton({
                 items: initItems,
-                value: initValue
+                value: initValue,
             });
             const el = await fixture(container);
             const groupEl = el.querySelector(".kuc-mobile-radio-button__group__select-menu");
@@ -25,7 +25,7 @@ describe("MobileRadioButton", () => {
             const container = new MobileRadioButton({
                 items: initItems,
                 value: initValue,
-                disabled: true
+                disabled: true,
             });
             const el = await fixture(container);
             const groupEl = el.querySelector(".kuc-mobile-radio-button__group__select-menu");
@@ -39,7 +39,7 @@ describe("MobileRadioButton", () => {
             const container = new MobileRadioButton({
                 items: initItems,
                 value: initValue,
-                disabled: false
+                disabled: false,
             });
             container.disabled = true;
             const el = await fixture(container);
@@ -54,7 +54,7 @@ describe("MobileRadioButton", () => {
             const container = new MobileRadioButton({
                 items: initItems,
                 value: initValue,
-                disabled: true
+                disabled: true,
             });
             container.disabled = false;
             const el = await fixture(container);

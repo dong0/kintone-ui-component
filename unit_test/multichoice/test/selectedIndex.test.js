@@ -3,7 +3,7 @@ import { MultiChoice } from "../index";
 const initItems = [
     { label: "Item 1", value: "item-1" },
     { label: "Item 2", value: "item-2" },
-    { label: "Item 3", value: "item-3" }
+    { label: "Item 3", value: "item-3" },
 ];
 describe("MultiChoice", () => {
     describe("selectedIndex", () => {
@@ -25,7 +25,7 @@ describe("MultiChoice", () => {
         it("should be selected item when assigned on constructor", async () => {
             const container = new MultiChoice({
                 items: initItems,
-                selectedIndex: [1]
+                selectedIndex: [1],
             });
             const el = await fixture(container);
             expect(container.value).to.deep.equal([initItems[1].value]);
@@ -42,7 +42,6 @@ describe("MultiChoice", () => {
         });
         it("should be throw error when set null by setter", async () => {
             const container = new MultiChoice({ items: initItems });
-            // @ts-expect-error
             container.selectedIndex = null;
             try {
                 await fixture(container);

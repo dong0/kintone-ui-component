@@ -3,7 +3,7 @@ import { Checkbox } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 describe("Checkbox", () => {
     describe("value", () => {
@@ -19,7 +19,7 @@ describe("Checkbox", () => {
         it("should be checked items when assinged on constructor", async () => {
             const container = new Checkbox({
                 items: initItems,
-                value: [initItems[1].value]
+                value: [initItems[1].value],
             });
             const el = await fixture(container);
             const inputsEl = el.querySelectorAll(".kuc-checkbox__group__select-menu__item__input");
@@ -31,7 +31,7 @@ describe("Checkbox", () => {
         it("should be changed value when updated by setter", async () => {
             const container = new Checkbox({
                 items: initItems,
-                value: [initItems[1].value]
+                value: [initItems[1].value],
             });
             container.value = [initItems[2].value];
             const el = await fixture(container);
@@ -43,7 +43,6 @@ describe("Checkbox", () => {
         });
     });
     it("should be throw error when set null on constructor", async () => {
-        // @ts-expect-error
         const container = new Checkbox({ items: initItems, value: null });
         try {
             await fixture(container);
@@ -61,10 +60,9 @@ describe("Checkbox", () => {
     it("should be throw error when set null by setter", async () => {
         const container = new Checkbox({
             items: initItems,
-            value: [initItems[0].value]
+            value: [initItems[0].value],
         });
         try {
-            // @ts-expect-error
             container.value = null;
             await fixture(container);
         }

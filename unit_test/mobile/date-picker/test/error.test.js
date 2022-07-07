@@ -17,7 +17,7 @@ describe("MobileDatePicker", () => {
         });
         it('should be replace by "replace-error" when changing by setter', async () => {
             const container = new MobileDatePicker({
-                error: "error-message"
+                error: "error-message",
             });
             container.error = "replace-error";
             const el = await fixture(container);

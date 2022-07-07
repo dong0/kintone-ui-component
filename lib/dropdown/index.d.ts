@@ -1,13 +1,10 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../base/kuc-base";
-import { BaseLabel } from "../base/label";
-import { BaseError } from "../base/error";
-export { BaseError, BaseLabel };
-declare type Item = {
+export declare type DropdownItem = {
     label?: string;
     value?: string;
 };
-declare type DropdownProps = {
+export declare type DropdownProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -17,7 +14,7 @@ declare type DropdownProps = {
     disabled?: boolean;
     requiredIcon?: boolean;
     visible?: boolean;
-    items?: Item[];
+    items?: DropdownItem[];
 };
 export declare class Dropdown extends KucBase {
     className: string;
@@ -29,64 +26,12 @@ export declare class Dropdown extends KucBase {
     disabled: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    items: Item[];
-    private _selectorVisible;
-    private _groupEl;
-    private _menuEl;
-    private _itemsEl;
-    private _buttonEl;
-    private _labelEl;
-    private _firstItemEl;
-    private _lastItemEl;
-    private _selectedItemEl;
-    private _highlightItemEl;
-    private _errorEl;
-    private _timeoutID;
-    private _GUID;
+    items: DropdownItem[];
     constructor(props?: DropdownProps);
-    private _setInitialValue;
-    private _getSelectedLabel;
-    private _getToggleIconSvgTemplate;
     shouldUpdate(changedProperties: PropertyValues): boolean;
     willUpdate(changedProperties: PropertyValues): void;
     update(changedProperties: PropertyValues): void;
-    private _getSelectedIndex;
-    private _getValue;
     render(): import("lit").TemplateResult<1>;
     firstUpdated(): void;
     updated(): Promise<void>;
-    private _handleMouseDownDropdownItem;
-    private _handleMouseOverDropdownItem;
-    private _handleMouseLeaveMenu;
-    private _handleMouseDownMenu;
-    private _handleMouseDownDropdownToggle;
-    private _handleMouseUpDropdownToggle;
-    private _handleClickDropdownToggle;
-    private _handleClickDocument;
-    private _handleKeyDownDropdownToggle;
-    private _actionShowMenu;
-    private _actionHideMenu;
-    private _actionToggleMenu;
-    private _actionHighlightFirstMenuItem;
-    private _actionHighlightLastMenuItem;
-    private _actionHighlightPrevMenuItem;
-    private _actionHighlightNextMenuItem;
-    private _actionClearAllHighlightMenuItem;
-    private _setHighlightAndActiveDescendantMenu;
-    private _actionHighlightMenuItem;
-    private _actionUpdateValue;
-    private _actionSetActiveDescendant;
-    private _actionRemoveActiveDescendant;
-    private _updateContainerWidth;
-    private _getScrollbarWidthHeight;
-    private _getDistanceToggleButton;
-    private _setMenuPositionAboveOrBelow;
-    private _setMenuPositionLeftOrRight;
-    private _setMenuPosition;
-    private _scrollToView;
-    private _actionResizeScrollWindow;
-    private _getStyleTagTemplate;
-    private _isCheckedItem;
-    private _getItemTemplate;
-    private _getDropdownIconSvgTemplate;
 }

@@ -14,14 +14,13 @@ export declare class BaseDateTimeCalendar extends KucBase {
     _month: number;
     _year: number;
     update(changedProperties: PropertyValues): void;
-    render(): import("lit").TemplateResult<1>;
+    render(): import("lit-html").TemplateResult<1>;
     updated(changedProperties: PropertyValues): Promise<void>;
     private _handleKeyDownCalendarGroup;
     private _handleClickCalendarGroup;
     private _calculateBodyCalendarPosition;
     private _calculateCalendarPosition;
     private _setCalendarPosition;
-    private _getStyleTagTemplate;
     private _handleCalendarHeaderChange;
     private _handleCalendarBodyChangeDate;
     private _updateValue;

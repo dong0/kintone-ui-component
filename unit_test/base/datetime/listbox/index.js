@@ -1,7 +1,8 @@
 import { __decorate } from "tslib";
 import { html, svg } from "lit";
 import { property, query, queryAll, state } from "lit/decorators.js";
-import { KucBase, dispatchCustomEvent } from "../../kuc-base";
+import { KucBase, dispatchCustomEvent, createStyleOnHeader, } from "../../kuc-base";
+import { BASE_DATETIME_LISTBOX_CSS } from "./style";
 export class BaseDateTimeListBox extends KucBase {
     constructor() {
         super();
@@ -28,7 +29,6 @@ export class BaseDateTimeListBox extends KucBase {
     }
     render() {
         return html `
-      ${this._getStyleTagTemplate()}
       <ul
         style="max-height: ${this.maxHeight}px;"
         class="kuc-base-datetime-listbox__listbox"
@@ -36,7 +36,7 @@ export class BaseDateTimeListBox extends KucBase {
         @mousedown="${this._handleMouseDownListBox}"
         @click="${this._handleClickListBox}"
       >
-        ${this.items.map(item => this._getListBoxItemTemplate(item))}
+        ${this.items.map((item) => this._getListBoxItemTemplate(item))}
       </ul>
     `;
     }
@@ -142,7 +142,7 @@ export class BaseDateTimeListBox extends KucBase {
         if (!this.doFocus)
             return;
         const itemsEl = Array.from(this._itemsEl);
-        const itemSelected = itemsEl.filter(item => item.getAttribute("aria-selected") === "true")[0];
+        const itemSelected = itemsEl.filter((item) => item.getAttribute("aria-selected") === "true")[0];
         if (!itemSelected)
             return;
         this._itemSelectedEl = itemSelected;
@@ -249,7 +249,7 @@ export class BaseDateTimeListBox extends KucBase {
     _getHighlightItemByValue() {
         const listLiEl = Array.from(this._listBoxEl.children);
         const itemTimeObj = new Date(Date.parse(`2021/01/01 ${this.value}`));
-        let liEl = listLiEl.find(element => new Date(Date.parse(`2021/01/01 ${element.title}`)) >= itemTimeObj);
+        let liEl = listLiEl.find((element) => new Date(Date.parse(`2021/01/01 ${element.title}`)) >= itemTimeObj);
         if (!liEl) {
             liEl = listLiEl[listLiEl.length - 1];
         }
@@ -294,72 +294,6 @@ export class BaseDateTimeListBox extends KucBase {
           />
         </svg>`;
     }
-    _getStyleTagTemplate() {
-        return html `
-      <style>
-        kuc-base-datetime-listbox,
-        kuc-base-datetime-listbox *,
-        :lang(en) kuc-base-datetime-listbox,
-        :lang(en) kuc-base-datetime-listbox * {
-          font-family: "HelveticaNeueW02-45Ligh", Arial,
-            "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-        }
-        :lang(ja) kuc-base-datetime-listbox,
-        :lang(ja) kuc-base-datetime-listbox * {
-          font-family: "メイリオ", "Hiragino Kaku Gothic ProN", Meiryo,
-            sans-serif;
-        }
-        :lang(zh) kuc-base-datetime-listbox,
-        :lang(zh) kuc-base-datetime-listbox * {
-          font-family: "微软雅黑", "Microsoft YaHei", "新宋体", NSimSun, STHeiti,
-            Hei, "Heiti SC", sans-serif;
-        }
-        .kuc-base-datetime-listbox__listbox {
-          position: absolute;
-          z-index: 2000;
-          min-width: 280px;
-          margin: 0;
-          padding: 8px 0;
-          border: 1px solid #e3e7e8;
-          background-color: #ffffff;
-          list-style: none;
-          line-height: 1;
-          overflow-y: auto;
-          -webkit-tap-highlight-color: transparent;
-          box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
-        }
-        .kuc-base-datetime-listbox__listbox__item {
-          position: relative;
-          display: block;
-          box-sizing: border-box;
-          width: 100%;
-          padding: 8px 16px 8px 25px;
-          color: #333333;
-          cursor: pointer;
-          -webkit-tap-highlight-color: initial;
-          text-align: left;
-          font-size: 14px;
-          user-select: none;
-        }
-        .kuc-base-datetime-listbox__listbox__item[aria-selected="true"] {
-          color: #3498db;
-        }
-        .kuc-base-datetime-listbox__listbox--highlight {
-          background-color: #e2f2fe;
-          cursor: pointer;
-        }
-        .kuc-base-datetime-listbox__listbox__item__icon {
-          position: absolute;
-          left: 8px;
-          top: 10px;
-          background-color: transparent;
-        }
-        .kuc-base-datetime-listbox__listbox__item:focus {
-          outline: none;
-        }
-      </style>
-    `;
-    }
 }
 __decorate([
     property({ type: String })
@@ -401,5 +335,6 @@ __decorate([
     state()
 ], BaseDateTimeListBox.prototype, "_itemSelectedEl", void 0);
 if (!window.customElements.get("kuc-base-datetime-listbox")) {
+    createStyleOnHeader(BASE_DATETIME_LISTBOX_CSS);
     window.customElements.define("kuc-base-datetime-listbox", BaseDateTimeListBox);
 }

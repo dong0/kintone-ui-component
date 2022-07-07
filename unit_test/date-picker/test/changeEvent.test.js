@@ -6,7 +6,7 @@ describe("DatePicker", () => {
         it("should be focus to the second day of month when value is empty and click ArrowRight on date in calendar", async () => {
             let triggeredEvent = null;
             const container = new DatePicker();
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -27,7 +27,7 @@ describe("DatePicker", () => {
         it("should be triggered when ArrowRight/ArrowLeft on date in calendar", async () => {
             let triggeredEvent = null;
             const container = new DatePicker({ value: "2021-12-20" });
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -49,7 +49,7 @@ describe("DatePicker", () => {
         it("should be triggered when ArrowUp/ArrowDown on date in calendar", async () => {
             let triggeredEvent = null;
             const container = new DatePicker({ value: "2021-12-20" });
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -72,7 +72,7 @@ describe("DatePicker", () => {
             var _a;
             let triggeredEvent = null;
             const container = new DatePicker({ value: "2021-12-20", language: "en" });
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -92,10 +92,10 @@ describe("DatePicker", () => {
             let triggeredEvent = null;
             const container = new DatePicker({
                 value: "2021-12-20",
-                language: "auto"
+                language: "auto",
             });
             document.documentElement.setAttribute("lang", "en");
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);
@@ -114,7 +114,7 @@ describe("DatePicker", () => {
         it("should be triggered when click none button on calendar", async () => {
             let triggeredEvent = null;
             const container = new DatePicker({ value: "2021-12-20", language: "en" });
-            container.addEventListener("change", event => {
+            container.addEventListener("change", (event) => {
                 triggeredEvent = event;
             });
             const el = await fixture(container);

@@ -3,7 +3,7 @@ import { Dropdown } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 describe("Dropdown", () => {
     describe("value", () => {
@@ -27,7 +27,7 @@ describe("Dropdown", () => {
         it("should be set to selected item label when assigned on constructor", async () => {
             const container = new Dropdown({
                 items: initItems,
-                value: initItems[1].value
+                value: initItems[1].value,
             });
             const el = await fixture(container);
             expect(container.value).to.be.equal(initItems[1].value);
@@ -48,7 +48,7 @@ describe("Dropdown", () => {
     it("should be updated by setter", async () => {
         const container = new Dropdown({
             items: initItems,
-            value: initItems[0].value
+            value: initItems[0].value,
         });
         const el = await fixture(container);
         container.value = initItems[1].value;
@@ -71,7 +71,7 @@ describe("Dropdown", () => {
     it("should be empty value when set '' by setter", async () => {
         const container = new Dropdown({
             items: initItems,
-            value: initItems[0].value
+            value: initItems[0].value,
         });
         const el = await fixture(container);
         container.value = "";
@@ -94,7 +94,7 @@ describe("Dropdown", () => {
     it("should be empty value when assigned '' on constructor", async () => {
         const container = new Dropdown({
             items: initItems,
-            value: ""
+            value: "",
         });
         const el = await fixture(container);
         expect(container.value).to.be.equal("");
@@ -115,7 +115,7 @@ describe("Dropdown", () => {
     it("should be empty when set to nonexistent", async () => {
         const container = new Dropdown({
             items: initItems,
-            value: "nonexistent"
+            value: "nonexistent",
         });
         const el = await fixture(container);
         expect(container.value).to.be.equal("");

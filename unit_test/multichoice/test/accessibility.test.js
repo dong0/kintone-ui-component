@@ -3,14 +3,14 @@ import { MultiChoice } from "../index";
 const initItems = [
     { label: "Item 1", value: "item-1" },
     { label: "Item 2", value: "item-2" },
-    { label: "Item 3", value: "item-3" }
+    { label: "Item 3", value: "item-3" },
 ];
 describe("MultiChoice", () => {
     describe("accessibility", () => {
         it("should be highlight/not highlight when mouseover/mouseleave the item", async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[1].value]
+                value: [initItems[1].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -28,7 +28,7 @@ describe("MultiChoice", () => {
             const container = new MultiChoice({
                 items: initItems,
                 value: [initItems[1].value],
-                disabled: true
+                disabled: true,
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -45,7 +45,7 @@ describe("MultiChoice", () => {
         it("should not changed highlight when triggered mousedown", async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[1].value]
+                value: [initItems[1].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -59,7 +59,7 @@ describe("MultiChoice", () => {
         it('should be highlight prev item when triggered "ArrowUp" keyboard event', async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[0].value]
+                value: [initItems[0].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -72,7 +72,7 @@ describe("MultiChoice", () => {
         it('should be highlight prev item when triggered "Up" keyboard event for IE', async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[0].value]
+                value: [initItems[0].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -85,7 +85,7 @@ describe("MultiChoice", () => {
         it('should be highlight next item when triggered "ArrowDown" keyboard event', async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[0].value]
+                value: [initItems[0].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -97,7 +97,7 @@ describe("MultiChoice", () => {
         it('should be highlight next item when triggered "Down" keyboard event for IE', async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[0].value]
+                value: [initItems[0].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -109,7 +109,7 @@ describe("MultiChoice", () => {
         it('should changed value when triggered "Spacebar" keyboard event', async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[0].value]
+                value: [initItems[0].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -119,13 +119,13 @@ describe("MultiChoice", () => {
             menuEl.dispatchEvent(new KeyboardEvent("keydown", { key: "Spacebar" }));
             expect(container.value).to.deep.equal([
                 initItems[0].value,
-                initItems[1].value
+                initItems[1].value,
             ]);
         });
         it('should changed value when triggered " " keyboard event for IE', async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[0].value]
+                value: [initItems[0].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");
@@ -135,13 +135,13 @@ describe("MultiChoice", () => {
             menuEl.dispatchEvent(new KeyboardEvent("keydown", { key: " " }));
             expect(container.value).to.deep.equal([
                 initItems[0].value,
-                initItems[1].value
+                initItems[1].value,
             ]);
         });
         it("should not changed highlight when triggered not handled key code", async () => {
             const container = new MultiChoice({
                 items: initItems,
-                value: [initItems[0].value]
+                value: [initItems[0].value],
             });
             const el = await fixture(container);
             const menuEl = el.querySelector(".kuc-multi-choice__group__menu");

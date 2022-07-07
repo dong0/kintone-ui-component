@@ -1,13 +1,10 @@
 import { PropertyValues } from "lit";
 import { KucBase } from "../../base/kuc-base";
-import { BaseMobileLabel } from "../../base/mobile-label";
-import { BaseMobileError } from "../../base/mobile-error";
-export { BaseMobileLabel, BaseMobileError };
-declare type Item = {
+export declare type MobileDropdownItem = {
     label?: string;
     value?: string;
 };
-declare type MobileDropdownProps = {
+export declare type MobileDropdownProps = {
     className?: string;
     error?: string;
     id?: string;
@@ -17,7 +14,7 @@ declare type MobileDropdownProps = {
     disabled?: boolean;
     requiredIcon?: boolean;
     visible?: boolean;
-    items?: Item[];
+    items?: MobileDropdownItem[];
 };
 export declare class MobileDropdown extends KucBase {
     className: string;
@@ -29,20 +26,11 @@ export declare class MobileDropdown extends KucBase {
     disabled: boolean;
     requiredIcon: boolean;
     visible: boolean;
-    items: Item[];
-    private _selectEl;
-    private _GUID;
+    items: MobileDropdownItem[];
     constructor(props?: MobileDropdownProps);
-    private _setInitialValue;
-    private _handleChangeInput;
     shouldUpdate(changedProperties: PropertyValues): boolean;
     willUpdate(changedProperties: PropertyValues): void;
     update(changedProperties: PropertyValues): void;
-    private _getSelectedIndex;
-    private _getValue;
-    private _isCheckedItem;
-    private _getItemTemplate;
     render(): import("lit").TemplateResult<1>;
     updated(changedProperties: PropertyValues): void;
-    private _getStyleTagTemplate;
 }

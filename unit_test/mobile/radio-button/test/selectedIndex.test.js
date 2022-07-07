@@ -3,7 +3,7 @@ import { MobileRadioButton } from "../index";
 const initItems = [
     { label: "-----", value: "-----" },
     { label: "Orange", value: "orange" },
-    { label: "Apple", value: "apple" }
+    { label: "Apple", value: "apple" },
 ];
 describe("MobileDropdown", () => {
     describe("selectedIndex", () => {
@@ -29,7 +29,7 @@ describe("MobileDropdown", () => {
         it("should be selected item when assigned on constructor", async () => {
             const container = new MobileRadioButton({
                 items: initItems,
-                selectedIndex: 1
+                selectedIndex: 1,
             });
             const el = await fixture(container);
             const itemsEl = el.querySelectorAll(".kuc-mobile-radio-button__group__select-menu__item");
