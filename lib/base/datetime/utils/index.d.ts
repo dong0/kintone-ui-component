@@ -11,7 +11,7 @@ export declare const generateTimeOptions: (isHour12: boolean, timeStep: number, 
     value: string;
 }[];
 export declare const convertTimeValueToMinutes: (value: string) => number;
-export declare const timeCompare: (startTime: string, endTime: string) => 1 | 0 | -1;
+export declare const timeCompare: (startTime: string, endTime: string) => 0 | 1 | -1;
 export declare const formatTimeValueToInputValue: (value: string, hour12: boolean) => {
     hours: string;
     minutes: string;
