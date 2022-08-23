@@ -1,0 +1,131 @@
+import { expect, fixture } from "@open-wc/testing";
+import { MobileDropdown } from "../index";
+const initItems = [
+    { label: "-----", value: "-----" },
+    { label: "Orange", value: "orange" },
+    { label: "Apple", value: "apple" },
+];
+const initItemsWithoutLabel = [
+    { value: "-----" },
+    { value: "orange" },
+    { value: "apple" },
+];
+const initItemsWithoutValue = [{ label: "-----" }];
+const replacedItems = [
+    { label: "Orange", value: "orange" },
+    { label: "Apple", value: "apple" },
+];
+const dupplicatedItems = [
+    { label: "Orange", value: "orange" },
+    { label: "Apple", value: "orange" },
+];
+const expectedLabels = ["-----", "Orange", "Apple"];
+const expectedValues = ["-----", "orange", "apple"];
+describe("MobileDropdown", () => {
+    describe("items", () => {
+        it("does not exists on element when initializing without props option", async () => {
+            const container = new MobileDropdown();
+            const el = await fixture(container);
+            const itemsEl = el.getElementsByTagName("option");
+            expect(itemsEl.length).to.be.equal(0);
+        });
+        it("exists on element when initializing with props option", async () => {
+            var _a, _b;
+            const container = new MobileDropdown({ items: initItems });
+            expect(container.items).to.be.equal(initItems);
+            const el = await fixture(container);
+            const itemsEl = el.getElementsByTagName("option");
+            expect(itemsEl.length).to.be.equal(3);
+            for (let i = 1; i < itemsEl.length; i++) {
+                const itemEl = itemsEl[i];
+                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                expect(value).to.have.equal(expectedValues[i]);
+                const label = (_b = itemEl.textContent) === null || _b === void 0 ? void 0 : _b.trim();
+                expect(label).to.have.equal(expectedLabels[i]);
+            }
+        });
+        it("exists on element when changing by setter", async () => {
+            var _a, _b;
+            const container = new MobileDropdown();
+            container.items = initItems;
+            expect(container.items).to.be.equal(initItems);
+            const el = await fixture(container);
+            const itemsEl = el.getElementsByTagName("option");
+            expect(itemsEl.length).to.be.equal(3);
+            for (let i = 1; i < itemsEl.length; i++) {
+                const itemEl = itemsEl[i];
+                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                expect(value).to.have.equal(expectedValues[i]);
+                const label = (_b = itemEl.textContent) === null || _b === void 0 ? void 0 : _b.trim();
+                expect(label).to.have.equal(expectedLabels[i]);
+            }
+        });
+        it("exists on element and set label as the same as value when initializing with props option without label", async () => {
+            var _a, _b;
+            const container = new MobileDropdown({ items: initItemsWithoutLabel });
+            expect(container.items).to.be.equal(initItemsWithoutLabel);
+            const el = await fixture(container);
+            const itemsEl = el.getElementsByTagName("option");
+            expect(itemsEl.length).to.be.equal(3);
+            for (let i = 1; i < itemsEl.length; i++) {
+                const itemEl = itemsEl[i];
+                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                expect(value).to.have.equal(expectedValues[i]);
+                const label = (_b = itemEl.textContent) === null || _b === void 0 ? void 0 : _b.trim();
+                expect(label).to.have.equal(expectedValues[i]);
+            }
+        });
+        it('exists on element and set value "" when initializing with props option without value', async () => {
+            var _a;
+            const container = new MobileDropdown({ items: initItemsWithoutValue });
+            expect(container.items).to.be.equal(initItemsWithoutValue);
+            const el = await fixture(container);
+            const itemsEl = el.getElementsByTagName("option");
+            expect(itemsEl.length).to.be.equal(1);
+            for (let i = 1; i < itemsEl.length; i++) {
+                const itemEl = itemsEl[i];
+                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                expect(value).to.have.equal("");
+            }
+        });
+        it("should be replaced successfully", async () => {
+            var _a, _b;
+            const container = new MobileDropdown({ items: initItems });
+            container.items = replacedItems;
+            expect(container.items).to.be.equal(replacedItems);
+            const el = await fixture(container);
+            const itemsEl = el.getElementsByTagName("option");
+            expect(itemsEl.length).to.be.equal(2);
+            for (let i = 1; i < itemsEl.length; i++) {
+                const itemEl = itemsEl[i];
+                const value = (_a = itemEl.getAttribute("value")) === null || _a === void 0 ? void 0 : _a.trim();
+                expect(value).to.have.equal(expectedValues[i + 1]);
+                const label = (_b = itemEl.textContent) === null || _b === void 0 ? void 0 : _b.trim();
+                expect(label).to.have.equal(expectedLabels[i + 1]);
+            }
+        });
+        it("show error when initializing with props is null", (done) => {
+            const handleError = (event) => {
+                const errorMsg = event.reason.message;
+                expect(errorMsg).to.equal("'items' property is not array.");
+                window.removeEventListener("unhandledrejection", handleError);
+                done();
+            };
+            window.addEventListener("unhandledrejection", handleError);
+            const container = new MobileDropdown({ items: null });
+            fixture(container);
+        });
+        it("show error when when changing by setter to null", (done) => {
+            const handleError = (event) => {
+                const errorMsg = event.reason.message;
+                expect(errorMsg).to.equal("'items' property is not array.");
+                window.removeEventListener("unhandledrejection", handleError);
+                done();
+            };
+            window.addEventListener("unhandledrejection", handleError);
+            const container = new MobileDropdown({});
+            container.items = null;
+            fixture(container);
+        });
+    });
+});
