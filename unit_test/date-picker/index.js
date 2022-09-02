@@ -1,6 +1,6 @@
 import { __decorate } from "tslib";
 import { html } from "lit";
-import { property, state, query } from "lit/decorators.js";
+import { property, query } from "lit/decorators.js";
 import { visiblePropConverter, dateValueConverter } from "../base/converter";
 import { createStyleOnHeader, dispatchCustomEvent, generateGUID, KucBase, } from "../base/kuc-base";
 import { validateProps, validateDateValue, isValidDate, throwErrorAfterUpdateComplete, } from "../base/validator";
@@ -51,7 +51,7 @@ let exportDatePicker;
             }
             return true;
         }
-        update(changedProperties) {
+        willUpdate(changedProperties) {
             if (changedProperties.has("value")) {
                 if (this.value === undefined) {
                     this._inputValue = this._invalidValue;
@@ -61,8 +61,8 @@ let exportDatePicker;
                     this._inputValue = this.value;
                     this._errorFormat = "";
                 }
+                this._updateErrorText();
             }
-            super.update(changedProperties);
         }
         render() {
             return html `
@@ -95,7 +95,6 @@ let exportDatePicker;
       `;
         }
         updated() {
-            this._updateErrorText();
             this._invalidValue = "";
         }
         _updateErrorText() {
@@ -166,12 +165,6 @@ let exportDatePicker;
             converter: visiblePropConverter,
         })
     ], KucDatePicker.prototype, "visible", void 0);
-    __decorate([
-        state()
-    ], KucDatePicker.prototype, "_errorFormat", void 0);
-    __decorate([
-        state()
-    ], KucDatePicker.prototype, "_errorText", void 0);
     __decorate([
         query(".kuc-base-date__input")
     ], KucDatePicker.prototype, "_dateInput", void 0);
