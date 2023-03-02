@@ -3,6 +3,6 @@ description: 'Create binary package and integrity file'
 outputs:
   integrity:
     description: 'The integrity of file binary'
-runs: 
-  using: 'node12'
+runs:
+  using: 'node16'
   main: 'index.js'
