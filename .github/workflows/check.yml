@@ -1,0 +1,27 @@
+name: Just to check
+
+on:
+  push:
+jobs:
+  Run_tests:
+    name: Just to check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm i @actions/core --no-save
+      - name: Check git diff
+        run: |
+          git diff
