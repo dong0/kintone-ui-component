@@ -26,6 +26,9 @@ jobs:
     - name: Check version
       id: check_version
       uses: ./.github/actions/check_version
+    - name: Check git diff
+      run: |
+        git diff
     - name: Run ESLint
       run: npm run es-lint
     - name: Run unit test
