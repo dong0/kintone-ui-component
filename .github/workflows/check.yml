@@ -24,6 +24,6 @@ jobs:
           npm i @actions/core --no-save
           npm i netlify-cli@9 --no-save
       - name: Check git diff
-        run: |
-          git diff
-          ls -l ./node_modules
+        run: git diff
+      - name: Check node_modules
+        run: ls -l ./node_modules
