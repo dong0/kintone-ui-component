@@ -22,6 +22,7 @@ jobs:
         run: |
           npm ci
           npm i @actions/core
+          npm i netlify-cli@9
       - name: Check git diff
         run: |
           git diff
