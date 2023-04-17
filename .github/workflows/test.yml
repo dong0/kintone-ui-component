@@ -17,9 +17,9 @@ jobs:
         with:
           node-version: 16
       - name: Status check
-        uses: Sibz/github-status-action@v1.1.1
+        uses: Sibz/github-status-action@v1.1.6
         with:
           authToken: ${{ secrets.WORKFLOW_TOKEN }}
           context: Netlify preview
-          state: success
+          state: failure
           target_url: https://staging--kintone-ui-component.netlify.app
