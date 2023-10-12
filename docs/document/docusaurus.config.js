@@ -166,6 +166,8 @@ const config = {
         indexName: 'kintone',
         contextualSearch: true,
       },
+      image: 'img/kuc_box_yellow_twitter.png',
+      metadata: [{ name: 'twitter:image:alt', content: 'Be a smart Kintone developer with Kintone UI Component' }],
     }),
 };
 
