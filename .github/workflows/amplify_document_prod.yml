@@ -1,15 +1,16 @@
 name: Amplify Document Production Environment
 
 on:
-  release:
-    types:
-      - released
+  push:
+#  release:
+#    types:
+#      - released
 
 jobs:
   publishOnMasterRelease:
     name: Deploying on Amplify Document Production Environment
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' && github.event.action == 'released'
+#    if: github.event_name == 'release' && github.event.action == 'released'
     env:
       ZIP_FILE_NAME: build_prod
       BRANCH_NAME: prod
