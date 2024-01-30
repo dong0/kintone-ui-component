@@ -1,18 +1,21 @@
-name: Amplify Document Production Environment
+name: Amplify Document Staging Environment
 
 on:
-  release:
-    types:
-      - released
+  push:
+#    branches:
+#      - master
+#  pull_request:
+#    branches:
+#      - master
 
 jobs:
-  publishOnMasterRelease:
-    name: Deploying on Amplify Document Production Environment
+  publishMasterCommit:
+    name: Deploying on Amplify Document Staging Environment
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' && github.event.action == 'released'
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.action == 'closed' && github.event.pull_request.merged == 'true')
     env:
-      ZIP_FILE_NAME: build_prod
-      BRANCH_NAME: prod
+      ZIP_FILE_NAME: build_staging
+      BRANCH_NAME: staging
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,8 +23,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies
+      - name: Install dependencies on root
         run: npm ci
+      - name: Build umd file
+        run: npm run build:umd_prod
+      - name: Move umd file
+        run: mv umd/kuc.min.js docs/document/static/js
+      - name: Install dependencies on document
+        run: npm ci
+        working-directory: docs/document
+      - name: Replace kucLink
+        run: sed -i 's|https://unpkg.com/kintone-ui-component/umd/kuc.min.js|/js/kuc.min.js|' docusaurus.config.js
         working-directory: docs/document
       - name: Build document
         run: npm run build
@@ -55,4 +67,3 @@ jobs:
             --app-id ${{ secrets.AWS_DOCUMENT_APP_ID }} \
             --branch-name $BRANCH_NAME \
             --job-id ${{ steps.create_deployment.outputs.job_id }}
-      # TODO: Algolia crawler creation and recrawl
