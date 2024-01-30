@@ -2,11 +2,11 @@ name: Amplify Document Staging Environment
 
 on:
   push:
-#    branches:
-#      - master
-#  pull_request:
-#    branches:
-#      - master
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   publishMasterCommit:
