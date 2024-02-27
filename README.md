@@ -6,6 +6,8 @@
 
 ---
 
+Check AWS
+
 <p align="center">
 kintone UI Component is UI Component for kintone customization.<br />
 It supports you to develop kintone customization and kintone plugin.<br />
