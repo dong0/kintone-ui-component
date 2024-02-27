@@ -1,0 +1,28 @@
+name: Check AWS OIDC setting
+
+on:
+  push:
+
+jobs:
+  check-aws-oidc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_DOCUMENT_REGION }}
+      - name: Create Amplify deployment
+        id: create_deployment
+        run: |
+          output=$(aws amplify get-app --app-id ${{ secrets.AWS_DOCUMENT_APP_ID }})
+          echo $output
