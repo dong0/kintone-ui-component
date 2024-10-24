@@ -36,8 +36,8 @@ jobs:
 
       - name: Analyze and extract dev licenses
         run: |
-          npx license-manager analyze -c ./license-manager-dev.config.js
-          npx license-manager extract -c ./license-manager-dev.config.js
+          npx license-manager analyze -c ./license-manager/license-manager-dev.config.js
+          npx license-manager extract -c ./license-manager/license-manager-dev.config.js
 
       - name: Generate licenses file
         id: generate_licenses
