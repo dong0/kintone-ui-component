@@ -1,16 +1,15 @@
 const core = require("@actions/core");
 const fs = require("fs");
 
-const workingDirectory = "./";
 const productLicenseFile = "./license-manager/product-license";
 
-const licenseFile = `${workingDirectory}/LICENSE`;
+const licenseFile = "./LICENSE";
 
-const packagePath = `${workingDirectory}/package.json`;
-const extractedProdLicenseFilePath = `${workingDirectory}/licenses-prod.json`;
+const packagePath = "./package.json";
+const extractedProdLicenseFilePath = "./licenses-prod.json";
 
-const licenseManagerDevConfigPath = `${workingDirectory}/license-manager-dev.config.js`;
-const extractedDevLicenseFilePath = `${workingDirectory}/licenses-dev.json`;
+const licenseManagerDevConfigPath = "./license-manager/license-manager-dev.config.js";
+const extractedDevLicenseFilePath = "./licenses-dev.json";
 
 let packageInfo = {};
 try {
