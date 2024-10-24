@@ -25,7 +25,9 @@ jobs:
           restore-keys: npm-
 
       - name: Install Dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm install @actions/core --no-save
       - name: Install license-manager
         run: npm install @cybozu/license-manager --no-save
 
