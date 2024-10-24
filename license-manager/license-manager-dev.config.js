@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-const { isMatchPackage } = require("/Users/ldong/.nvm/versions/node/v20.18.0/lib/node_modules/@cybozu/license-manager");
+const { isMatchPackage } = require("@cybozu/license-manager");
 
 const OSS_LICENSE = [
   "GPL-2.0-only", // https://bozuman.cybozu.com/k/8979/show#record=1
