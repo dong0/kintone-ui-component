@@ -10,7 +10,7 @@ const licenseFile = `${workingDirectory}/LICENSE`;
 const packagePath = `${workingDirectory}/package.json`;
 const extractedProdLicenseFilePath = `${workingDirectory}/licenses-prod.json`;
 
-const licenseManagerDevConfigPath = `${workingDirectory}/license-manager-dev.config.js`;
+const licenseManagerDevConfigPath = `${workingDirectory}/license-manager/license-manager-dev.config.js`;
 const extractedDevLicenseFilePath = `${workingDirectory}/licenses-dev.json`;
 
 let packageInfo = {};
