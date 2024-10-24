@@ -99,13 +99,13 @@ const config = {
     query: ":root > .dev", // license-manager uses npm query to search packages.
     allowLicenses: OSS_LICENSE, // If any package is found for which this option is not specified, analyze command will output errors.
     allowPackages: [
-      // "eslint-plugin-kuc-v1", // https://bozuman.cybozu.com/k/36070/show#record=349
     ], // Packages specified with this option are allowed regardless of the license.
   },
   extract: {
     query: ":root > .dev",
     format: "json",
     output: "licenses-dev.json",
+    excludePackages: ["eslint-plugin-kuc-v1"],
   },
   overrideLicense: (dep) => {
     for (const packageName of Object.keys(OVERRIDE_LICENSES)) {
