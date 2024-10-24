@@ -66,11 +66,11 @@ const OSS_LICENSE = [
 
 const OVERRIDE_LICENSES = {
   "jsesc@0.5.0": "MIT", // https://github.com/mathiasbynens/jsesc/blob/v0.5.0/LICENSE-MIT.txt
+  "eslint-plugin-kuc-v1@1.0.0": "MIT"
 };
 
 const OVERRIDE_LICENSES_TEXT = {
   "fs@0.0.1-security": "ISC License", // Can't find license file. https://www.npmjs.com/package/fs/v/0.0.1-security
-  "eslint-plugin-kuc-v1@1.0.0": "MIT License", //
   "@web/test-runner@0.19.0": `MIT License
 
 Copyright (c) 2020 modern-webdev
@@ -99,7 +99,7 @@ const config = {
     query: ":root > .dev", // license-manager uses npm query to search packages.
     allowLicenses: OSS_LICENSE, // If any package is found for which this option is not specified, analyze command will output errors.
     allowPackages: [
-      "eslint-plugin-kuc-v1", // https://bozuman.cybozu.com/k/36070/show#record=349
+      // "eslint-plugin-kuc-v1", // https://bozuman.cybozu.com/k/36070/show#record=349
     ], // Packages specified with this option are allowed regardless of the license.
   },
   extract: {
