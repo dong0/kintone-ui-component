@@ -52,7 +52,7 @@ jobs:
       - name: Check for modified LICENSE file
         run: |
           if git diff --name-only | grep -q 'LICENSE' || git ls-files --others --exclude-standard | grep -q 'LICENSE'; then
-            echo "f=true" >> $GITHUB_ENV
+            echo "LICENSE_changed=true" >> $GITHUB_ENV
           else
             echo "LICENSE is NOT changed"
           fi
