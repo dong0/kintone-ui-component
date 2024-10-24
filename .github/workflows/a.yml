@@ -22,7 +22,7 @@ jobs:
         run: |
           npm ci
           npm i @actions/core --no-save
-      - name: Check version
-        id: check_version
-        uses: ./.github/actions/check_version
-      - run : echo ${{ steps.check_version.outputs.version }}
+      - name: generate licenses
+        id: generate_licenses
+        uses: ./.github/actions/generate_licenses
+      - run : echo ${{ steps.generate_licenses.outputs.license_file_path }}
