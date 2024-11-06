@@ -65,7 +65,6 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@cybozu/license-manager": "^1.2.1",
     "@webcomponents/webcomponentsjs": "^2.8.0",
     "core-js": "^3.38.1",
     "lit": "^3.2.0",
