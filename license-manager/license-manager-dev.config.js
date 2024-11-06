@@ -52,7 +52,7 @@ const OSS_LICENSE = [
 ];
 
 const OVERRIDE_LICENSES = {
-  "eslint-plugin-kuc-v1@^1.0.0": "OSSLIST-35"
+  "eslint-plugin-kuc-v1@^1.0.0": "MIT"
 };
 
 const OVERRIDE_LICENSES_TEXT = {};
