@@ -84,7 +84,7 @@ const config = {
   analyze: {
     query: ":root > .dev", // license-manager uses npm query to search packages.
     allowLicenses: OSS_LICENSE, // If any package is found for which this option is not specified, analyze command will output errors.
-    allowPackages: [], // Packages specified with this option are allowed regardless of the license.
+    allowPackages: ["eslint-plugin-kuc-v1@1.0.0"], // Packages specified with this option are allowed regardless of the license.
   },
   extract: {
     query: ":root > .dev",

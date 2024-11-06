@@ -1,6 +1,7 @@
 const core = require("@actions/core");
 const fs = require("fs");
 const path = require("path");
+const { isMatchName } = require("@cybozu/license-manager");
 
 const workingDirectory = path.resolve("./");
 const productLicenseFile = path.resolve("./license-manager/product-license");
@@ -47,8 +48,8 @@ let devNeedExportDependencies = [];
 const devConfig = require(licenseManagerDevConfigPath);
 if (devConfig.analyze && devConfig.analyze.allowPackages) {
   const devAllowPackages = devConfig.analyze.allowPackages;
-  devNeedExportDependencies = devDependenciesList.filter((dep) => {
-    return devAllowPackages.includes(dep);
+  devNeedExportDependencies = devDependenciesList.filter((dependencyName) => {
+    return devAllowPackages.findIndex((devAllowPackage) => isMatchName({name: dependencyName}, devAllowPackage)) > -1;
   });
 }
 
