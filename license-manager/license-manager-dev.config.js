@@ -56,6 +56,7 @@ const OVERRIDE_LICENSES = {
 };
 
 const OVERRIDE_LICENSES_TEXT = {
+  "eslint-plugin-kuc-v1@1.0.0": "MIT License",
   "@web/test-runner@0.19.0": `MIT License
 
 Copyright (c) 2020 modern-webdev
