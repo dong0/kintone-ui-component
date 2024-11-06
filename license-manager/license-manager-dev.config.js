@@ -52,7 +52,6 @@ const OSS_LICENSE = [
 ];
 
 const OVERRIDE_LICENSES = {
-  "eslint-plugin-kuc-v1@1.0.0": "MIT"
 };
 
 const OVERRIDE_LICENSES_TEXT = {};
@@ -67,7 +66,6 @@ const config = {
     query: ":root > .dev",
     format: "json",
     output: "licenses-dev.json",
-    excludePackages: ["eslint-plugin-kuc-v1", "@web/test-runner"],
   },
   overrideLicense: (dep) => {
     for (const packageName of Object.keys(OVERRIDE_LICENSES)) {
