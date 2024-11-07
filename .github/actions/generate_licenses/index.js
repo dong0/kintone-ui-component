@@ -100,7 +100,7 @@ const generateDevLicenseContent = (licenseManagerDevConfigPath, extractedDevLice
 let licenseContent;
 
 try {
-  licenseContent = `${fs.readFileSync(productLicenseFile).toString()}\n`;
+  licenseContent = `${fs.readFileSync(productLicenseFile).toString()}`;
 } catch (e) {
   licenseContent = "";
 }
@@ -109,7 +109,7 @@ const prodLicenseContent = generateProdLicenseContent(packagePath, extractedProd
 const devLicenseContent = generateDevLicenseContent(licenseManagerDevConfigPath, extractedDevLicenseFilePath);
 
 if (prodLicenseContent || devLicenseContent) {
-  licenseContent += licenseContent ? "\n\n" : "";
+  licenseContent += licenseContent ? "\n\n\n" : "";
   licenseContent += `Licenses for Third-Party Libraries
 
   The following sections contain licensing information for libraries that
