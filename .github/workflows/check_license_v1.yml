@@ -78,9 +78,10 @@ jobs:
           base: ${{ github.head_ref }}
           title: Auto Update LICENSE file
           body: ''
+          delete-branch: true
 
       - name: Enable Pull Request Automerge
         if: env.LICENSE_changed == 'true'
-        run: gh pr merge --merge --auto --delete-branch "${{ steps.create_pr.outputs.pull-request-number }}"
+        run: gh pr merge --merge --auto "${{ steps.create_pr.outputs.pull-request-number }}"
         env:
           GH_TOKEN: ${{ github.token }}
