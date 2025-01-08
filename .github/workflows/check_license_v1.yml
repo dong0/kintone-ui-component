@@ -79,7 +79,7 @@ jobs:
           branch: auto-update-LICENSE
           base: ${{ github.head_ref }}
           title: Auto Update LICENSE file
-          body: ''
+          body: 'dd'
 
       - name: Auto merge Pull Request
         if: env.LICENSE_changed == 'true'
