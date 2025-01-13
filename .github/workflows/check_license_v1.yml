@@ -63,7 +63,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git push origin HEAD:refs/heads/bot-auto-update-LICENSE_${{ github.run_id }}-${{ github.run_attempt }}
+          git push origin HEAD:refs/heads/bot-auto-update-LICENSE_${{ github.run_number }}-${{ github.run_attempt }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
@@ -76,7 +76,7 @@ jobs:
           commit-message: "Update LICENSE file"
           committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          branch: bot-auto-update-LICENSE_${{ github.run_id }}-${{ github.run_attempt }}
+          branch: bot-auto-update-LICENSE_${{ github.run_number }}-${{ github.run_attempt }}
           base: ${{ github.head_ref }}
           title: Auto Update LICENSE file
           body: ''
@@ -94,4 +94,4 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git push origin --delete bot-auto-update-LICENSE_${{ github.run_id }}-${{ github.run_attempt }}
+          git push origin --delete bot-auto-update-LICENSE_${{ github.run_number }}-${{ github.run_attempt }}
