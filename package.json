@@ -66,9 +66,9 @@
   },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.8.0",
-    "core-js": "^3.40.0",
+    "core-js": "v3.39.0",
     "lit": "^3.2.1",
     "regenerator-runtime": "^0.14.1",
-    "uuid": "^11.0.4"
+    "uuid": "v11.0.3"
   }
 }
