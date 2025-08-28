@@ -626,14 +626,6 @@ let exportUserOrgGroupSelect;
       dispatchCustomEvent(this, "click-picker-icon", clickIconEventDetail);
     }
 
-    private _actionToggleMenu() {
-      if (this._selectorVisible) {
-        this._actionHideMenu();
-        return;
-      }
-      this._actionShowMenu();
-    }
-
     private _setMenuPositionAboveOrBelow() {
       this._menuEl.style.height = "auto";
       this._menuEl.style.bottom = "auto";
