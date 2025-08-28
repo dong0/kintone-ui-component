@@ -609,7 +609,8 @@ let exportUserOrgGroupSelect;
     private _handleClickToggleButton(event: MouseEvent): void {
       event.preventDefault();
       this._inputEl.focus();
-      this._inputEl.select();
+      const currentLength = this._inputEl.value.length;
+      this._inputEl.setSelectionRange(currentLength, currentLength);
       this._setMatchingItems();
       this._actionShowMenu();
     }
