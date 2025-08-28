@@ -190,6 +190,7 @@ let exportUserOrgGroupSelect;
                     aria-controls="${this._GUID}-listbox"
                     aria-expanded="${this._selectorVisible}"
                     ?disabled="${this.disabled}"
+                    @mousedown="${this._handleMouseDownToggleButton}"
                     @click="${this._handleClickToggleButton}"
                   >
                     ${this._getSearchPickerSvgTemplate()}
@@ -427,6 +428,15 @@ let exportUserOrgGroupSelect;
     }
 
     private _handleBlurUserOrgGroupInput(event: Event) {
+      const focusEvent = event as unknown as FocusEvent;
+      const nextTarget = focusEvent.relatedTarget as HTMLElement | null;
+      if (
+        nextTarget &&
+        (this._toggleEl.contains(nextTarget) ||
+          (this._menuEl && this._menuEl.contains(nextTarget)))
+      ) {
+        return;
+      }
       this._resetToggleInputValue();
     }
 
@@ -600,8 +610,12 @@ let exportUserOrgGroupSelect;
       event.preventDefault();
       this._inputEl.focus();
       this._inputEl.select();
-      this._resetToggleInputValue();
-      this._actionToggleMenu();
+      this._setMatchingItems();
+      this._actionShowMenu();
+    }
+
+    private _handleMouseDownToggleButton(event: MouseEvent): void {
+      event.preventDefault();
     }
 
     private _handleClickIconButton(event: MouseEvent): void {
@@ -836,6 +850,8 @@ let exportUserOrgGroupSelect;
       };
       this._query = "";
       dispatchCustomEvent(this, "change", detail);
+      // Clear input after selecting an item so the filter resets
+      this._resetToggleInputValue();
     }
 
     private _getItemElementWhenMouseOverDown(
@@ -879,8 +895,7 @@ let exportUserOrgGroupSelect;
         event.target === this._toggleEl ||
         this._toggleEl.contains(event.target as HTMLElement)
       ) {
-        this._inputEl.focus();
-        event.stopPropagation();
+        return;
       }
       if (
         Array.from(this._disabledItemsEl).some(
