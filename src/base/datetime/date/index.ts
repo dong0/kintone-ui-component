@@ -82,6 +82,7 @@ export class BaseDate extends KucBase {
         @input="${this._handleInputValue}"
       />
       <button
+        type="button"
         aria-haspopup="dialog"
         aria-expanded="${this._dateTimeCalendarVisible}"
         class="kuc-base-date__assistive-text"
