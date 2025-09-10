@@ -14,7 +14,7 @@ const initItems = [
 
 describe("UserOrgGroupSelect", () => {
   describe("accessibility", () => {
-    it("should show/hide menu element when clicking toggle button", async () => {
+    it("should show and keep menu visible when clicking toggle button twice", async () => {
       const container = new UserOrgGroupSelect({
         items: initItems,
         value: [initItems[0].value],
@@ -31,7 +31,7 @@ describe("UserOrgGroupSelect", () => {
       expect(menuEl).not.has.attribute("hidden");
       toggleIconButtonEl.click();
       await elementUpdated(container);
-      expect(menuEl).has.attribute("hidden");
+      expect(menuEl).not.has.attribute("hidden");
     });
 
     it("should hide menu element when clicking document", async () => {
