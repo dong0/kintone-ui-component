@@ -177,7 +177,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
   }
   .kuc-user-org-group-select__group__container__select-area__select-menu__item__text {
     font-size: var(--kuc-user-org-group-select-font-size, 14px);
-    line-height: 1;
+    line-height: 1.5;
     width: 100%;
     padding: 0 12px;
     overflow: hidden;
@@ -236,7 +236,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
   }
  .kuc-user-org-group-select__group__container__select-area__selected-list__item__content__text{
     padding-left: 8px;
-    line-height: 1;
+    line-height: 1.5;
     align-content: center;
     white-space: nowrap;
     overflow: hidden;
