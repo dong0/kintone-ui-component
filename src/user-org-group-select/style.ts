@@ -144,7 +144,6 @@ export const USER_ORG_GROUP_SELECT_CSS = `
    display: flex;
    background-color: #f7f9fa;
    flex-direction: row;
-   align-items: center;
    cursor: pointer;
    box-sizing: border-box;
   }
@@ -164,6 +163,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     height: 48px;
     display: flex;
     justify-content: center;
+    align-self: center;
     margin: 0;
     padding: 0;
     background-color: transparent;
@@ -177,7 +177,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
   }
   .kuc-user-org-group-select__group__container__select-area__select-menu__item__text {
     font-size: var(--kuc-user-org-group-select-font-size, 14px);
-    line-height: 1.5;
+    line-height: 1;
     width: 100%;
     padding: 0 12px;
     overflow: hidden;
@@ -203,7 +203,6 @@ export const USER_ORG_GROUP_SELECT_CSS = `
   .kuc-user-org-group-select__group__container__select-area__selected-list__item__content {
     display: flex;
     flex-direction: row;
-    align-items: center;
     flex: 1;
     min-width: 0;
   }
@@ -215,6 +214,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
   }
   .kuc-user-org-group-select__group__container__select-area__selected-list__item__remove-icon__button {
     border: none;
@@ -236,7 +236,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
   }
  .kuc-user-org-group-select__group__container__select-area__selected-list__item__content__text{
     padding-left: 8px;
-    line-height: 1.5;
+    line-height: 1;
     align-content: center;
     white-space: nowrap;
     overflow: hidden;
