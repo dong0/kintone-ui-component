@@ -16,7 +16,7 @@ Here is the guide on the command options and how to develop the package.
 
 ## Command Guide
 
-The commands are provided as npm-scritpts, so please execute `npm run { Command }` in the terminal.
+The commands are provided as npm-scripts. Use your package manager; we recommend `pnpm run { Command }`.
 
 |Command| Summary|
 | :---- | :---- |
@@ -44,32 +44,33 @@ git branch <branch name>
 git checkout <branch name>
 ```
 ### Setup
-This repository is a Single Repo using npm.
+This repository uses pnpm.
 ```sh
 cd kintone-ui-component
-npm ci
+pnpm install --frozen-lockfile
 ```
 ### Develop
 #### 1. Implement your functions/features
 #### 2. ESlint check
 ```sh
-npm run es-lint
+pnpm run es-lint
 ```
 #### 3. Start storybook to confirm your functions/features
 ```sh
-npm run storybook
+pnpm run storybook
 ```
 #### 4. Commit and Create Pull Request
 Please refer to [Pull Request naming rule](#Pull-Request).
 
 ### Build
 ```sh
-npm run build:umd_dev
+pnpm run build:umd_dev
 or
-npm run build:umd_prod
+pnpm run build:umd_prod
 or
-npm run build:esm
+pnpm run build:esm
 ```
+
 ### Update document
 Please refer to [Document with Docusaurus](https://github.com/kintone-labs/kintone-ui-component/blob/master/docs/document/README.md).
 
