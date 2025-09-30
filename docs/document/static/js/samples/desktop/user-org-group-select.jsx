@@ -4,7 +4,6 @@ export const UserOrgGroupSelectComponent = () => {
   const divEl = useRef();
   useEffect(() => {
     const userOrgGroupSelect = new Kuc.UserOrgGroupSelect({
-      label: 'Assignees',
       items: [
         { label: 'Alice Johnson', value: 'alice', type: 'user', disabled: false },
         { label: 'Bob Smith', value: 'bob', type: 'user', disabled: false },
@@ -16,8 +15,6 @@ export const UserOrgGroupSelectComponent = () => {
         { label: 'New York Office', value: 'ny-office', type: 'org', disabled: false },
       ],
       value: ['alice', 'marketing-group', 'acme-corp'],
-      requiredIcon: true,
-      error: 'Error occurred!',
       className: 'sample-class',
       icon: 'user',
       id: 'sample-id',
