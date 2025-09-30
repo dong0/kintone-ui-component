@@ -22,6 +22,8 @@ import { SpinnerComponent } from "@site/static/js/samples/desktop/spinner.jsx"
 
 | Name | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
+| className | string | "" | コンポーネントの class 名 | |
+| id | string | "" | コンポーネントの id 名 | |
 | text | string | "" | ローダーアイコン下部に表示するテキスト | text が未指定、あるいは空文字の場合*は、初期値を表示する |
 | container | HTMLElement | document.body | コンポーネントを追加する対象の要素 | デフォルトではトップレベルのドキュメントオブジェクトのボディを使うので、ほとんどの場合は document.body となる<br/>container が HTMLElement 以外の場合、エラーを出力する |
 
@@ -89,6 +91,8 @@ const Kuc = Kucs['1.x.x'];
 
 const spinner = new Kuc.Spinner({
   text: 'now loading...',
+  className: 'options-class',
+  id: 'options-id',
   container: document.body
 });
 

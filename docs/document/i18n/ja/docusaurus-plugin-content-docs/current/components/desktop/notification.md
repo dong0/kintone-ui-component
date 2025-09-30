@@ -22,10 +22,11 @@ import { NotificationComponent } from "@site/static/js/samples/desktop/notificat
 
 | Name | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
-| className | string | "" | コンポーネントの class 名 ||
+| className | string | "" | コンポーネントの class 名 | |
+| id | string | "" | コンポーネントの id 名 | |
 | text | string | "" | 表示するテキスト | content が未指定の場合、text が表示される<br/>その他の場合、text は無視される |
 | type | string | "danger" | 背景色 | 以下を指定できる<br/>"danger" : Red(#e74c3c)<br/>"info" : Blue(#3498db)<br/>"success" : Green(#91c36c) |
-| content *1 | string/HTMLElement | ""  | 表示する DOM | HTML が記載された string を指定した場合、自動的に HTML に変換してそのまま表示される |
+| content *1 | string/HTMLElement | "" | 表示する DOM | HTML が記載された string を指定した場合、自動的に HTML に変換してそのまま表示される |
 | duration | number | -1 | コンポーネントを閉じるまでのミリ秒 | 単位はミリ秒<br/>0以上の数値を指定できる<br/>もし不正な値を指定した場合（0未満もしくは数値以外）、コンポーネントは開かれたまま自動的には閉じない |
 | container | HTMLElement | document.body | コンポーネントを追加する対象の要素 | デフォルトではトップレベルのドキュメントオブジェクトのボディを使うので、ほとんどの場合は document.body となる<br/>container が HTMLElement 以外の場合、エラーを出力する |
 
@@ -105,6 +106,7 @@ const notification = new Kuc.Notification({
     'Error occurred!<br>Please click the <a href="#">Link</a> for details.',
   type: 'danger',
   className: 'options-class',
+  id: 'options-id',
   duration: 2000,
   container: document.body
 });

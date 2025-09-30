@@ -22,7 +22,8 @@ import { MobileNotificationComponent } from "@site/static/js/samples/mobile/noti
 
 | Name | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
-| className | string | "" | コンポーネントの class 名 ||
+| className | string | "" | コンポーネントの class 名 | |
+| id | string | "" | コンポーネントの id 名 | |
 | text | string | "" | 表示するテキスト | content が未指定の場合、text が表示される<br/>その他の場合、text は無視される |
 | content *1 | string/HTMLElement | ""  | 表示する DOM | HTML が記載された string を指定した場合、自動的に HTML に変換してそのまま表示される |
 | duration | number | -1 | コンポーネントを閉じるまでのミリ秒 | 単位はミリ秒<br/>0以上の数値を指定できる<br/>もし不正な値を指定した場合（0未満もしくは数値以外）、コンポーネントは開かれたまま自動的には閉じない |
@@ -89,6 +90,7 @@ const mobileNotification = new Kuc.MobileNotification({
   content:
     'Error occurred!<br>Please click the <a href="#">Link</a> for details.',
   className: 'options-class',
+  id: 'options-id',
   duration: 2000,
   container: document.body
 });
