@@ -28,6 +28,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     width: var(--kuc-user-org-group-select-toggle-width, 280px);
     position: relative;
     display: inline-table;
+    font-size: 14px;
     color: #333333;
     vertical-align: top;
     line-height: 1.5;
@@ -104,8 +105,14 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     margin: 0;
     padding: 0;
     border: none;
+    border-left: 1px solid #e3e7e8;
     background-color: transparent;
     cursor: pointer;
+  }
+  .kuc-user-org-group-select__group__container__select-area__toggle__icon__button__svg {
+    border: 1px solid #e3e7e8;
+    border-left: none;
+    background-color: #eeeeee;
   }
   .kuc-user-org-group-select__group__container__picker {
     margin-left: 8px;
