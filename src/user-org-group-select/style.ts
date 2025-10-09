@@ -184,9 +184,9 @@ export const USER_ORG_GROUP_SELECT_CSS = `
   }
   .kuc-user-org-group-select__group__container__select-area__select-menu__item__text {
     font-size: var(--kuc-user-org-group-select-font-size, 14px);
-    line-height: 1.2;
+    line-height: normal;
     width: 100%;
-    padding: 0 12px;
+    padding: 2px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     color: #3498db;
@@ -242,8 +242,8 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     outline: none;
   }
  .kuc-user-org-group-select__group__container__select-area__selected-list__item__content__text{
-    padding-left: 8px;
-    line-height: 1.2;
+    padding: 2px 0 2px 8px;
+    line-height: normal;
     align-content: center;
     white-space: nowrap;
     overflow: hidden;
