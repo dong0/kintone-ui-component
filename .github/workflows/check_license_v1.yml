@@ -1,8 +1,7 @@
 name: Check v1 license
 
 on:
-  pull_request:
-    branches: [master]
+  push
 
 jobs:
   license_manager:
@@ -35,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install --frozen-lockfile
-          pnpm add @actions/core @cybozu/license-manager --no-save
+          pnpm fetch @actions/core @cybozu/license-manager
 
       - name: Analyze and extract prod licenses
         run: |
