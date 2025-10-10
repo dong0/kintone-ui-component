@@ -84,6 +84,9 @@ importers:
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
+      storybook:
+        specifier: ^8.6.14
+        version: 8.6.14(prettier@3.6.2)
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.9.2)(webpack@5.101.0)
