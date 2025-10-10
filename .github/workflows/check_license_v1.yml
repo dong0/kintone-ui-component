@@ -38,13 +38,13 @@ jobs:
 
       - name: Analyze and extract prod licenses
         run: |
-          pnpm dlx license-manager analyze -c ./license-manager/license-manager-prod.config.js
-          pnpm dlx license-manager extract -c ./license-manager/license-manager-prod.config.js
+          license-manager analyze -c ./license-manager/license-manager-prod.config.js
+          license-manager extract -c ./license-manager/license-manager-prod.config.js
 
       - name: Analyze and extract dev licenses
         run: |
-          pnpm dlx license-manager analyze -c ./license-manager/license-manager-dev.config.js
-          pnpm dlx license-manager extract -c ./license-manager/license-manager-dev.config.js
+          license-manager analyze -c ./license-manager/license-manager-dev.config.js
+          license-manager extract -c ./license-manager/license-manager-dev.config.js
 
       - name: Generate licenses file
         id: generate_licenses
