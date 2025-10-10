@@ -34,17 +34,17 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install --frozen-lockfile
-          pnpm add @actions/core --save-optional
+          pnpm add @actions/core @cybozu/license-manager --save-optional
 
       - name: Analyze and extract prod licenses
         run: |
-          pnpm dlx @cybozu/license-manager analyze -c ./license-manager/license-manager-prod.config.js
-          pnpm dlx @cybozu/license-manager extract -c ./license-manager/license-manager-prod.config.js
+          pnpm dlx license-manager analyze -c ./license-manager/license-manager-prod.config.js
+          pnpm dlx license-manager extract -c ./license-manager/license-manager-prod.config.js
 
       - name: Analyze and extract dev licenses
         run: |
-          pnpm dlx @cybozu/license-manager analyze -c ./license-manager/license-manager-dev.config.js
-          pnpm dlx @cybozu/license-manager extract -c ./license-manager/license-manager-dev.config.js
+          pnpm dlx license-manager analyze -c ./license-manager/license-manager-dev.config.js
+          pnpm dlx license-manager extract -c ./license-manager/license-manager-dev.config.js
 
       - name: Generate licenses file
         id: generate_licenses
