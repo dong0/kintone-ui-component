@@ -28,7 +28,10 @@ jobs:
     - name: Install dependencies
       run: |
         pnpm install --frozen-lockfile
-        pnpm add @actions/core --global
+        pnpm add @actions/core -save-optional
+    - name: Restore package.json and pnpm-lock.yaml
+      run: |
+        git checkout -- package.json pnpm-lock.yaml
 #    - name: Check version
 #      id: check_version
 #      uses: ./.github/actions/check_version
