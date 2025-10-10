@@ -25,6 +25,12 @@
     "ui framework",
     "ui component"
   ],
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "onFail": "error"
+    }
+  },
   "scripts": {
     "build:umd_dev": "node ./scripts/webpack-umd.js development",
     "build:umd_prod": "node ./scripts/webpack-umd.js production",
