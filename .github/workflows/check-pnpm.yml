@@ -12,6 +12,10 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 10
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Get pnpm store directory
         id: pnpm-store
         run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
@@ -21,8 +25,9 @@ jobs:
           path: ${{ env.PNPM_STORE_PATH }}
           key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: pnpm-
-      - name: Install node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run ESLint
+        run: pnpm run es-lint
+      - name: Run unit test
+        run: pnpm test
