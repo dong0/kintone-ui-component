@@ -1,0 +1,39 @@
+name: Check v1 release
+
+on:
+  push
+jobs:
+  Run_tests:
+    name: Prepare for the release and trigger upload workflow
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+    - name: Install node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+    - name: Get pnpm store directory
+      id: pnpm-store
+      run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.PNPM_STORE_PATH }}
+        key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+        restore-keys: pnpm-
+    - name: Install dependencies
+      run: |
+        pnpm install --frozen-lockfile
+        pnpm add @actions/core --save-dev
+    - name: Check version
+      id: check_version
+      uses: ./.github/actions/check_version
+    - name: Run ESLint
+      run: pnpm run es-lint
+    - name: Run unit test
+      run: pnpm test
+

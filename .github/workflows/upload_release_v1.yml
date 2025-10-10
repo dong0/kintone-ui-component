@@ -1,0 +1,47 @@
+name: Upload v1 release
+
+on:
+  push
+jobs:
+  On_upload:
+    name: Upload integrity and package to release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+    - name: Install node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+    - name: Get pnpm store directory
+      id: pnpm-store
+      run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.PNPM_STORE_PATH }}
+        key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+        restore-keys: pnpm-
+    - name: Install dependencies
+      run: |
+        pnpm install --frozen-lockfile
+        pnpm add @actions/core --no-save
+    - name: Check version
+      id: check_version
+      uses: ./.github/actions/check_version
+    - name: Build lib/esm umd
+      run: |
+        pnpm run build:esm
+        pnpm run build:umd_prod
+    - name: Generate package binary file
+      id: generate_binary
+      uses: ./.github/actions/generate_binary_file
+    - name: Upload integrity artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: v${{ steps.check_version.outputs.version }}-integrity
+        path: ./${{ steps.generate_binary.outputs.integrity }}
+

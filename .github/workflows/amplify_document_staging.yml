@@ -1,0 +1,47 @@
+name: Amplify Document Staging Environment
+
+on:
+  push
+
+jobs:
+  publishOnMasterCommit:
+    name: Deploying on Amplify Document Staging Environment
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    env:
+      ZIP_FILE_NAME: build_staging
+      BRANCH_NAME: staging
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install dependencies on root
+        run: pnpm install --frozen-lockfile
+      - name: Build umd file
+        run: pnpm run build:umd_prod
+      - name: Move umd file
+        run: mv umd/kuc.min.js docs/document/static/js
+      - name: Install dependencies on document
+        run: pnpm install --frozen-lockfile
+        working-directory: docs/document
+      - name: Replace kucLink
+        run: sed -i 's|https://unpkg.com/kintone-ui-component/umd/kuc.min.js|/js/kuc.min.js|' docusaurus.config.js
+        working-directory: docs/document
+      - name: Build document
+        run: pnpm run build
+        working-directory: docs/document
+      - name: Create deployment zip file
+        run: zip -r $ZIP_FILE_NAME *
+        working-directory: docs/document/build
