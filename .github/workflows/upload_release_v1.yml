@@ -28,10 +28,10 @@ jobs:
     - name: Install dependencies
       run: |
         pnpm install --frozen-lockfile
-        pnpm add @actions/core --no-save
-    - name: Check version
-      id: check_version
-      uses: ./.github/actions/check_version
+        pnpm add @actions/core --global
+#    - name: Check version
+#      id: check_version
+#      uses: ./.github/actions/check_version
     - name: Build lib/esm umd
       run: |
         pnpm run build:esm
