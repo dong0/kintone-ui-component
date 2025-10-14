@@ -16,17 +16,18 @@ Here is the guide on the command options and how to develop the package.
 
 ## Command Guide
 
-The commands are provided as npm-scripts. Use your package manager; we recommend `pnpm run { Command }`.
+The commands are provided as npm-scripts. please execute `pnpm run { Command }` in the terminal.
 
 |Command| Summary|
 | :---- | :---- |
 |build:umd_dev|package and generate the development version of the umd file|
 |build:umd_prod|package and generate the production version of the umd file|
 |build:esm|package and generate the ECMAScript Modules (ESM)|
-|build:storybook|build a static storybook|
+|build-storybook|build a static storybook|
 |storybook|start storybook for building UI components|
 |test|unit test|
 |es-lint|eslint check|
+|actionlint|actionlint check|
 ## How to develop
 
 ### Clone and create branch
@@ -44,7 +45,7 @@ git branch <branch name>
 git checkout <branch name>
 ```
 ### Setup
-This repository uses pnpm.
+This repository is a Single Repo using pnpm.
 ```sh
 cd kintone-ui-component
 pnpm install --frozen-lockfile

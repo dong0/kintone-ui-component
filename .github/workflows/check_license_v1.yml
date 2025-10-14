@@ -13,35 +13,39 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - name: Install node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: latest
+          cache: 'pnpm'
+      - name: Get pnpm store directory
+        id: pnpm-store
+        run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
       - name: Cache Dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.pnpm-store
-          key: pnpm-${{ hashFiles('./pnpm-lock.yaml') }}
+          path: ${{ env.PNPM_STORE_PATH }}
+          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: pnpm-
 
       - name: Install dependencies
         run: |
           pnpm install --frozen-lockfile
-          pnpm add @actions/core @cybozu/license-manager --no-save
+          pnpm add @actions/core @cybozu/license-manager --save-dev
 
       - name: Analyze and extract prod licenses
         run: |
-          pnpm dlx license-manager analyze -c ./license-manager/license-manager-prod.config.js
-          pnpm dlx license-manager extract -c ./license-manager/license-manager-prod.config.js
+          pnpm license-manager analyze -c ./license-manager/license-manager-prod.config.js
+          pnpm license-manager extract -c ./license-manager/license-manager-prod.config.js
 
       - name: Analyze and extract dev licenses
         run: |
-          pnpm dlx license-manager analyze -c ./license-manager/license-manager-dev.config.js
-          pnpm dlx license-manager extract -c ./license-manager/license-manager-dev.config.js
+          pnpm license-manager analyze -c ./license-manager/license-manager-dev.config.js
+          pnpm license-manager extract -c ./license-manager/license-manager-dev.config.js
 
       - name: Generate licenses file
         id: generate_licenses
