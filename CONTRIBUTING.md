@@ -16,7 +16,7 @@ Here is the guide on the command options and how to develop the package.
 
 ## Command Guide
 
-The commands are provided as npm-scripts. please execute `pnpm run { Command }` in the terminal.
+The commands are provided as npm-scripts, please execute `pnpm run { Command }` in the terminal.
 
 |Command| Summary|
 | :---- | :---- |
