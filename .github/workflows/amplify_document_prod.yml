@@ -29,15 +29,6 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
-      - name: Get pnpm store directory
-        id: pnpm-store
-        run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.PNPM_STORE_PATH }}
-          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: pnpm-
       - name: Install dependencies on document
         run: pnpm install --frozen-lockfile
         working-directory: docs/document
