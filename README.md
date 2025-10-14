@@ -50,9 +50,6 @@ npm install kintone-ui-component
 >
 > # yarn
 > yarn add kintone-ui-component
->
-> # bun
-> bun add kintone-ui-component
 > ```
 
 ### CDN
