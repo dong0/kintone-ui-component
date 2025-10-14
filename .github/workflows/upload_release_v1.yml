@@ -9,14 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Install node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
     - name: Install pnpm
       uses: pnpm/action-setup@v4
       with:
         version: 10
+    - name: Install node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: 'pnpm'
     - name: Get pnpm store directory
       id: pnpm-store
       run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
@@ -29,7 +30,8 @@ jobs:
     - name: Install dependencies
       run: |
         pnpm install --frozen-lockfile
-        pnpm add @actions/core
+        pnpm add @actions/core --save-dev
+        git checkout package.json
     - name: Check version
       id: check_version
       uses: ./.github/actions/check_version

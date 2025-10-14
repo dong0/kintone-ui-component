@@ -31,7 +31,7 @@ jobs:
       run: |
         pnpm install --frozen-lockfile
         pnpm add @actions/core --save-dev
-        github checkout package.json
+        git checkout package.json
     - name: Check version
       id: check_version
       uses: ./.github/actions/check_version
