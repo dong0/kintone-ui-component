@@ -59,12 +59,12 @@ const OVERRIDE_LICENSES_TEXT = {};
 
 const config = {
   analyze: {
-    // query: ":root > .dev", // license-manager uses npm query to search packages.
+    query: ":root > .dev", // license-manager uses npm query to search packages.
     allowLicenses: OSS_LICENSE, // If any package is found for which this option is not specified, analyze command will output errors.
     allowPackages: [], // Packages specified with this option are allowed regardless of the license.
   },
   extract: {
-    // query: ":root > .dev",
+    query: ":root > .dev",
     format: "json",
     output: "licenses-dev.json",
     excludePackages: [
@@ -76,6 +76,7 @@ const config = {
       "@storybook/addon-viewport",
       "@storybook/web-components",
       "@storybook/web-components-webpack5",
+      "storybook",
     ],
   },
   overrideLicense: (dep) => {
