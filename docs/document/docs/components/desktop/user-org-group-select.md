@@ -61,6 +61,21 @@ Here is a list of available constructors:
 | :--- | :--- | :--- | :--- | :--- |
 | options | object | \{\} | Object that includes component properties | |
 
+### Custom CSS
+:::tip
+Please check [Custom CSS feature guide](../../getting-started/custom-css.md) at first.
+:::
+
+Here is a list of properties that can be used for modifying component style:
+#### Property
+| Name |
+| :--- |
+| --kuc-user-org-group-select-font-size |
+| --kuc-user-org-group-select-toggle-width |
+| --kuc-user-org-group-select-toggle-height |
+| --kuc-user-org-group-select-menu-max-height |
+
+---
 ## Sample Code
 
 :::tip
