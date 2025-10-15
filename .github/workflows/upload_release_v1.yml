@@ -16,6 +16,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 22
+        cache: 'pnpm'
     - name: Get pnpm store directory
       id: pnpm-store
       run: echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
@@ -28,10 +29,8 @@ jobs:
     - name: Install dependencies
       run: |
         pnpm install --frozen-lockfile
-        pnpm add @actions/core -save-optional
-    - name: Restore package.json and pnpm-lock.yaml
-      run: |
-        git checkout -- package.json pnpm-lock.yaml
+        pnpm add @actions/core --save-dev
+        git checkout package.json
 #    - name: Check version
 #      id: check_version
 #      uses: ./.github/actions/check_version
