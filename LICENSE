@@ -89,7 +89,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 uuid
 repository: https://github.com/uuidjs/uuid.git
-version: 11.0.0
+version: 13.0.0
 license: MIT
 The MIT License (MIT)
 
