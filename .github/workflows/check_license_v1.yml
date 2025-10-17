@@ -35,6 +35,7 @@ jobs:
         run: |
           pnpm install --frozen-lockfile
           pnpm add @actions/core @cybozu/license-manager --save-dev
+          git checkout package.json pnpm-lock.yaml
 
       - name: Analyze and extract prod licenses
         run: |
