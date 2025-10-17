@@ -61,6 +61,21 @@ UserOrgGroupSelect(options)<br/>
 | :--- | :--- | :--- | :--- | :--- |
 | options | object | \{\} | コンポーネントのプロパティを含むオブジェクト | |
 
+### Custom CSS
+:::tip
+[Custom CSS](../../getting-started/custom-css.md) をご確認ください。
+:::
+
+コンポーネントのスタイルを変更するために使用できるプロパティの一覧です。
+#### Property
+| Name |
+| :--- |
+| --kuc-user-org-group-select-font-size |
+| --kuc-user-org-group-select-toggle-width |
+| --kuc-user-org-group-select-toggle-height |
+| --kuc-user-org-group-select-menu-max-height |
+
+---
 ## Sample Code
 
 :::tip
