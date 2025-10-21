@@ -23,7 +23,7 @@ import { DialogComponent } from "@site/static/js/samples/desktop/dialog.jsx"
 
 | Name | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
-| icon | string | "" | content 領域左上に表示するアイコン | 以下を指定できる:<li>"info" : ![info](/img/icon-info.png)</li><li>"success" : ![success](/img/icon-success.png)</li><li>"error" : ![error](/img/icon-error.png)</li><li>"warning" : ![warning](/img/icon-warning.png)</li><li>"question" : ![question](/img/icon-question.png)</li><li>"" : アイコンなし</li> |
+| icon | string | "" | content 領域左上に表示するアイコン | 以下を指定できる:<ul><li>"info" : ![info](/img/icon-info.png)</li><li>"success" : ![success](/img/icon-success.png)</li><li>"error" : ![error](/img/icon-error.png)</li><li>"warning" : ![warning](/img/icon-warning.png)</li><li>"question" : ![question](/img/icon-question.png)</li><li>"" : アイコンなし</li></ul> |
 | title | string | "" | Header のタイトル | header が未指定の場合、title が表示される<br/>その他の場合、title は無視される |
 | content *1 | string/HTMLElement | "" | Content の DOM | HTML が記載された string を指定した場合、自動的に HTML に変換してそのまま表示される |
 | footer *1 | string/HTMLElement | "" | Footer の DOM | HTML が記載された string を指定した場合、自動的に HTML に変換してそのまま表示される |
