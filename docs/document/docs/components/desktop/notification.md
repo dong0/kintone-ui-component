@@ -23,6 +23,7 @@ Here is a list of properties that can be used for modifying the component:
 | Name | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
 | className | string | ""  | Component class name | |
+| id | string | "" | Component id name | |
 | text | string | ""  | Text to be displayed | If `content` is unspecified, the value of `text` will be displayed<br/>In other cases, the `text` will be ignored |
 | type | string | "danger"  | Background color | Available options:<br/>"danger" : Red (#e74c3c)<br/>"info" : Blue (#3498db)<br/>"success" : Green (#91c36c) |
 | content *1 | string/HTMLElement | ""  | The DOM to be displayed | If a string with HTML is set, it will be automatically converted to HTML and displayed as it is |
@@ -105,6 +106,7 @@ const notification = new Kuc.Notification({
     'Error occurred!<br>Please click the <a href="#">Link</a> for details.',
   type: 'danger',
   className: 'options-class',
+  id: 'options-id',
   duration: 2000,
   container: document.body
 });
