@@ -23,7 +23,7 @@ import { UserOrgGroupSelectComponent } from "@site/static/js/samples/desktop/use
 | :--- | :--- | :--- | :--- | :--- |
 | className | string | ""  | コンポーネントの class 名 | |
 | error | string | "" | エラーに表示するテキスト | 未指定、あるいは空文字の場合、error は表示されない |
-| icon | string | "" | 選択アイコン | `icon` を使用して入力欄部分の右側に表示されるメインアイコンを設定する<br/>icon の値に応じてアイコンが表示される<br/>指定できるオプション:<li>"user" : ![user](/img/icon-user.png)</li><li>"org" : ![org](/img/icon-org.png)</li><li>"group" : ![group](/img/icon-group.png)</li><li>"" : アイコンなし</li> |
+| icon | string | "" | 選択アイコン | `icon` を使用して入力欄部分の右側に表示されるメインアイコンを設定する<br/>icon の値に応じてアイコンが表示される<br/>指定できるオプション:<ul><li>"user" : ![user](/img/icon-user.png)</li><li>"org" : ![org](/img/icon-org.png)</li><li>"group" : ![group](/img/icon-group.png)</li><li>"" : アイコンなし</li></ul> |
 | id | string | "" | コンポーネントの id 名 ||
 | label | string | "" | コンポーネントの説明ラベル | 未指定、あるいは空文字の場合、label は表示されない |
 | placeholder | string | "" | 入力フィールドに表示されるプレースホルダーテキスト | |
@@ -38,7 +38,7 @@ import { UserOrgGroupSelectComponent } from "@site/static/js/samples/desktop/use
 | Name   | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
 | label | string | null  | 各選択肢のテキスト | Item.label が未指定の場合、UI 上は Item.value の値が表示される |
-| type | string | "" | 各選択肢のアイコン | Item.type は、選択肢一覧と選択された項目の一覧の各オプションにそれぞれ表示される小さなアイコンの種類を指す<br/>Item.type の値に応じてアイコンが表示される<br/>指定できるオプション:<li>"user" : ![user](/img/selected-user.png)</li><li>"org" : ![org](/img/selected-org.png)</li><li>"group" : ![group](/img/selected-group.png)</li><li>"" : アイコンなし</li> |
+| type | string | "" | 各選択肢のアイコン | Item.type は、選択肢一覧と選択された項目の一覧の各オプションにそれぞれ表示される小さなアイコンの種類を指す<br/>Item.type の値に応じてアイコンが表示される<br/>指定できるオプション:<ul><li>"user" : ![user](/img/selected-user.png)</li><li>"org" : ![org](/img/selected-org.png)</li><li>"group" : ![group](/img/selected-group.png)</li><li>"" : アイコンなし</li></ul> |
 | value | string | null  | 各選択肢の値 | Item.value に重複した値を指定した場合、エラーを出力する |
 | disabled | boolean | false | 各オプションの選択可/不可設定 | |
 
@@ -61,6 +61,21 @@ UserOrgGroupSelect(options)<br/>
 | :--- | :--- | :--- | :--- | :--- |
 | options | object | \{\} | コンポーネントのプロパティを含むオブジェクト | |
 
+### Custom CSS
+:::tip
+[Custom CSS](../../getting-started/custom-css.md) をご確認ください。
+:::
+
+コンポーネントのスタイルを変更するために使用できるプロパティの一覧です。
+#### Property
+| Name |
+| :--- |
+| --kuc-user-org-group-select-font-size |
+| --kuc-user-org-group-select-toggle-width |
+| --kuc-user-org-group-select-toggle-height |
+| --kuc-user-org-group-select-menu-max-height |
+
+---
 ## Sample Code
 
 :::tip

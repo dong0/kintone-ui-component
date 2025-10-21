@@ -23,7 +23,7 @@ Here is a list of properties that can be used for modifying the component:
 | :--- | :--- | :--- | :--- | :--- |
 | className | string | ""  | Component class name | |
 | error | string | ""  | Text to be displayed in error | Error will not be displayed if unspecified or empty |
-| icon | string | "" | Picker icon type | `icon` is used to set the main icon displayed on the right side of the toggle part<br/>Displays different icons based on different values of `icon`<br/>Available options:<li>"user" : ![user](/img/icon-user.png)</li><li>"org" : ![org](/img/icon-org.png)</li><li>"group" : ![group](/img/icon-group.png)</li><li>"" : No icon</li> |
+| icon | string | "" | Picker icon type | `icon` is used to set the main icon displayed on the right side of the toggle part<br/>Displays different icons based on different values of `icon`<br/>Available options:<ul><li>"user" : ![user](/img/icon-user.png)</li><li>"org" : ![org](/img/icon-org.png)</li><li>"group" : ![group](/img/icon-group.png)</li><li>"" : No icon</li></ul> |
 | id | string | ""  | Component id name | |
 | label | string | ""  | Label for the component | Label is not displayed if unspecified or empty |
 | placeholder | string | "" | Placeholder text displayed in the input field | |
@@ -38,7 +38,7 @@ Here is a list of properties that can be used for modifying the component:
 | Name   | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
 | label | string | null  | Text label for each option | If `Item.label` is unspecified, the value of `Item.value` is displayed on the UI |
-| type | string | "" | Icon type of each option | `Item.type` determines the small icon type displayed for each option in both the toggle menu and the selected items list<br/>Displays different icons based on different values of the `Item.type`<br/>Available options:<li>"user" : ![user](/img/selected-user.png)</li><li>"org" : ![org](/img/selected-org.png)</li><li>"group" : ![group](/img/selected-group.png)</li><li>"" : No icon</li> |
+| type | string | "" | Icon type of each option | `Item.type` determines the small icon type displayed for each option in both the toggle menu and the selected items list<br/>Displays different icons based on different values of the `Item.type`<br/>Available options:<ul><li>"user" : ![user](/img/selected-user.png)</li><li>"org" : ![org](/img/selected-org.png)</li><li>"group" : ![group](/img/selected-group.png)</li><li>"" : No icon</li></ul> |
 | value | string | null  | Value of each option | Will result an error if setting duplicated value in `Item.value` |
 | disabled | boolean | false | Enable/Disable each option | |
 
@@ -61,6 +61,21 @@ Here is a list of available constructors:
 | :--- | :--- | :--- | :--- | :--- |
 | options | object | \{\} | Object that includes component properties | |
 
+### Custom CSS
+:::tip
+Please check [Custom CSS feature guide](../../getting-started/custom-css.md) at first.
+:::
+
+Here is a list of properties that can be used for modifying component style:
+#### Property
+| Name |
+| :--- |
+| --kuc-user-org-group-select-font-size |
+| --kuc-user-org-group-select-toggle-width |
+| --kuc-user-org-group-select-toggle-height |
+| --kuc-user-org-group-select-menu-max-height |
+
+---
 ## Sample Code
 
 :::tip

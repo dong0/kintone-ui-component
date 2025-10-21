@@ -23,9 +23,8 @@ Here is a list of properties that can be used for modifying the component:
 
 | Name | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
-| className | string | "" | Component class name | |
-| icon | string | "" | The icon displayed in upper left of content area | Available options:<li>"info" : ![info](/img/icon-info.png)</li><li>"success" : ![success](/img/icon-success.png)</li><li>"error" : ![error](/img/icon-error.png)</li><li>"warning" : ![warning](/img/icon-warning.png)</li><li>"question" : ![question](/img/icon-question.png)</li><li>"" : No icon</li> |
-| id | string | "" | Component id name | |
+| className | string | "" | Component class name | |  
+| icon | string | "" | The icon displayed in upper left of content area | Available options:<ul><li>"info" : ![info](/img/icon-info.png)</li><li>"success" : ![success](/img/icon-success.png)</li><li>"error" : ![error](/img/icon-error.png)</li><li>"warning" : ![warning](/img/icon-warning.png)</li><li>"question" : ![question](/img/icon-question.png)</li><li>"" : No icon</li></ul> || id | string | "" | Component id name | |
 | title | string | ""  | Header Title | If `header` is unspecified, the value of `title` will be displayed<br/>In other cases, the `title` will be ignored |
 | content *1 | string/HTMLElement | ""  | DOM inside content | If a string with HTML is set, it will be automatically converted to HTML and displayed as it is |
 | footer *1 | string/HTMLElement | ""  | DOM inside footer | If a string with HTML is set, it will be automatically converted to HTML and displayed as it is |
