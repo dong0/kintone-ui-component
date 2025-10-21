@@ -24,7 +24,7 @@ Here is a list of properties that can be used for modifying the component:
 | :--- | :--- | :--- | :--- | :--- |
 | className | string | ""  | Component class name | |
 | id | string | ""  | Component id name | |
-| value | string | ""  | Selected value | <li>If the `value` is matched in the `items`, the tab will be displayed even if it’s disabled</li><li>The first visible tab will be displayed in the following cases:<ul><li>If the `value` is not matched in the `items`</li><li>If the `value` is matched in the `items`, but the tab is not visible</li></ul></li><li>Will result an error if the `value` is not string type</li> |
+| value | string | ""  | Selected value | <ul><li>If the `value` is matched in the `items`, the tab will be displayed even if it’s disabled</li><li>The first visible tab will be displayed in the following cases:<ul><li>If the `value` is not matched in the `items`</li><li>If the `value` is matched in the `items`, but the tab is not visible</li></ul></li><li>Will result an error if the `value` is not string type</li></ul> |
 | borderVisible | boolean | true  | Show/Hide the border surrounding the content | |
 | scrollButtons *1 | boolean | false | Show/Hide the scroll buttons | If the `scrollButtons` is true, tabs can be scrolled horizontally and moved by clicking Scroll Buttons. |
 | visible | boolean | true | Show/Hide the component | |
@@ -50,7 +50,7 @@ Here is a list of events that can be specified:
 
 | Name | Type | Description | Remark |
 | :--- | :--- | :--- | :--- |
-| change | function | Event handler of when selected tab is changed |  It will pass the event object as the argument<br/><br/>You can receive the following values in event.detail<br/><li>event.detail.oldValue : "value" before the change</li><li>event.detail.value : "value" after the change</li> |
+| change | function | Event handler of when selected tab is changed | It will pass the event object as the argument<br/><br/>You can receive the following values in event.detail<br/><ul><li>event.detail.oldValue : "value" before the change</li><li>event.detail.value : "value" after the change</li></ul> |
 
 ### Constructor
 

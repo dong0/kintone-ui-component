@@ -23,6 +23,8 @@ Here is a list of properties that can be used for modifying the component:
 
 | Name | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
+| className | string | "" | Component class name | |
+| id | string | "" | Component id name | |
 | text | string | ""  | Text to be displayed at the bottom of the loader icon | Displays the default value if the value for text is unspecified or empty |
 | container | HTMLElement | document.body | Target element to append the component | By default, it uses the body of the top-level document object, so it's simply `document.body` most of the time<br/>Will result an error if the value of `container` is not an HTMLElement |
 
@@ -90,6 +92,8 @@ const Kuc = Kucs['1.x.x'];
 
 const spinner = new Kuc.Spinner({
   text: 'now loading...',
+  className: 'options-class',
+  id: 'options-id',
   container: document.body
 });
 
