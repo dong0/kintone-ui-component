@@ -1,7 +1,8 @@
 name: Check v1 release
 
 on:
-  push
+  release:
+    types: [created]
 jobs:
   Run_tests:
     name: Prepare for the release and trigger upload workflow
@@ -38,4 +39,8 @@ jobs:
       run: pnpm run es-lint
     - name: Run unit test
       run: pnpm test
-
+    - name: Trigger run upload release workflows
+      uses: peter-evans/repository-dispatch@v3
+      with:
+        token: ${{secrets.WORKFLOW_TOKEN}}
+        event-type: release_dispatch_v1
