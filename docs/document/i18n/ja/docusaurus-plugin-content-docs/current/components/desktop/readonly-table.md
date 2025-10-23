@@ -69,8 +69,8 @@ ReadOnlyTable(options)<br/>
 | --kuc-readonly-table-header-color | |
 | --kuc-readonly-table-header-font-size | |
 | --kuc-readonly-table-header-height | |
-| --kuc-readonly-table-header-\{index\}-width | <li>このプロパティを使用すると、インデックス値に基づいて特定のテーブル列の幅を設定できる</li><li>例えば、`--kuc-readonly-table-header-0-width` を使用して、最初のカラムの幅を設定できる</li><li>インデックス値は `0` から始まることに注意</li> |
-| --kuc-readonly-table-header-width | <li>このプロパティを使用すると、テーブル内のすべての列の幅を設定できる</li><li>単一のカラムに対して特定の幅を設定する必要がある場合は、`--kuc-readonly-table-header-{index}-width` プロパティを利用する</li><li>伸縮する要素を子コンポーネントとして追加したい場合は、`--kuc-readonly-table-header-width: auto` を設定することで、この動作を維持できる場合がある</li> |
+| --kuc-readonly-table-header-\{index\}-width | <ul><li>このプロパティを使用すると、インデックス値に基づいて特定のテーブル列の幅を設定できる</li><li>例えば、`--kuc-readonly-table-header-0-width` を使用して、最初のカラムの幅を設定できる</li><li>インデックス値は `0` から始まることに注意</li></ul> |
+| --kuc-readonly-table-header-width | <ul><li>このプロパティを使用すると、テーブル内のすべての列の幅を設定できる</li><li>単一のカラムに対して特定の幅を設定する必要がある場合は、`--kuc-readonly-table-header-{index}-width` プロパティを利用する</li><li>伸縮する要素を子コンポーネントとして追加したい場合は、`--kuc-readonly-table-header-width: auto` を設定することで、この動作を維持できる場合がある</li></ul> |
 
 ---
 ## Sample Code

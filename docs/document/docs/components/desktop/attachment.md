@@ -41,7 +41,7 @@ Here is a list of properties that can be used for modifying the component:
 | Name   | Type | Default | Description | Remark |
 | :--- | :--- | :--- | :--- | :--- |
 | name | string | "" | File name | |
-| size | string | "" | File size | There are 4 types to show the size:<li>size >= 1073741824: xxx GB</li><li>1073741824 > size >= 1048576: xxx MB</li><li>1048576 > size >= 1024: xxx KB</li><li>1024 > size: xxx bytes</li> |
+| size | string | "" | File size | There are 4 types to show the size:<ul><li>size >= 1073741824: xxx GB</li><li>1073741824 > size >= 1048576: xxx MB</li><li>1048576 > size >= 1024: xxx KB</li><li>1024 > size: xxx bytes</li></ul> |
 
 ### Event
 
@@ -49,7 +49,7 @@ Here is a list of events that can be specified:
 
 | Name | Type | Description | Remark |
 | :--- | :--- | :--- | :--- |
-| change | function | Event handler when the files have been changed | It will pass the event object as the argument<br/>You can receive the following values in event.detail <li>add-file (Triggered if add any file)<ul><li>event.detail.type: "add-file"</li><li>event.detail.oldFiles: Files before add</li><li>event.detail.files: Files after add</li><li>event.detail.fileIndex: Index number of the added file (Type: Array\<number\>)<ul><li>You can get the added file by "event.detail.files[event.detail.fileIndex[x]]"</li></ul></li></ul></li><li>remove-file (Triggered if remove any file)<ul><li>event.detail.type: "remove-file"</li><li>event.detail.oldFiles: Files before remove</li><li>event.detail.files: Files after remove</li><li>event.detail.fileIndex: Index number of the removed file (Type: Array\<number\>)<ul><li>You can get the removed file by "event.detail.oldFiles[event.detail.fileIndex[x]]"</li></ul></li></ul></li> |
+| change | function | Event handler when the files have been changed | It will pass the event object as the argument<br/>You can receive the following values in event.detail <ul><li>add-file (Triggered if add any file)<ul><li>event.detail.type: "add-file"</li><li>event.detail.oldFiles: Files before add</li><li>event.detail.files: Files after add</li><li>event.detail.fileIndex: Index number of the added file (Type: Array\<number\>)<ul><li>You can get the added file by "event.detail.files[event.detail.fileIndex[x]]"</li></ul></li></ul></li><li>remove-file (Triggered if remove any file)<ul><li>event.detail.type: "remove-file"</li><li>event.detail.oldFiles: Files before remove</li><li>event.detail.files: Files after remove</li><li>event.detail.fileIndex: Index number of the removed file (Type: Array\<number\>)<ul><li>You can get the removed file by "event.detail.oldFiles[event.detail.fileIndex[x]]"</li></ul></li></ul></li></ul> |
 
 ### Constructor
 
