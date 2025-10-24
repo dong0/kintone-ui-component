@@ -2,8 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const core = require("@actions/core");
-const { isMatchPackage } = require("@cybozu/license-manager");
-const { isMatchName } = require("@cybozu/license-manager/dist/util");
+const { isMatchName, isMatchPackage } = require("@cybozu/license-manager");
 
 const workingDirectory = path.resolve("./");
 const productLicenseFile = path.resolve("./license-manager/product-license");
