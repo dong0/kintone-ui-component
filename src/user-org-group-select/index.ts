@@ -190,6 +190,7 @@ let exportUserOrgGroupSelect;
                     aria-controls="${this._GUID}-listbox"
                     aria-expanded="${this._selectorVisible}"
                     ?disabled="${this.disabled}"
+                    @mousedown="${this._handleMouseDownToggleButton}"
                     @click="${this._handleClickToggleButton}"
                   >
                     ${this._getSearchPickerSvgTemplate()}
@@ -427,6 +428,15 @@ let exportUserOrgGroupSelect;
     }
 
     private _handleBlurUserOrgGroupInput(event: Event) {
+      const focusEvent = event as unknown as FocusEvent;
+      const nextTarget = focusEvent.relatedTarget as HTMLElement | null;
+      if (
+        nextTarget &&
+        (this._toggleEl.contains(nextTarget) ||
+          (this._menuEl && this._menuEl.contains(nextTarget)))
+      ) {
+        return;
+      }
       this._resetToggleInputValue();
     }
 
@@ -599,9 +609,14 @@ let exportUserOrgGroupSelect;
     private _handleClickToggleButton(event: MouseEvent): void {
       event.preventDefault();
       this._inputEl.focus();
-      this._inputEl.select();
-      this._resetToggleInputValue();
-      this._actionToggleMenu();
+      const currentLength = this._inputEl.value.length;
+      this._inputEl.setSelectionRange(currentLength, currentLength);
+      this._setMatchingItems();
+      this._actionShowMenu();
+    }
+
+    private _handleMouseDownToggleButton(event: MouseEvent): void {
+      event.preventDefault();
     }
 
     private _handleClickIconButton(event: MouseEvent): void {
@@ -612,14 +627,6 @@ let exportUserOrgGroupSelect;
       dispatchCustomEvent(this, "click-picker-icon", clickIconEventDetail);
     }
 
-    private _actionToggleMenu() {
-      if (this._selectorVisible) {
-        this._actionHideMenu();
-        return;
-      }
-      this._actionShowMenu();
-    }
-
     private _setMenuPositionAboveOrBelow() {
       this._menuEl.style.height = "auto";
       this._menuEl.style.bottom = "auto";
@@ -627,7 +634,8 @@ let exportUserOrgGroupSelect;
 
       this._menuEl.style.maxHeight = "none";
       const menuHeightNoMaxHeight = this._menuEl.getBoundingClientRect().height;
-      this._menuEl.style.maxHeight = "none";
+      this._menuEl.style.maxHeight =
+        "var(--kuc-user-org-group-select-menu-max-height, none)";
       const menuHeightWithMaxHeight =
         this._menuEl.getBoundingClientRect().height;
 
@@ -836,6 +844,8 @@ let exportUserOrgGroupSelect;
       };
       this._query = "";
       dispatchCustomEvent(this, "change", detail);
+      // Clear input after selecting an item so the filter resets
+      this._resetToggleInputValue();
     }
 
     private _getItemElementWhenMouseOverDown(
@@ -879,8 +889,7 @@ let exportUserOrgGroupSelect;
         event.target === this._toggleEl ||
         this._toggleEl.contains(event.target as HTMLElement)
       ) {
-        this._inputEl.focus();
-        event.stopPropagation();
+        return;
       }
       if (
         Array.from(this._disabledItemsEl).some(
@@ -964,7 +973,7 @@ let exportUserOrgGroupSelect;
     }
     private _getSearchPickerSvgTemplate() {
       return svg`
-        <svg width="38" height="38" viewBox="-8 -8 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="background-color: #eeeeee;">
+        <svg width="38" height="38" viewBox="-8 -8 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="kuc-user-org-group-select__group__container__select-area__toggle__icon__button__svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1034 16.5176C11.5697 19.3478 6.3971 19.125 3.12139 15.8493C-0.393328 12.3346 -0.393328 6.63611 3.12139 3.12139C6.63611 -0.393328 12.3346 -0.393328 15.8493 3.12139C18.878 6.15005 19.2968 10.8002 17.1058 14.2774L23.6275 20.7991L21.5062 22.9204L15.1034 16.5176ZM13.728 5.24271C16.0711 7.58586 16.0711 11.3848 13.728 13.728C11.3848 16.0711 7.58586 16.0711 5.24271 13.728C2.89957 11.3848 2.89957 7.58586 5.24271 5.24271C7.58586 2.89957 11.3848 2.89957 13.728 5.24271Z" fill="#888888"/>
         </svg>`;
     }

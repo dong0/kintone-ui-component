@@ -25,7 +25,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
   }
   kuc-user-org-group-select {
     display: inline-table;
-    width: 280px;
+    width: var(--kuc-user-org-group-select-toggle-width, 280px);
     position: relative;
     display: inline-table;
     font-size: 14px;
@@ -53,6 +53,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     display: none;
   }
   .kuc-user-org-group-select__group__container {
+    font-size: var(--kuc-user-org-group-select-font-size, 14px);
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -61,7 +62,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     align-items: start;
   }
   .kuc-user-org-group-select__group__container__select-area {
-    width: 280px;
+    width: var(--kuc-user-org-group-select-toggle-width, 280px);
     position: relative;
   }
   .kuc-user-org-group-select__group__container__select-area__toggle {
@@ -70,15 +71,15 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     flex-direction: row;
   }
   .kuc-user-org-group-select__group__container__select-area__toggle__input {
-    width: 240px;
-    height: 40px;
+    width: calc(var(--kuc-user-org-group-select-toggle-width, 280px) - 40px);
+    height: var(--kuc-user-org-group-select-toggle-height, 40px);
     box-sizing: border-box;
     box-shadow: 2px 2px 4px #f5f5f5 inset, -2px -2px 4px #f5f5f5 inset;
     border: 1px solid #e3e7e8;
     border-right: 0;
     background-color: #ffffff;
     color: #000000;
-    font-size: 14px;
+    font-size: var(--kuc-user-org-group-select-font-size, 14px);
     line-height: 1.5;
     padding: 0 8px;
     margin: 0;
@@ -98,14 +99,20 @@ export const USER_ORG_GROUP_SELECT_CSS = `
 
   .kuc-user-org-group-select__group__container__select-area__toggle__icon__button {
     width: 40px;
-    height: 40px;
+    height: var(--kuc-user-org-group-select-toggle-height, 40px);
     display: flex;
     justify-content: center;
     margin: 0;
     padding: 0;
-    border: 1px solid #e3e7e8;
+    border: none;
+    border-left: 1px solid #e3e7e8;
     background-color: transparent;
     cursor: pointer;
+  }
+  .kuc-user-org-group-select__group__container__select-area__toggle__icon__button__svg {
+    border: 1px solid #e3e7e8;
+    border-left: none;
+    background-color: #eeeeee;
   }
   .kuc-user-org-group-select__group__container__picker {
     margin-left: 8px;
@@ -163,6 +170,7 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     height: 48px;
     display: flex;
     justify-content: center;
+    align-self: center;
     margin: 0;
     padding: 0;
     background-color: transparent;
@@ -175,10 +183,10 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     color: #888888;
   }
   .kuc-user-org-group-select__group__container__select-area__select-menu__item__text {
-    font-size: 14px;
-    line-height: 1;
+    font-size: var(--kuc-user-org-group-select-font-size, 14px);
+    line-height: normal;
     width: 100%;
-    padding: 0 12px;
+    padding: 2px 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     color: #3498db;
@@ -189,12 +197,14 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     padding: 0;
     margin: 0;
     list-style: none;
+    width: 100%;
   }
   .kuc-user-org-group-select__group__container__select-area__selected-list__item {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #e3e7e8;
     justify-content: space-between;
+    align-items: center;
     margin-top: 8px;
   }
   .kuc-user-org-group-select__group__container__select-area__selected-list__item__content {
@@ -208,6 +218,10 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     width: 24px;
     height: 24px;
     flex-shrink: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
   }
   .kuc-user-org-group-select__group__container__select-area__selected-list__item__remove-icon__button {
     border: none;
@@ -228,9 +242,8 @@ export const USER_ORG_GROUP_SELECT_CSS = `
     outline: none;
   }
  .kuc-user-org-group-select__group__container__select-area__selected-list__item__content__text{
-    padding-left: 8px;
-    font-size: 14px;
-    line-height: 1;
+    padding: 2px 0 2px 8px;
+    line-height: normal;
     align-content: center;
     white-space: nowrap;
     overflow: hidden;
