@@ -111,9 +111,12 @@ const generateDevLicenseContent = (
       const isDevDependency = devDependenciesList.some((devDependency) => {
         return isMatchName({ name: devDependency }, devAllowPackage);
       });
+      if (!isDevDependency) {
+        return;
+      }
       for (let i = 0; i < devLicensesInfo.length; i++) {
         const licenseInfo = devLicensesInfo[i];
-        if (isDevDependency && isMatchPackage(licenseInfo, devAllowPackage)) {
+        if (isMatchPackage(licenseInfo, devAllowPackage)) {
           devLicenseContent += formatLicenseContent(licenseInfo);
         }
       }
