@@ -104,6 +104,7 @@ const config = {
       "only",
       "language-subtag-registry",
       "storybook",
+      "eastasianwidth",
     ],
   },
   overrideLicense: (dep) => {

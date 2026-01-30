@@ -116,7 +116,8 @@ const generateDevLicenseContent = (
         return;
       }
       for (let i = 0; i < devLicensesInfo.length; i++) {
-        const licenseInfo = devLicensesInfo[i];
+        const licenseInfo = devLicensesInfo[i];console.log(licenseInfo);
+        console.log(isMatchPackage(licenseInfo, devAllowPackage));
         if (isMatchPackage(licenseInfo, devAllowPackage)) {
           devLicenseContent += formatLicenseContent(licenseInfo);
         }
