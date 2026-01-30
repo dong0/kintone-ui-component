@@ -105,13 +105,14 @@ const generateDevLicenseContent = (
     core.setFailed(error.message);
   }
 
-  let devLicenseContent = "";
+  let devLicenseContent = "";console.log(devConfig.analyze.allowPackages);
   if (devConfig.analyze && devConfig.analyze.allowPackages) {
     const devAllowPackages = devConfig.analyze.allowPackages;
     devAllowPackages.forEach((devAllowPackage) => {
       const isDevDependency = devDependenciesList.some((devDependency) => {
         return isMatchName({ name: devDependency }, devAllowPackage);
       });
+      core.notice(isDevDependency);
       if (!isDevDependency) {
         return;
       }
