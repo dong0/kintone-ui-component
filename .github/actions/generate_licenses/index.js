@@ -1,9 +1,9 @@
 import * as core from "@actions/core";
 
-const fs = require("fs");
-const path = require("path");
+import * as fs from "fs";
+import * as path from "path";
 
-const { isMatchName, isMatchPackage } = require("@cybozu/license-manager");
+import { isMatchName, isMatchPackage } from "@cybozu/license-manager";
 
 const workingDirectory = path.resolve("./");
 const productLicenseFile = path.resolve("./license-manager/product-license");
