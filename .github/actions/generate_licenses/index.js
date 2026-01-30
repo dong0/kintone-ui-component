@@ -1,11 +1,8 @@
-import * as core from "@actions/core";
+const fs = require("fs");
+const path = require("path");
 
-import * as fs from "fs";
-import * as path from "path";
-
-import { isMatchName, isMatchPackage } from "@cybozu/license-manager";
-
-import * as devConfig from "../../../license-manager/license-manager-dev.config.js";
+const core = require("@actions/core");
+const { isMatchName, isMatchPackage } = require("@cybozu/license-manager");
 
 const workingDirectory = path.resolve("./");
 const productLicenseFile = path.resolve("./license-manager/product-license");
@@ -105,20 +102,19 @@ const generateDevLicenseContent = (
     core.setFailed(error.message);
   }
 
-  let devLicenseContent = "";console.log(devConfig.analyze.allowPackages);
+  let devLicenseContent = "";
+  const devConfig = require(licenseManagerDevConfigPath);
   if (devConfig.analyze && devConfig.analyze.allowPackages) {
     const devAllowPackages = devConfig.analyze.allowPackages;
     devAllowPackages.forEach((devAllowPackage) => {
       const isDevDependency = devDependenciesList.some((devDependency) => {
         return isMatchName({ name: devDependency }, devAllowPackage);
       });
-      core.notice(isDevDependency);
       if (!isDevDependency) {
         return;
       }
       for (let i = 0; i < devLicensesInfo.length; i++) {
-        const licenseInfo = devLicensesInfo[i];console.log(licenseInfo);
-        console.log(isMatchPackage(licenseInfo, devAllowPackage));
+        const licenseInfo = devLicensesInfo[i];
         if (isMatchPackage(licenseInfo, devAllowPackage)) {
           devLicenseContent += formatLicenseContent(licenseInfo);
         }
