@@ -5,7 +5,7 @@ import * as path from "path";
 
 import { isMatchName, isMatchPackage } from "@cybozu/license-manager";
 
-import * as devConfig from "../../license-manager/license-manager-dev.config.js";
+import * as devConfig from "../../../license-manager/license-manager-dev.config.js";
 
 const workingDirectory = path.resolve("./");
 const productLicenseFile = path.resolve("./license-manager/product-license");
