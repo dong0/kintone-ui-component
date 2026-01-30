@@ -48,6 +48,7 @@
     "@storybook/web-components-webpack5": "^8.6.15",
     "@types/mocha": "^10.0.10",
     "@web/test-runner": "^0.20.2",
+    "argparse": "^2.0.1",
     "babel-loader": "^10.0.0",
     "chromatic": "^13.3.5",
     "deepmerge": "^4.3.1",
