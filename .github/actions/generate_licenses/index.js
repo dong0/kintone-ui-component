@@ -5,6 +5,8 @@ import * as path from "path";
 
 import { isMatchName, isMatchPackage } from "@cybozu/license-manager";
 
+import * as devConfig from "./license-manager/license-manager-dev.config.js";
+
 const workingDirectory = path.resolve("./");
 const productLicenseFile = path.resolve("./license-manager/product-license");
 
@@ -104,7 +106,7 @@ const generateDevLicenseContent = (
   }
 
   let devLicenseContent = "";
-  const devConfig = require(licenseManagerDevConfigPath);
+  // const devConfig = require(licenseManagerDevConfigPath);
   if (devConfig.analyze && devConfig.analyze.allowPackages) {
     const devAllowPackages = devConfig.analyze.allowPackages;
     devAllowPackages.forEach((devAllowPackage) => {
